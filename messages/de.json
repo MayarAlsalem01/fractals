@@ -1,0 +1,126 @@
+{
+    "navbar": {
+        "home": "Startseite",
+        "aboutUs": "Über uns",
+        "Expertise": "Expertise",
+        "Blogs": "Blogs",
+        "vacances": "Stellenangebote",
+        "ContactUs": "Kontakt"
+    },
+    "hero": {
+        "title": "Die Hauptstadt der Kunst",
+        "subtitle": "Wir entwickeln. Wir gestalten. Wir vernetzen. Wir inspirieren.",
+        "description": "Fractals ist eine kreativ- und technologiegetriebene Agentur, die digitale Erlebnisse gestaltet, in denen Kunst, Code und menschliche Emotionen in perfekter Harmonie zusammenfließen."
+    },
+    "aboutUS": {
+        "who we are": "Wer wir sind",
+        "description": "Fractals verbindet Kreativität mit Technologie, um sinnvolle digitale Welten zu schaffen. Wir kreieren Erlebnisse, die nachklingen, sich weiterentwickeln und Marken in eine neue Ära von Intelligenz und Kunst tragen. Die mächtigste Kraft im Universum ist nicht Technologie. Es ist die Vorstellungskraft. Wir sind der führende strategische Partner für Luxus- und Lifestyle-Marken. Wir wissen, was anspruchsvolle Zielgruppen wollen und wie man sie durch sinnvolle digitale Erlebnisse einbindet. Daten leiten unser Denken. Liebe zum Detail leitet unser Handeln.",
+        "vision": {
+            "title": "Vision",
+            "description": "Die Hauptstadt der digitalen Kunst und Innovation zu werden — wo Kreativität auf Intelligenz trifft und Marken das Gewöhnliche übersteigen."
+        },
+        "mission": {
+            "title": "Mission",
+            "description": "Unternehmen dabei zu helfen, ihre Identität durch Technologie, Design und Storytelling auszudrücken — und Systeme zu bauen, die inspirieren und Leistung bringen."
+        },
+        "core values": {
+            "title": "Kernwerte",
+            "Artistry & Precision": "Künstlerische Qualität & Präzision",
+            "Innovation & Intelligence": "Innovation & Intelligenz",
+            "Transparency & Collaboration": "Transparenz & Zusammenarbeit",
+            "Human-Centered Design": "Menschenzentriertes Design",
+            "Excellence & Growth": "Exzellenz & Wachstum",
+            "des": "„Fractals existiert für diejenigen, die daran glauben, dass Kunst und Intelligenz zusammengehören.“"
+        },
+        "our identity": {
+            "title": "Unsere Identität",
+            "mainTitle": "Ein Fraktal ist mehr als ein Muster — es ist eine Philosophie.",
+            "description": "Unsere Identität spiegelt die Unendlichkeit durch Balance wider — zwischen Struktur und Freiheit, Kunst und Technologie, Emotion und Präzision.\nDer Farbverlauf von Violett zu Blau spiegelt unser Wesen wider: Vorstellungskraft, die sich zur Intelligenz entwickelt, Kreativität, die auf Klarheit trifft.",
+            "values": "Jede Kurve, jede Bewegung, jede Nuance ist darauf ausgelegt, widerzuspiegeln, wer wir sind —\nein System endloser Ideen, das sich schön in jede Richtung ausdehnt."
+        }
+    },
+    "Our Process": {
+        "title": "Unser Prozess",
+        "Briefing": {
+            "title": "Briefing",
+            "description": "Nachdem Sie die Anfrage auf unserer Website eingereicht haben, kontaktieren wir Sie über WhatsApp und vereinbaren einen Anruf, um mehr über Ihr Vorhaben zu erfahren."
+        },
+        "Design or Development": {
+            "title": "Design oder Entwicklung",
+            "description": "Basierend auf dem Briefing erstellen wir das Design und den Prototyp und beginnen anschließend umgehend mit der Umsetzung."
+        },
+        "Handoff": {
+            "title": "Übergabe",
+            "description": "Letzte Anpassungen, Domain-Einrichtung und Übertragung der Website. Sie erhalten das bestmögliche Design innerhalb von 48 Stunden — oder länger, falls erforderlich."
+        },
+        "step": "Schritt"
+    },
+    "expertise": {
+        "our expertise": "Unsere Expertise",
+        "web devlopenet": {
+            "title": "Web-Entwicklung",
+            "Custom-built websites with modern frameworks": "Maßgeschneiderte Websites mit modernen Frameworks",
+            "Fast, scalable, and interactive": "Schnell, skalierbar und interaktiv.",
+            "Integrations: CMS, APIs, cloud hosting, SEO optimization": "Integrationen: CMS, APIs, Cloud-Hosting, SEO-Optimierung.",
+            "Framer motion, Shopify, Wordpress, Wix Studio": "Framer Motion, Shopify, WordPress, Wix Studio."
+        },
+        "mobile app development": {
+            "title": "Mobile App-Entwicklung",
+            "description": "Wir gestalten Mobile-Erlebnisse, die Ihrer Vision dienen — intuitiv, schnell und skalierbar. Von der Idee bis zum Launch ist jedes Detail darauf ausgelegt, Ihren Nutzern die Verbindung zu Ihrer Marke zu erleichtern.",
+            "Native or Cross-platform apps": "Native oder plattformübergreifende Apps",
+            "Elegant UI, intuitive UX, and seamless performance": "Elegante UI, intuitive UX und nahtlose Performance",
+            "From MVP to full-scale product": "Vom MVP bis zum vollwertigen Produkt"
+        },
+        "desktop applications": {
+            "title": "Desktop-Anwendungen",
+            "description": "Wir entwickeln zuverlässige und intelligente Desktop-Lösungen, die Ihre täglichen Abläufe vereinfachen. Jedes System wird an Ihren Workflow angepasst und steigert die Effizienz, ohne Sicherheit oder Performance zu beeinträchtigen.",
+            "Smart, secure, and performance-focused systems": "Intelligente, sichere und performanceorientierte Systeme.",
+            "Tailored for business automation and internal operations": "Maßgeschneidert für Geschäftsautomatisierung und interne Prozesse."
+        },
+        "ui ux design": {
+            "title": "UI/UX-Design",
+            "description": "Gemeinsam gestalten wir Erlebnisse, die natürlich und sinnhaft wirken. Unser Prozess balanciert Ästhetik und Empathie — so stellt er sicher, dass jede Interaktion das Wesen Ihrer Marke und die Bedürfnisse Ihrer Nutzer widerspiegelt.",
+            "Human-centered experiences that fuse art and usability": "Menschenzentrierte Erlebnisse, die Kunst und Gebrauchstauglichkeit vereinen.",
+            "Services: wireframing, prototyping, motion design, and usability testing": "Leistungen: Wireframing, Prototyping, Motion Design und Usability-Tests."
+        },
+        "Branding & Logo Design": {
+            "title": "Branding & Logo-Design",
+            "description": "Wir übersetzen Ihre Geschichte in visuelle Elemente, die klar und schön sprechen. Ihr Logo, Ihre Farben und Ihr Identitätssystem werden so gestaltet, dass sie nachhallen und einen unverwechselbaren Eindruck hinterlassen.",
+            "Visual storytelling that defines who you are": "Visuelles Storytelling, das definiert, wer Sie sind.",
+            "Deliverables: logo, typography, color palette, brand system": "Ergebnisse: Logo, Typografie, Farbpalette, Brand-System."
+        },
+        "Marketing & Social Media Management": {
+            "title": "Marketing & Social Media Management",
+            "description": "Wir helfen Ihnen, klar, kreativ und konsistent zu kommunizieren. Unsere Strategien verbinden Daten und Design — und machen Ihren Online-Auftritt zu einer Geschichte, die Vertrauen und Wachstum inspiriert.",
+            "Strategy, storytelling, and visual identity consistency": "Strategie, Storytelling und Konsistenz der visuellen Identität.",
+            "Growth-driven campaigns powered by analytics and creativity": "Wachstumsorientierte Kampagnen, unterstützt durch Analytik und Kreativität."
+        }
+    },
+    "vacancies": {
+        "title": "Stellenangebote",
+        "description": "Treten Sie der Hauptstadt der Kunst bei.",
+        "subtitle": "Wo Kreativität, Leidenschaft und Intelligenz zusammenkommen",
+        "long description": "Bei Fractals arbeiten wir nicht nur — wir schaffen Erlebnisse, die Bedeutung haben.\nWir glauben an Lernen, Wachstum und Sinn."
+    },
+    "footer": {
+        "Documentation": {
+            "title": "Dokumentation",
+            "Blogs": "Blogs",
+            "Vacancies": "Stellenangebote",
+            "Privacy Policy": "Datenschutz"
+        },
+        "privacy policy": "Datenschutz",
+        "terms of service": "Nutzungsbedingungen",
+        "follow us": "Folgen Sie uns",
+        "Social Media": {
+            "title": "Soziale Medien",
+            "Instagram": "Instagram",
+            "LinkedIn": "LinkedIn",
+            "Twitter": "Twitter",
+            "Facebook": "Facebook"
+        }
+    },
+    "buttons": {
+        "Explore Expertise": "Expertise erkunden"
+    }
+}

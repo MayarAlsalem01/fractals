@@ -1,0 +1,126 @@
+{
+    "navbar": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "Expertise": "Expertise",
+        "Blogs": "Blogs",
+        "vacances": "vacances",
+        "ContactUs": "Contact us"
+    },
+    "hero": {
+        "title": "the capital of art",
+        "subtitle": "We develop. We design. We connect. We inspire.",
+        "description": "Fractals is a creative and technology-driven agency shaping digital experiences where art, code, and human emotion flow together in perfect harmony."
+    },
+    "aboutUS": {
+        "who we are": "Who We Are",
+        "description": "Fractals blends creativity with technology to build meaningful digital worlds. We create experiences that resonate, evolve, and carry brands into the new era of intelligence and art. The most powerful force in the universe isn't technology. It's imagination. We are the leading strategic partner for luxury & lifestyle brands. We know what sophisticated audiences want and how to engage them through meaningful digital experiences. Data drives our thinking. Attention to detail drives our doing.",
+        "vision": {
+            "title": "Vision",
+            "description": "To become the capital of digital art and innovation — where creativity meets intelligence, and brands transcend the ordinary."
+        },
+        "mission": {
+            "title": "Mission",
+            "description": "To To help businesses express their soul through technology, design, and storytelling — building systems that inspire and perform."
+        },
+        "core values": {
+            "title": "Core Values",
+            "Artistry & Precision": "Artistry & Precision",
+            "Innovation & Intelligence": "Innovation & Intelligence",
+            "Transparency & Collaboration": "Transparency & Collaboration",
+            "Human-Centered Design": "Human-Centered Design",
+            "Excellence & Growth": "Excellence & Growth",
+            "des": "“Fractals exists for those who believe that art and intelligence belong together.”"
+        },
+        "our identity": {
+            "title": "Our Identity",
+            "mainTitle": "A Fractal is more than a pattern — it’s a philosophy.",
+            "description": "Our identity reflects infinity through balance — between structure and freedom, art and technology, emotion and precision. \n The gradient of violet and blue mirrors our essence: imagination evolving into intelligence, creativity meeting clarity.",
+            "values": "Every curve, every motion, every hue is designed to echo who we are — \n a system of endless ideas, expanding beautifully in every direction."
+        }
+    },
+    "Our Process": {
+        "title": "Our Process",
+        "Briefing": {
+            "title": "Briefing",
+            "description": "After you submit the request on our website, we get in touch on WhatsApp and Schedule a call to learn more about what you're building."
+        },
+        "Design or Development": {
+            "title": "Design or Development",
+            "description": "Based on the brief, we create the design and prototype,  then we build it right on."
+        },
+        "Handoff": {
+            "title": "Handoff",
+            "description": "Final adjustments, domain setup, and website handover. You get the best design you could’ve had in under 48 hours or more if needed."
+        },
+        "step": "step"
+    },
+    "expertise": {
+        "our expertise": "Our Expertise",
+        "web devlopenet": {
+            "title": "Web Development",
+            "Custom-built websites with modern frameworks": "Custom-built websites with modern frameworks",
+            "Fast, scalable, and interactive": "Fast, scalable, and interactive.",
+            "Integrations: CMS, APIs, cloud hosting, SEO optimization": "Integrations: CMS, APIs, cloud hosting, SEO optimization.",
+            "Framer motion, Shopify, Wordpress, Wix Studio": "Framer motion, Shopify, Wordpress, Wix Studio."
+        },
+        "mobile app development": {
+            "title": "Mobile App Development",
+            "description": "We craft mobile experiences that serve your vision — intuitive, fast, and scalable. From concept to launch, every detail is designed to help your users connect effortlessly with your brand.",
+            "Native or Cross-platform apps": "Native or Cross-platform apps",
+            "Elegant UI, intuitive UX, and seamless performance": "Elegant UI, intuitive UX, and seamless performance",
+            "From MVP to full-scale product": "From MVP to full-scale product"
+        },
+        "desktop applications": {
+            "title": "Desktop Applications",
+            "description": "We build reliable and intelligent desktop solutions that simplify your daily operations. Each system is tailored to your workflow, enhancing efficiency without compromising security or performance.",
+            "Smart, secure, and performance-focused systems": "Smart, secure, and performance-focused systems.",
+            "Tailored for business automation and internal operations": "Tailored for business automation and internal operations."
+        },
+        "ui ux design": {
+            "title": "UI/UX Design",
+            "description": "Together we design experiences that feel natural and meaningful. Our process balances aesthetics and empathy — ensuring every interaction reflects your brand’s essence and your users’ needs.",
+            "Human-centered experiences that fuse art and usability": "Human-centered experiences that fuse art and usability.",
+            "Services: wireframing, prototyping, motion design, and usability testing": "Services: wireframing, prototyping, motion design, and usability testing."
+        },
+        "Branding & Logo Design": {
+            "title": "Branding & Logo Design",
+            "description": "We translate your story into visuals that speak clearly and beautifully. Your logo, colors, andidentity system are built to resonate, leaving a lasting impression that feels unmistakably yours.",
+            "Visual storytelling that defines who you are": "Visual storytelling that defines who you are.",
+            "Deliverables: logo, typography, color palette, brand system": "Deliverables: logo, typography, color palette, brand system."
+        },
+        "Marketing & Social Media Management": {
+            "title": "Marketing & Social Media Management",
+            "description": "We help you communicate with clarity, creativity, and consistency. Our strategies combine data and design — turning your online presence into a story that inspires trust and growth.",
+            "Strategy, storytelling, and visual identity consistency": "Strategy, storytelling, and visual identity consistency.",
+            "Growth-driven campaigns powered by analytics and creativity": "Growth-driven campaigns powered by analytics and creativity."
+        }
+    },
+    "vacancies": {
+        "title": "Vacancies",
+        "description": "Join the \n capital of art.",
+        "subtitle": "Where creativity, passion, and intelligence converge",
+        "long description": "At Fractals, we don’t just work — we create experiences that matter. \n We believe in learning, growth, and purpose."
+    },
+    "footer": {
+        "Documentation": {
+            "title": "Documentation",
+            "Blogs": "Blogs",
+            "Vacancies": "Vacancies",
+            "Privacy Policy": "Privacy Policy"
+        },
+        "privacy policy": "Privacy Policy",
+        "terms of service": "Terms of Service",
+        "follow us": "Follow Us",
+        "Social Media": {
+            "title": "Social Media",
+            "Instagram": "Instagram",
+            "LinkedIn": "LinkedIn",
+            "Twitter": "Twitter",
+            "Facebook": "Facebook"
+        }
+    },
+    "buttons": {
+        "Explore Expertise": "Explore Expertise"
+    }
+}

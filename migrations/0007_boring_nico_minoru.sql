@@ -1,0 +1,1 @@
+ALTER TABLE "template_attributes" ADD COLUMN "width" text DEFAULT 'medium';
