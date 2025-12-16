@@ -3,7 +3,8 @@
 import React, { useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { PutBlobResult } from "@vercel/blob";
-
+import UploadImage from '../../../../public/assets/Upload.svg'
+import Image from "next/image";
 export default function BlobUploader({ onValueChnage, value }: { onValueChnage?: (value: string) => void, value?: string }) {
     const fileRef = useRef<HTMLInputElement | null>(null);
     const [status, setStatus] = useState<string | null>(null);
@@ -45,7 +46,12 @@ export default function BlobUploader({ onValueChnage, value }: { onValueChnage?:
 
     return (
         <form onSubmit={handleUpload} className="flex flex-col items-start  ">
-            <input ref={fileRef} type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="py-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4" />
+            <input ref={fileRef} id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="hidden" />
+            <div className="flex justify-between items-centerpy-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4 py-4" >
+                <label htmlFor="fileInput" className="text-center">
+                    <Image src={UploadImage} alt="upload" className="w-12 " />
+                </label>
+            </div>
             {status && <p>{status}</p>}
             <p className="text-muted text-xs mt-2 truncate max-w-full"> {value}</p>
         </form>

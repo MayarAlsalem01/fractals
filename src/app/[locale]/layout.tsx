@@ -10,6 +10,7 @@ import { setRequestLocale } from "next-intl/server";
 import Footer from "@/components/footer/Footer";
 import SessionProvider from "@/lib/SessionProvider";
 import QueryClientProvider from "@/lib/QueryClientProvider";
+import { Toaster } from "sonner";
 
 const gravesend = localFont({
   variable: "--font-gravesend",
@@ -76,6 +77,7 @@ export default async function RootLayout({
             </NextIntlClientProvider>
           </QueryClientProvider>
         </SessionProvider>
+        <Toaster richColors position='top-right' />
       </body>
     </html>
   );

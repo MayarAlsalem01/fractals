@@ -7,7 +7,7 @@ export default function layout({ children }: { children: ReactNode }) {
             {
                 children
             }
-            <Toaster richColors position='top-right' />
+
 
         </div>
     )

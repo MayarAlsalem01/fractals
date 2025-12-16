@@ -79,7 +79,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                         name={attr.key}
                         render={({ field: { value = [], onChange } }) => {
                             if (attr.meta.max)
-                                return <div className='grid grid-cols-3 gap-3'>
+                                return <div className='grid grid-cols-7 gap-3'>
                                     {
                                         Array.from({ length: attr.meta.max })
                                             .map((_, i) => <BlobUploader key={i} onValueChnage={(val) => {

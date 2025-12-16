@@ -12,6 +12,9 @@ import { Button } from '@/components/ui/button'
 import StepFormRenderer from '@/components/StepFormRenderer'
 import { useMultiStepFormStore } from './useMultiStepFormStore'
 import { buildZodSchema } from '@/lib/zodFromAttributes'
+import insertBriefAttributeAction from './actions/insertBriefAttributeAction'
+import { BriefAttributeInsertValues } from '@/db/schema'
+import { toast } from 'sonner'
 
 // --- Type Definitions (Re-using the structure from the store) ---
 
@@ -52,8 +55,8 @@ function prepareAttributePayload(formData: Record<string, any>, allAttributes: A
         return {
             attribute_id: attr.id,
             key: attr.key,
-            value,
-            value_text: valueText,
+            value: String(value),
+            value_text: valueText?.toString(),
         };
     });
 }
@@ -62,10 +65,11 @@ function prepareAttributePayload(formData: Record<string, any>, allAttributes: A
 
 interface MultiStepFormWrapperProps {
     sections: Section[]
-    onSubmit?: (payload: ReturnType<typeof prepareAttributePayload>) => void
+    onSubmit?: (payload: ReturnType<typeof prepareAttributePayload>) => void,
+    templateId: number
 }
 
-export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit }: MultiStepFormWrapperProps) {
+export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, templateId }: MultiStepFormWrapperProps) {
     const {
         formData,
         currentStep,
@@ -126,10 +130,17 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit }
     }
 
     // 5. Handle final form submission
-    const onFinalSubmit = (data: any) => {
+    const onFinalSubmit = async (data: any) => {
         // Final validation is implicitly handled by handleSubmit
         const payload = prepareAttributePayload(data, allAttributes)
         console.log(payload)
+        const res = await insertBriefAttributeAction({ values: payload, templateId: templateId })
+        if (!res.ok) {
+            toast.error(res.error?.message)
+        }
+        else {
+            toast.success('Your brief submitted successfully ')
+        }
     }
 
     // 6. Render the form

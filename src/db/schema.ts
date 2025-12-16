@@ -95,4 +95,6 @@ export const brief_attribute_values = pgTable("brief_attribute_values", {
 export type Blog = typeof blogs.$inferSelect
 export type Attribute = typeof template_attributes.$inferSelect
 export type Section = typeof template_sections.$inferSelect
+export type BriefAttributeInsertValues = typeof brief_attribute_values.$inferInsert
+
 
