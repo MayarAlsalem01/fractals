@@ -19,6 +19,7 @@ import {
 import { DatePicker } from './DatePicker'
 import { Slider } from './ui/slider'
 import Range from './Range'
+import BlobUploader from '@/features/breifs/components/BlobUploader'
 // import { MultiSelect, MultiSelectContent, MultiSelectGroup, MultiSelectItem, MultiSelectTrigger, MultiSelectValue } from './ui/multi-select'
 
 // --- Type Definitions (Copied from store) ---
@@ -72,134 +73,162 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                 </label>
 
                 {/* Input Rendering Logic - Fully restored from user's original file */}
-                {attr.type === 'range' ? (
+                {attr.type === 'file' ? (
                     <Controller
                         control={control}
                         name={attr.key}
-                        render={({ field: { onChange } }) => (
-                            <Range onValueChange={(value) => onChange(value)} />
-                        )}
-                    />
-                ) : attr.type === 'date' ? (
-                    <Controller
-                        control={control}
-                        name={attr.key}
-                        render={({ field: { onChange } }) => (
-                            <div className="flex gap-3 flex-wrap items-center w-full">
-                                <DatePicker onValueChange={(value) => {
-                                    onChange(value)
-                                    console.log(typeof value)
+                        render={({ field: { value = [], onChange } }) => {
+                            if (attr.meta.max)
+                                return <div className='grid grid-cols-3 gap-3'>
+                                    {
+                                        Array.from({ length: attr.meta.max })
+                                            .map((_, i) => <BlobUploader key={i} onValueChnage={(val) => {
+
+                                                const next = [...value]
+                                                next[i] = val
+                                                // optionally remove nulls at the end: keep length equal to meta.max if you want slots
+                                                onChange(next)
+
+                                                console.log(attr.meta.max)
+                                            }} value={value[i]} />)
+                                    }
+                                </div>
+                            else
+                                return <BlobUploader onValueChnage={(val) => {
+                                    onChange([...value, val])
+                                    console.log(attr.meta.max)
                                 }} />
-                            </div>
-                        )}
+                        }}
                     />
                 ) :
-                    attr.type === 'selectComboBox' ? (
+                    attr.type === 'range' ? (
                         <Controller
                             control={control}
                             name={attr.key}
-                            render={({ field: { value = [], onChange } }) => (
-                                <div className="flex gap-3 flex-wrap items-center">
-                                    {attr.options.map((opt: any) => {
-                                        const checked = value === opt.value
-                                        return (
-                                            <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer">
-                                                <input
-                                                    type="radio"
-                                                    name={attr.key.toString()}
-                                                    checked={checked}
-                                                    onChange={(e) => {
-                                                        if (e.target.checked) onChange(opt.value)
-                                                        // else onChange(value.filter((v: string) => v !== opt.value))
-                                                    }}
-                                                    className="w-4 h-4 accent-black/90 bg-red-400"
-                                                />
-                                                <span className="text-sm">{opt.label}</span>
-                                            </label>
-                                        )
-                                    })}
+                            render={({ field: { onChange } }) => (
+                                <Range onValueChange={(value) => onChange(value)} />
+                            )}
+                        />
+                    ) : attr.type === 'date' ? (
+                        <Controller
+                            control={control}
+                            name={attr.key}
+                            render={({ field: { onChange } }) => (
+                                <div className="flex gap-3 flex-wrap items-center w-full">
+                                    <DatePicker onValueChange={(value) => {
+                                        onChange(value)
+                                        console.log(typeof value)
+                                    }} />
                                 </div>
                             )}
                         />
+                    ) :
+                        attr.type === 'selectComboBox' ? (
+                            <Controller
+                                control={control}
+                                name={attr.key}
+                                render={({ field: { value = [], onChange } }) => (
+                                    <div className="flex gap-3 flex-wrap items-center">
+                                        {attr.options.map((opt: any) => {
+                                            const checked = value === opt.value
+                                            return (
+                                                <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer">
+                                                    <input
+                                                        type="radio"
+                                                        name={attr.key.toString()}
+                                                        checked={checked}
+                                                        onChange={(e) => {
+                                                            if (e.target.checked) onChange(opt.value)
+                                                            // else onChange(value.filter((v: string) => v !== opt.value))
+                                                        }}
+                                                        className="w-4 h-4 accent-black/90 bg-red-400"
+                                                    />
+                                                    <span className="text-sm">{opt.label}</span>
+                                                </label>
+                                            )
+                                        })}
+                                    </div>
+                                )}
+                            />
 
-                    ) : attr.type === 'multiselect' ? (
-                        <Controller
-                            control={control}
-                            name={attr.key}
-                            render={({ field: { value = [], onChange } }) => (
-                                <div className="flex gap-3 flex-wrap items-center">
-                                    {attr.options.map((opt: any) => {
-                                        const checked = Array.isArray(value) && value.includes(opt.value)
-                                        return (
-                                            <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer">
-                                                <Checkbox
-                                                    checked={checked}
-                                                    onCheckedChange={(val) => {
-                                                        if (val) onChange([...value, opt.value])
-                                                        else onChange(value.filter((v: string) => v !== opt.value))
-                                                    }}
-                                                    className="w-4 h-4"
-                                                />
-                                                <span className="text-sm">{opt.label}</span>
-                                            </label>
-                                        )
-                                    })}
-                                </div>
-                            )}
-                        />
+                        ) : attr.type === 'multiselect' ? (
+                            <Controller
+                                control={control}
+                                name={attr.key}
+                                render={({ field: { value = [], onChange } }) => (
+                                    <div className="flex gap-3 flex-wrap items-center">
+                                        {attr.options.map((opt: any) => {
+                                            const checked = Array.isArray(value) && value.includes(opt.value)
+                                            return (
+                                                <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer">
+                                                    <Checkbox
+                                                        checked={checked}
+                                                        onCheckedChange={(val) => {
+                                                            if (val) onChange([...value, opt.value])
+                                                            else onChange(value.filter((v: string) => v !== opt.value))
+                                                        }}
+                                                        className="w-4 h-4"
+                                                    />
+                                                    <span className="text-sm">{opt.label}</span>
+                                                </label>
+                                            )
+                                        })}
+                                    </div>
+                                )}
+                            />
 
-                    ) : attr.type === 'select' ? (
-                        // SINGLE SELECT connected via Controller
-                        <Controller
-                            control={control}
-                            name={attr.key}
-                            render={({ field }) => (
-                                <Select
-                                    value={field.value ?? ''}
-                                    onValueChange={(val: any) => field.onChange(val)}
-                                >
-                                    <SelectTrigger className="w-full">
-                                        <SelectValue placeholder={placeholder} />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            {(attr.options ?? []).map((opt: any) => (
-                                                <SelectItem key={opt.value} value={opt.value}>
-                                                    {opt.label}
-                                                </SelectItem>
-                                            ))}
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            )}
-                        />
-                    ) : attr.type === 'textarea' ? (
-                        <Textarea placeholder={placeholder} {...register(attr.key)} />
-                    ) : attr.type === 'boolean' ? (
-                        <div className="flex items-center">
+                        ) : attr.type === 'select' ? (
+                            // SINGLE SELECT connected via Controller
                             <Controller
                                 control={control}
                                 name={attr.key}
                                 render={({ field }) => (
-                                    <Checkbox
-                                        id={attr.key}
-                                        checked={field.value}
-                                        onCheckedChange={(val) => field.onChange(Boolean(val))}
-                                    />
+                                    <Select
+                                        value={field.value ?? ''}
+                                        onValueChange={(val: any) => field.onChange(val)}
+                                    >
+                                        <SelectTrigger className="w-full">
+                                            <SelectValue placeholder={placeholder} />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                {(attr.options ?? []).map((opt: any) => (
+                                                    <SelectItem key={opt.value} value={opt.value}>
+                                                        {opt.label}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
                                 )}
                             />
-                            <label htmlFor={attr.key} className="ml-2 text-sm">
-                                {placeholder}
-                            </label>
-                        </div>
-                    ) : (
-                        // Default to Input (text, number, email, etc.)
-                        <Input
-                            type={attr.type === 'number' ? 'number' : attr.type === 'email' ? 'email' : 'text'}
-                            placeholder={placeholder}
-                            {...register(attr.key)}
-                        />
-                    )}
+                        ) : attr.type === 'textarea' ? (
+                            <Textarea placeholder={placeholder} {...register(attr.key)} />
+                        ) : attr.type === 'boolean' ? (
+                            <div className="flex items-center">
+                                <Controller
+                                    control={control}
+                                    name={attr.key}
+                                    render={({ field }) => (
+                                        <Checkbox
+                                            id={attr.key}
+                                            checked={field.value}
+                                            onCheckedChange={(val) => field.onChange(Boolean(val))}
+                                        />
+                                    )}
+                                />
+                                <label htmlFor={attr.key} className="ml-2 text-sm">
+                                    {placeholder}
+                                </label>
+                            </div>
+                        ) : (
+                            // Default to Input (text, number, email, etc.)
+                            <Input
+                                type={attr.type === 'number' ? 'number' : attr.type === 'email' ? 'email' : 'text'}
+                                placeholder={placeholder}
+                                {...register(attr.key)}
+                            />
+                        )}
 
                 {hint && <p className="text-xs text-gray-500 mt-1">{hint}</p>}
 

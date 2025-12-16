@@ -85,6 +85,9 @@ export function buildZodSchema(attributes: Attr[]) {
             case 'email':
                 field = z.email()
                 break
+            case 'file':
+                field = z.array(z.string())
+                break
 
             default:
                 field = z.any()
@@ -102,6 +105,9 @@ export function buildZodSchema(attributes: Attr[]) {
             }
             if (attr.type === 'range') {
                 field = (field as z.ZodNumber).refine((v) => v !== undefined, { message: `${attr.label} is required.` })
+            }
+            if (attr.type === 'file') {
+                field = (field as z.ZodArray).refine((v) => v !== undefined, { message: `${attr.label} is required.` })
             }
         } else {
             field = field.optional()
