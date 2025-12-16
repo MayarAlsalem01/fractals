@@ -1,3 +1,4 @@
+'use server'
 import { db } from "@/db/drizzle"
 import { Attr, Section } from "../types"
 import { template_attributes, template_sections } from "@/db/schema"
