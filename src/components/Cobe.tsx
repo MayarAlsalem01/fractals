@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 // https://github.com/shuding/cobe
 
-export default function Cobe() {
+export default function Cobe({ className }: { className?: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
@@ -16,8 +16,8 @@ export default function Cobe() {
 
         const globe = createGlobe(canvasRef.current!, {
             devicePixelRatio: 2,
-            width: 600 * 2,
-            height: 600 * 2,
+            width: 600 * 1,
+            height: 600 * 1,
             phi: 0,
             theta: 0,
             dark: 1,
@@ -46,14 +46,15 @@ export default function Cobe() {
     }, []);
 
     return (
-        <div className="App">
+        <div className="App  relative">
 
 
             <canvas
                 ref={canvasRef}
-                className="w-96 h-96 md:w-[600px] md:h-[600px]"
+                className={`w-72 h-72 md:w-[600px] md:h-[600px] ${className}`}
                 style={{ maxWidth: "100%", aspectRatio: 1 }}
             />
+            <div className='w-[20rem] h-[20rem] md:w-[30rem] md:h-[30rem] -left-1/3 top-0 md:top-1/2 bg-[#68BBE8]/30  absolute  rounded-full blur-3xl z-20' />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 // app/.../page.jsx  (or wherever your original page is)
 import Image, { StaticImageData } from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 import BgImage from "../../../../../public/assets/Expertice.png";
 import BgMobileImage from "../../../../../public/assets/Expertise-Mobile.png";
 import Container from "@/components/Container";
@@ -9,6 +9,8 @@ import Star from "../../../../../public/assets/star.png";
 import PrimaryButton from "@/ui/PrimaryButton";
 import { getLocale, getTranslations } from "next-intl/server";
 import DotBackgroundDemo from "@/components/DottedBackground";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 export default async function page() {
     const t = await getTranslations('expertise')
@@ -87,31 +89,31 @@ export default async function page() {
             />
 
             <section className="h-screen relative  py-28">
-                <Container className="!py-0" >
-                    <div className="h-full w-full items-center flex flex-col md:flex-row justify-between  " dir="ltr">
+                <Container className="!py-0 h-full" >
+                    <div className="h-full w-full items-center flex flex-col md:flex-row justify-between   " dir="ltr">
                         <div className="flex flex-col items-start gap-4 md:gap-8 uppercase w-full">
-                            <p className="border text-sm md:text-base border-brand-secondary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-secondary/30 to-brand-secondary/5 to-95% font-gravesend md:translate-x-24">
+                            <LinkButton href="/brief/web" className=" border-brand-secondary  bg-linear-to-tr  from-brand-secondary/30 to-brand-secondary/5 to-95% md:translate-x-24">
                                 Web Development
-                            </p>
-                            <p className="border text-sm md:text-base border-brand-secondary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-secondary/30 to-brand-secondary/5 to-95% font-gravesend">
+                            </LinkButton>
+                            <LinkButton href="/brief/mobile" className="border text-sm md:text-base border-brand-secondary  bg-linear-to-tr  from-brand-secondary/30 to-brand-secondary/5 to-95% ">
                                 Mobile App Development
-                            </p>
-                            <p className="border text-sm md:text-base border-brand-secondary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-secondary/30 to-brand-secondary/5 to-95% font-gravesend md:translate-x-24">
-                                Desktop Applications
-                            </p>
+                            </LinkButton>
+                            <LinkButton href="/brief/desktop" className="border-brand-secondary  bg-linear-to-tr  from-brand-secondary/30 to-brand-secondary/5 to-95% md:translate-x-24" >
+                                Desktop Application
+                            </LinkButton>
                         </div>
 
                         <div className="flex items-end justify-end uppercase w-full h-full md:h-auto md:pe-12" dir="ltr">
                             <div className="flex flex-col gap-4 md:gap-8 text-sm md:text-base self-end">
-                                <p className="w-fit border self-end md:self-auto border-brand-primary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-primary/30 to-brand-primary/5 to-95% font-gravesend">
+                                <LinkButton href="/brief/ui_ux" className="w-fit border self-end md:self-auto border-brand-primary  bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95% ">
                                     UI/UX Design
-                                </p>
-                                <p className="w-fit self-end md:self-auto border border-brand-primary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-primary/30 to-brand-primary/5 to-95% font-gravesend md:translate-x-10 ">
+                                </LinkButton>
+                                <LinkButton href="/brief/brand_logo" className="w-fit self-end md:self-auto border border-brand-primary  bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95% font-gravesend md:translate-x-10 ">
                                     Branding & Logo Design
-                                </p>
-                                <p className="w-fit border self-end md:self-auto border-brand-primary px-4 py-2 bg-linear-to-tr rounded-tl-2xl rounded-br-2xl from-brand-primary/30 to-brand-primary/5 to-95% font-gravesend ">
+                                </LinkButton>
+                                <LinkButton href="brief/social_media" className="w-fit border self-end md:self-auto border-brand-primary bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95%  ">
                                     Social Media Management
-                                </p>
+                                </LinkButton>
                             </div>
                         </div>
                     </div>
@@ -171,4 +173,13 @@ async function ServiceCard({
             <PrimaryButton className="w-fit">{buttonText}</PrimaryButton>
         </div>
     );
+}
+function LinkButton({ className, href, children }: { className?: string, href: string, children: ReactNode }) {
+    return (
+        <Button asChild className={`border text-sm md:text-base  px-4 py-2 bg-transparent text-accent-foreground rounded-none rounded-tl-2xl rounded-br-2xl  font-gravesend  hover:bg-transparent ${className}`}>
+            <Link href={href}>
+                {children}
+            </Link>
+        </Button>
+    )
 }

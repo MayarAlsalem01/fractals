@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
 
@@ -5,15 +6,19 @@ export default function PrimaryButton({
     children,
     id,
     className,
-    fill = false
+    fill = false,
+    onClick
 }: {
     fill?: boolean,
     children: ReactNode,
     id?: string,
-    className?: string
+    className?: string,
+    onClick?: () => void
 }) {
     return (
-        <Button id={id} className={`btn bg-transparent rounded-none flex text-nowrap xl:text-lg px-3 lg:px-3 xl:px-6 py-2 rounded-tl-2xl rounded-br-2xl    relative  cursor-pointer overflow-hidden  items-center gap-2 backdrop-blur-sm inset-shadow-[1px_3px_18px] inset-shadow-white/20 border border-white/30 hover:bg-transparent hover:backdrop-blur-lg text-foreground  ${className}`}>
+        <Button id={id} className={`btn bg-transparent rounded-none flex text-nowrap xl:text-lg px-3 lg:px-3 xl:px-6 py-2 rounded-tl-2xl rounded-br-2xl    relative  cursor-pointer overflow-hidden  items-center gap-2 backdrop-blur-sm inset-shadow-[1px_3px_18px] inset-shadow-white/20 border border-white/30 hover:bg-transparent hover:backdrop-blur-lg text-foreground  ${className}`}
+            onClick={() => onClick?.()}
+        >
 
             <div className="relative z-50">
                 {

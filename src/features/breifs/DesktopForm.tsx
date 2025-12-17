@@ -15,6 +15,7 @@ import { buildZodSchema } from '@/lib/zodFromAttributes'
 import insertBriefAttributeAction from './actions/insertBriefAttributeAction'
 import { BriefAttributeInsertValues } from '@/db/schema'
 import { toast } from 'sonner'
+import PrimaryButton from '@/ui/PrimaryButton'
 
 // --- Type Definitions (Re-using the structure from the store) ---
 
@@ -152,7 +153,7 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
         <form onSubmit={handleSubmit(onFinalSubmit)}>
             {/* Step Indicator */}
             <div className="mb-6">
-                <h2 className="text-lg md:text-xl font-semibold">{currentSection.title}</h2>
+                <h2 className="text-lg md:text-xl font-semibold text-brand-primary">{currentSection.title}</h2>
                 <p className="text-sm text-gray-500">
                     Step {currentStep + 1} of {sections.length}
                 </p>
@@ -164,23 +165,29 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
             {/* Navigation Buttons */}
             <div className="mt-8 flex justify-between">
                 {!isFirstStep && (
-                    <Button
-                        type="button"
-                        variant="outline"
+                    <PrimaryButton
+
+
                         onClick={goToPreviousStep}
                     >
                         Back
-                    </Button>
+                    </PrimaryButton>
                 )}
+                <div className={`flex gap-1 items-center justify-center  ${isFirstStep ? 'w-full' : ''}`}>
+                    {
+                        Array.from({ length: sections.length - 1 }).map((_, i) =>
+                            <span key={i} className={`w-2 h-2  block rounded-full ${currentStep === i ? 'scale-150 bg-accent-foreground mx-0.5' : 'bg-accent-foreground/80'}`} />)
+                    }
+                </div>
                 <div className={isFirstStep ? 'ml-auto' : ''}>
                     {isLastStep ? (
                         <Button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Submitting...' : 'Submit Brief'}
                         </Button>
                     ) : (
-                        <Button type="button" onClick={handleNext}>
+                        <PrimaryButton onClick={handleNext}>
                             Next Step
-                        </Button>
+                        </PrimaryButton>
                     )}
                 </div>
             </div>

@@ -94,6 +94,20 @@
             "description": "We help you communicate with clarity, creativity, and consistency. Our strategies combine data and design — turning your online presence into a story that inspires trust and growth.",
             "Strategy, storytelling, and visual identity consistency": "Strategy, storytelling, and visual identity consistency.",
             "Growth-driven campaigns powered by analytics and creativity": "Growth-driven campaigns powered by analytics and creativity."
+        },
+        "Network": {
+            "title": "Network",
+            "Network Design": "Network Design",
+            "Configuration & Installation": "Configuration & Installation",
+            "Security & maintenance": "Security & maintenance",
+            "Smart Infrastructure": "Smart Infrastructure"
+        },
+        "IoT Solutions": {
+            "title": "IoT Solutions",
+            "Smart Devices Integration": "Smart Devices Integration",
+            "Automation Systems": "Automation Systems",
+            "Smart homes & Buildings": "Smart homes & Buildings",
+            "Industrial IoT": "Industrial IoT"
         }
     },
     "vacancies": {

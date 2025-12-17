@@ -14,7 +14,7 @@ export default async function page() {
     return (
         <section className=' '>
 
-            <div className='relative'>
+            <div className='relative pt-24 bg-black'>
                 <AboutUs />
             </div>
             <DotBackgroundDemo className='px-4 md:px-14 pb-12'>

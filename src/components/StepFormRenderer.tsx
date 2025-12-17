@@ -67,7 +67,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
 
         return (
             <div key={attr.id} className={containerClass}>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 ">
                     {attr.label}
                     {attr.required ? ' *' : ''}
                 </label>

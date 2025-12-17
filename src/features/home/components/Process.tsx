@@ -3,18 +3,22 @@ import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
 import BlobImage from '../../../../public/assets/Artboard 1 copy 4.png'
-import { getLocale, getTranslations } from 'next-intl/server'
+import Vc from '../../../../public/assets/vectors/Artboard 1 copy.png'
+import { getTranslations } from 'next-intl/server'
 export default async function Process() {
     const t = await getTranslations('Our Process')
     return (
-        <section className='px-4 md:px-14 py-8 h-screen relative '>
-            <div className='absolute -top-6 left-0 w-full h-1/4 bg-linear-to-b from-transparent to-black rotate-180  blur-lg  shadow-2xl shadow-black  z-[-2] '></div>
-            {/* blob */}
-            <div className='w-full h-full absolute left-0 top-0 overflow-hidden'>
-                <Image src={BlobImage} alt='asdf' className={`select-none w-full lg:w-1/2 object-cover absolute  '-right-40 lg:-right-72 -top-20  lg:-top-96 -z-10 blur-2xl`} />
+        <section className='px-4 md:px-14 py-8 h-screen relative bg-black  '>
+            <div className='w-full h-full absolute right-0 hidden md:block -top-44 overflow-hidden  '>
+                <div className='relative w-full h-full  '>
+                    <Image src={Vc} alt='' className='absolute  -right-[55%] -top-96 object-cover scale-50' />
+                </div>
             </div>
+            {/* <div className='absolute -top-6 left-0 w-full h-1/4 bg-linear-to-b from-transparent to-black rotate-180  blur-lg  shadow-2xl shadow-black  z-[-2] '></div> */}
+            {/* blob */}
+
             <div className='w-full h-full absolute left-0 top-0 '>
-                <Image src={BlobImage} alt='asdf' className={`select-none w-full lg:w-1/2 object-cover absolute   lg:translate-x-[-18rem]  -translate-x-36 -bottom-40  lg:-bottom-[18rem] rotate-45  blur-2xl -z-10`} />
+                <Image src={BlobImage} alt='asdf' className={`select-none w-3/4 md:w-2/3 lg:w-1/2 object-cover absolute   lg:translate-x-[-18rem]  -translate-x-44 md:-translate-x-60 -bottom-40  lg:-bottom-[18rem] rotate-45  blur `} />
             </div>
             <div className='flex justify-center mb-4'>
                 <TransparentTextAnimation>

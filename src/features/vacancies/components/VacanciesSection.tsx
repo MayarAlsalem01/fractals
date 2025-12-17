@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import VacencessImage from '../../../../public/assets/Ipdad.png'
 import { getLocale, getTranslations } from 'next-intl/server'
+import PrimaryButton from '@/ui/PrimaryButton'
 
 export default async function VacanciesSection() {
 
@@ -41,6 +42,7 @@ export default async function VacanciesSection() {
                             {t('long description')}
                         </p>
                     </TransparentTextAnimation>
+                    <PrimaryButton className='mt-4'>Discover Vacancies </PrimaryButton>
                 </div>
             </div>
         </section>
