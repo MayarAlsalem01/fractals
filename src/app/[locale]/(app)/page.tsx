@@ -10,9 +10,12 @@ import VacanciesSection from '@/features/vacancies/components/VacanciesSection';
 import Container from '@/components/Container';
 import Blind from '@/components/Blind';
 import ContactUs from '@/features/contact/components/ContactUs';
-import { db } from '@/db/drizzle';
-import { brief_attribute_values, brief_templates, briefs, template_attributes, template_sections } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { routing } from '@/i18n/routing';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function Home() {
   // create template
 

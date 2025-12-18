@@ -6,8 +6,8 @@ export default async function AboutUs() {
     const locale = await getLocale()
     const t = await getTranslations('aboutUS')
     return (
-        <section className='w-full h-screen relative overflow-hidden '>
-            <div className='absolute -top-4 left-0 w-full h-1/4 bg-linear-to-b from-transparent to-black rotate-180  blur-lg  shadow-2xl shadow-black  z-[-2] '></div>
+        <section className='w-full h-screen relative '>
+            <div className='absolute -top-4 left-0 w-full h-1/4 bg-linear-to-b from-transparent to-black rotate-180  blur-lg  shadow-2xl shadow-black  z-[1] '></div>
             <div className=' absolute top-0 left-0 h-full w-full overflow-hidden   perspective-distant transform-3d'>
                 <video src="/videos/myVideo.mp4" className={`min-w-full h-full object-fill object-[82%_0px] -translate-x-54 translate-z-[-8rem] -translate-y-[-2rem] md:-translate-y-[-0rem] md:translate-0  brightness-90 scale-x-[3] md:scale-110 ${locale === 'ar' ? 'rotate-y-180 ' : ''}`} controls={false} autoPlay loop muted playsInline disablePictureInPicture />
             </div>

@@ -6,13 +6,18 @@ import { brief_templates } from '@/db/schema'
 import MultiStepFormWrapper from '@/features/breifs/DesktopForm'
 import { and, eq, inArray } from 'drizzle-orm'
 import getBriefSectionsAction from '@/features/breifs/actions/getBriefSectionsAction'
+import { routing } from '@/i18n/routing'
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function page() {
     const breifT = await db.query.brief_templates.findFirst({ where: eq(brief_templates.id, 2) })
 
     const sectios = await getBriefSectionsAction(2)
     return (
-        <Container>
+        <Container className='lg:pb-0'>
             <section className='min-h-screen  w-full flex flex-col items-center justify-center md:justify-start relative '>
                 <div className='absolute -left-64 -top-40 w-2/3 h-full -z-10'>
                     {/* <Image src={Vc1} alt='' className='object-cover w-full h-full blur-md' /> */}

@@ -9,6 +9,12 @@ import Vc from '../../../../../public/assets/Artboard 1 copy 4.png'
 import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { ReactNode } from 'react'
+import { routing } from '@/i18n/routing'
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function page() {
     const t = await getTranslations('aboutUS')
     return (

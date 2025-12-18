@@ -7,6 +7,12 @@ import V2 from '../../../../../public/assets/vectors/Artboard 1 copy.png'
 import Container from '@/components/Container'
 import Blind from '@/components/Blind'
 import { getTranslations } from 'next-intl/server'
+import { routing } from '@/i18n/routing'
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function page() {
     const t = await getTranslations('vacancies')
     return (

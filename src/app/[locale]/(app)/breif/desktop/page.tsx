@@ -7,7 +7,11 @@ import MultiStepFormWrapper from '@/features/breifs/DesktopForm'
 import { eq, inArray } from 'drizzle-orm'
 import { Section } from '@/features/breifs/types'
 import getBriefSectionsAction from '@/features/breifs/actions/getBriefSectionsAction'
+import { routing } from '@/i18n/routing'
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function page() {
     const breifT = await db.query.brief_templates.findFirst({ where: eq(brief_templates.id, 1) })
