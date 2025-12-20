@@ -94,6 +94,20 @@
             "description": "Wir helfen Ihnen, klar, kreativ und konsistent zu kommunizieren. Unsere Strategien verbinden Daten und Design — und machen Ihren Online-Auftritt zu einer Geschichte, die Vertrauen und Wachstum inspiriert.",
             "Strategy, storytelling, and visual identity consistency": "Strategie, Storytelling und Konsistenz der visuellen Identität.",
             "Growth-driven campaigns powered by analytics and creativity": "Wachstumsorientierte Kampagnen, unterstützt durch Analytik und Kreativität."
+        },
+        "Network": {
+            "title": "Netzwerk",
+            "Network Design": "Netzwerkdesign",
+            "Configuration & Installation": "Konfiguration & Installation",
+            "Security & maintenance": "Sicherheit & Wartung",
+            "Smart Infrastructure": "Intelligente Infrastruktur"
+        },
+        "IoT Solutions": {
+            "title": "IoT-Lösungen",
+            "Smart Devices Integration": "Integration intelligenter Geräte",
+            "Automation Systems": "Automatisierungssysteme",
+            "Smart homes & Buildings": "Smart Homes & Gebäude",
+            "Industrial IoT": "Industrielles IoT"
         }
     },
     "vacancies": {

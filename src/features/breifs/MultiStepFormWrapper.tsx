@@ -16,6 +16,7 @@ import insertBriefAttributeAction from './actions/insertBriefAttributeAction'
 import { BriefAttributeInsertValues } from '@/db/schema'
 import { toast } from 'sonner'
 import PrimaryButton from '@/ui/PrimaryButton'
+import SecondryButton from '@/ui/SecondryButton'
 
 // --- Type Definitions (Re-using the structure from the store) ---
 
@@ -165,13 +166,13 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
             {/* Navigation Buttons */}
             <div className="mt-8 flex justify-between">
                 {!isFirstStep && (
-                    <PrimaryButton
+                    <SecondryButton
 
 
                         onClick={goToPreviousStep}
                     >
                         Back
-                    </PrimaryButton>
+                    </SecondryButton>
                 )}
                 <div className={`flex gap-1 items-center justify-center  ${isFirstStep ? 'w-full' : ''}`}>
                     {
@@ -185,9 +186,9 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
                             {isSubmitting ? 'Submitting...' : 'Submit Brief'}
                         </Button>
                     ) : (
-                        <PrimaryButton onClick={handleNext}>
+                        <SecondryButton onClick={handleNext}>
                             Next Step
-                        </PrimaryButton>
+                        </SecondryButton>
                     )}
                 </div>
             </div>

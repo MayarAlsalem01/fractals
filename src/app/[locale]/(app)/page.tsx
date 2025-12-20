@@ -11,14 +11,14 @@ import Container from '@/components/Container';
 import Blind from '@/components/Blind';
 import ContactUs from '@/features/contact/components/ContactUs';
 import { routing } from '@/i18n/routing';
+import getBriefAttrubiteValuesByIdAction from '@/features/breifs/actions/getBriefAttrubiteValuesByIdAction';
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+
 
 export default async function Home() {
   // create template
-
+  const values = await getBriefAttrubiteValuesByIdAction(18)
+  console.log(values)
   return (
     <div >
       <main>

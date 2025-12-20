@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { boolean, integer, json, jsonb, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 
@@ -92,6 +92,38 @@ export const brief_attribute_values = pgTable("brief_attribute_values", {
 //   metadata: json("metadata").default("'{}'::jsonb"),
 //   uploaded_at: timestamp("uploaded_at").defaultNow().notNull(),
 // });
+export const briefsRelations = relations(briefs, ({ many, one }) => ({
+    attributeValues: many(brief_attribute_values),
+    briefTemplate: one(brief_templates, {
+        fields: [briefs.template_id],
+        references: [brief_templates.id],
+    }),
+}));
+
+export const briefAttributeValuesRelations = relations(
+    brief_attribute_values,
+    ({ one }) => ({
+        brief: one(briefs, {
+            fields: [brief_attribute_values.brief_id],
+            references: [briefs.id],
+        }),
+
+        attribute: one(template_attributes, {
+            fields: [brief_attribute_values.attribute_id],
+            references: [template_attributes.id],
+        }),
+    })
+);
+
+export const templateAttributesRelations = relations(
+    template_attributes,
+    ({ one }) => ({
+        section: one(template_sections, {
+            fields: [template_attributes.section_id],
+            references: [template_sections.id],
+        }),
+    })
+);
 export type Blog = typeof blogs.$inferSelect
 export type Attribute = typeof template_attributes.$inferSelect
 export type Section = typeof template_sections.$inferSelect

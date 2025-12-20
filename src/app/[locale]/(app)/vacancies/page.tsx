@@ -1,4 +1,4 @@
-import BgImage from '../../../../../public/assets/Untitled-1.png'
+import BgImage from '../../../../../public/assets/vacancies/Untitled-1.png'
 import Image from 'next/image'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import { BlogCard } from '@/features/blog/components/BlogTabPane'
@@ -7,49 +7,13 @@ import V2 from '../../../../../public/assets/vectors/Artboard 1 copy.png'
 import Container from '@/components/Container'
 import Blind from '@/components/Blind'
 import { getTranslations } from 'next-intl/server'
-import { routing } from '@/i18n/routing'
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
+import VacanciesSection from '@/features/vacancies/components/VacanciesSection'
 export default async function page() {
     const t = await getTranslations('vacancies')
     return (
 
         <div className=' w-full    '>
-            <section className='h-screen  relative px-4 md:px-12'>
-                <Container className='h-full'>
-                    <div className=' text-8xl absolute top-28 left-1/2 -translate-x-1/2'>
-                        <p
-                            className={`text-6xl md:text-8xl  font-gravesend font-bold text-white/10`}
-
-                        >
-                            {t('title')}
-                        </p>
-
-                    </div>
-                    <div className='w-full h-full grow flex flex-col justify-center gap-3'>
-                        <p className={`text-5xl md:text-7xl font-bold font-gravesend whitespace-pre-line`} >{t('description')}</p>
-                        <TransparentTextAnimation>
-                            <p className='font-semibold whitespace-pre-line'>
-                                {t('subtitle')}
-                            </p>
-                        </TransparentTextAnimation>
-                        <TransparentTextAnimation>
-                            <p className='whitespace-pre-line'>
-                                {
-                                    t('long description')
-                                }
-
-                            </p>
-                        </TransparentTextAnimation>
-                    </div>
-                    <div className='w-full h-full  overflow-hidden absolute top-0 left-0 -z-10 perspective-distant transform-3d'>
-                        <Image src={BgImage} alt='fractals' className='h-full  object-cover  opacity-70 object-[83%_0]  ' />
-                    </div>
-                </Container>
-            </section>
+            <VacanciesSection />
             <section className='  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-24 lg:px-64 py-8 relative'>
                 <Blind className='' />
 

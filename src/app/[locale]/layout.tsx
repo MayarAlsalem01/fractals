@@ -55,10 +55,10 @@ export const metadata: Metadata = {
 };
 
 // Generate static params for all supported locales
-// export function generateStaticParams() {
-//   return routing.locales.map((locale) => ({ locale }));
-// }
 
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'de' }]; // List all supported locales
+}
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -69,26 +69,25 @@ export default async function RootLayout({
 }: Props) {
 
   const { locale } = await params;
+  setRequestLocale(locale);
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  setRequestLocale(locale);
 
   return (
     <html lang={locale}   >
       <body
         className={`dark  ${gravesend.variable} ${takenByVultres.variable} ${gilory.variable} ${geistMono.variable}  antialiased `}
       >
-        <SessionProvider>
-          <QueryClientProvider>
+        <NextIntlClientProvider >
+          <SessionProvider>
+            <QueryClientProvider>
 
-            <NextIntlClientProvider >
               {children}
-            </NextIntlClientProvider>
-          </QueryClientProvider>
-        </SessionProvider>
-        <Toaster richColors position='top-right' />
-        <ScrollUpButton />
+            </QueryClientProvider>
+          </SessionProvider>
+          <Toaster richColors position='top-right' />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

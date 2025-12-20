@@ -1,21 +1,17 @@
-import AboutUs from '@/features/aboutUs/components/AboutUs'
 
-
+'use server'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import AboutImageSilder from '@/features/aboutUs/components/AboutImageSilder'
 import DotBackgroundDemo from '@/components/DottedBackground'
 import Blind from '@/components/Blind'
 import Vc from '../../../../../public/assets/Artboard 1 copy 4.png'
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ReactNode } from 'react'
-import { routing } from '@/i18n/routing'
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default async function page() {
+import AboutUs from '@/features/aboutUs/components/AboutUs'
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params
+    setRequestLocale(locale);
     const t = await getTranslations('aboutUS')
     return (
         <section className=' '>

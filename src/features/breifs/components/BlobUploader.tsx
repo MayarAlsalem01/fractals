@@ -35,7 +35,7 @@ export default function BlobUploader({ onValueChnage, value }: { onValueChnage?:
 
             setBlob(res);
             setStatus("Uploaded!");
-            onValueChnage?.(res.pathname)
+            onValueChnage?.(res.url)
             // res.url is the public URL (if you used public access)
             console.log("Blob result:", res);
         } catch (err: any) {
@@ -45,7 +45,7 @@ export default function BlobUploader({ onValueChnage, value }: { onValueChnage?:
     }
 
     return (
-        <form onSubmit={handleUpload} className="flex flex-col items-start  ">
+        <div className="flex flex-col items-start  ">
             <input ref={fileRef} id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="hidden" />
             <div className="flex justify-between items-centerpy-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4 py-4" >
                 <label htmlFor="fileInput" className="text-center">
@@ -54,6 +54,6 @@ export default function BlobUploader({ onValueChnage, value }: { onValueChnage?:
             </div>
             {status && <p>{status}</p>}
             <p className="text-muted text-xs mt-2 truncate max-w-full"> {value}</p>
-        </form>
+        </div>
     );
 }

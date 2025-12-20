@@ -83,13 +83,12 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                                     {
                                         Array.from({ length: attr.meta.max })
                                             .map((_, i) => <BlobUploader key={i} onValueChnage={(val) => {
-
+                                                console.log(i)
                                                 const next = [...value]
                                                 next[i] = val
                                                 // optionally remove nulls at the end: keep length equal to meta.max if you want slots
                                                 onChange(next)
 
-                                                console.log(attr.meta.max)
                                             }} value={value[i]} />)
                                     }
                                 </div>

@@ -58,6 +58,20 @@ body {
   border-color: transparent;
 }
 
+.sec-btn:hover .btn-pink-background {
+  left: -3rem;
+  top: -2rem;
+}
+
+.sec-btn:hover .btn-blue-background {
+  top: -2rem;
+}
+
+.sec-btn:hover .btn-cyan-background {
+  top: -2rem;
+  right: -2.2rem;
+}
+
 #navBtn:hover div img {
   transform: rotate(180deg);
 }

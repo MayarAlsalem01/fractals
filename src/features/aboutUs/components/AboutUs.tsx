@@ -1,8 +1,9 @@
 import PrimairyButton from '@/ui/PrimaryButton';
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 
 export default async function AboutUs() {
+
     const locale = await getLocale()
     const t = await getTranslations('aboutUS')
     return (
