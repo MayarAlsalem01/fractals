@@ -1,8 +1,6 @@
 import PrimaryButton from '@/ui/PrimaryButton'
-import React from 'react'
 import Container from '../Container'
 import Cobe from '../Cobe'
-import Blind from '../Blind'
 import Image from 'next/image'
 import Star from '../../../public/assets/star.png'
 export default function Footer() {

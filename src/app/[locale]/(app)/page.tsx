@@ -17,8 +17,7 @@ import getBriefAttrubiteValuesByIdAction from '@/features/breifs/actions/getBrie
 
 export default async function Home() {
   // create template
-  const values = await getBriefAttrubiteValuesByIdAction(18)
-  console.log(values)
+
   return (
     <div >
       <main>

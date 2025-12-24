@@ -9,7 +9,7 @@ import { redirect } from "next/navigation"
 export default async function getBriefAttrubiteValuesByIdAction(id: number) {
     const session = await getServerSession()
     if (!session || session.expires)
-        redirect('/')
+        redirect('/en')
 
 
     const values = await db.query.briefs.findMany({

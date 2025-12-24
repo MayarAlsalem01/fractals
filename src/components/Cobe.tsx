@@ -9,8 +9,7 @@ export default function Cobe({ className }: { className?: string }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
-        if (typeof window === undefined)
-            return
+
         let phi = 0;
 
 
