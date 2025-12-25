@@ -7,6 +7,7 @@ import VacencessIpadImage from '../../../../public/assets/vacancies/Ipdad.png'
 import { getLocale, getTranslations } from 'next-intl/server'
 import PrimaryButton from '@/ui/PrimaryButton'
 import Container from '@/components/Container'
+import SecondryButton from '@/ui/SecondryButton'
 
 export default async function VacanciesSection() {
 
@@ -45,7 +46,7 @@ export default async function VacanciesSection() {
                             {t('long description')}
                         </p>
                     </TransparentTextAnimation>
-                    <PrimaryButton className='w-fit'>Discover Vacancies </PrimaryButton>
+                    <SecondryButton className='w-fit'>Discover Vacancies </SecondryButton>
                 </div>
             </Container>
 

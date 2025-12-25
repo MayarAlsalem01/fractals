@@ -1,9 +1,9 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import PrimaryButton from '@/ui/PrimaryButton'
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import BlogImage from '../../../../public/assets/licensed-image.png'
 import Image from 'next/image'
+import SecondryButton from '@/ui/SecondryButton'
 export default function BlogTabPane() {
     const creativity = [
         {
@@ -116,7 +116,7 @@ export function BlogCard({ title, text }: { title: string, text: string }) {
                 </p>
             </CardContent>
             <CardFooter className='flex justify-end'>
-                <PrimaryButton>Read More</PrimaryButton>
+                <SecondryButton className='z-50'>Read More</SecondryButton>
             </CardFooter>
 
             <div className='w-full h-[calc(100%+100px)] absolute left-0 top-0 -z-10 -translate-x-60 -translate-y-20  rounded-full bg-radial from-brand-primary to-black blur-3xl' />

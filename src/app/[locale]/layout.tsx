@@ -19,12 +19,6 @@ const gravesend = localFont({
     { path: '../../../public/fonts/gravesend-sans-family/gravesend-sans-bold.ttf', weight: "700", style: "normal" }
   ]
 })
-const takenByVultres = localFont({
-  variable: "--font-taken-by-vultures",
-  src: [
-    { path: '../../../public/fonts/takenByVultures/Taken by Vultures Alternates Demo.otf', weight: "400", style: "normal" }
-  ]
-})
 
 
 const gilory = localFont({
@@ -77,7 +71,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}   >
       <body
-        className={`dark  ${gravesend.variable} ${takenByVultres.variable} ${gilory.variable} ${geistMono.variable}  antialiased `}
+        className={`dark  ${gravesend.variable}  ${gilory.variable} ${geistMono.variable}  antialiased `}
       >
         <NextIntlClientProvider >
           <SessionProvider>

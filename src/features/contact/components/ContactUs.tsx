@@ -9,9 +9,9 @@ import FacebookIcon from '../../../../public/assets/Social media icons/facebook.
 import InstagramIcon from '../../../../public/assets/Social media icons/instagram.png'
 import EmailIcon from '../../../../public/assets/Social media icons/email.png'
 import LinkedInIcon from '../../../../public/assets/Social media icons/linkedin.png'
-import MobileIcon from '../../../../public/assets/Social media icons/mobile.png'
 import TelegramIcon from '../../../../public/assets/Social media icons/telegram.png'
-import { ClockIcon, MapPinIcon } from 'lucide-react'
+import { MapPinIcon } from 'lucide-react'
+import ClockIcon from '../../../../public/assets/Social media icons/Clock.svg'
 export default function ContactUs() {
     return (
         <div className='min-h-screen relative !pb-96 md:!pb-0 '>
@@ -82,10 +82,10 @@ export default function ContactUs() {
                         <span>@Fractals Group</span>
                     </div>
                     <div className='flex items-center gap-2'>
-                        <div className='bg-white/85 w-fit p-1 rounded rounded-tl-lg rounded-br-lg'>
-                            <ClockIcon color='black ' />
 
-                        </div>
+                        <Image src={ClockIcon} alt='clock icon' color='black ' className='bg-black w-6' />
+
+
                         <span>Sunday - Thursday, 9:00 AM - 5:00 PM</span>
                     </div>
                 </div>

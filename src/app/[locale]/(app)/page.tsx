@@ -31,7 +31,10 @@ export default async function Home() {
             </div>
           </div>
           <Hero />
-          <AboutUs />
+          <div className='relative'>
+            <AboutUs />
+            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent to-black to-80%' />
+          </div>
           <Services />
           <Process />
 
@@ -49,7 +52,7 @@ export default async function Home() {
 
           <div className='relative'>
             <VacanciesSection />
-            <Blind className='top-auto -bottom-44 w-full mayar blur-2xl z-50 to-80%' />
+            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-t from-transparent to-black to-95\% ' />
           </div>
 
           <ContactUs />

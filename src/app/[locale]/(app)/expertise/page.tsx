@@ -6,11 +6,11 @@ import BgMobileImage from "../../../../../public/assets/Expertise-Mobile.png";
 import Container from "@/components/Container";
 import Blind from "@/components/Blind";
 import Star from "../../../../../public/assets/star.png";
-import PrimaryButton from "@/ui/PrimaryButton";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import DotBackgroundDemo from "@/components/DottedBackground";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import SecondryButton from "@/ui/SecondryButton";
 
 export default async function page() {
     const t = await getTranslations('expertise')
@@ -170,7 +170,7 @@ async function ServiceCard({
                 </ul>
             )}
 
-            <PrimaryButton className="w-fit">{buttonText}</PrimaryButton>
+            <SecondryButton className="w-fit">{buttonText}</SecondryButton>
         </div>
     );
 }

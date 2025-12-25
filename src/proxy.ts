@@ -32,7 +32,7 @@ export default withAuth(
 
                 // 1. Define the protected paths (without locale prefix)
                 // Add all your protected paths here (e.g., '/dashboard', '/profile', '/settings')
-                const protectedPaths = ['/dashboard', '/blogs'];
+                const protectedPaths = ['/dashboard'];
 
                 // 2. Create a regex to match any locale prefix followed by a protected path
                 // This regex handles paths like:

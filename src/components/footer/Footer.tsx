@@ -14,11 +14,11 @@ export default function Footer() {
             <div className='absolute flex -left-14  justify-end md:left-16 -top-32 md:-top-[32rem] w-full -z-20 '>
                 <Cobe className='scale-150 ' />
             </div>
-            <Container className='!lg:py-16'>
+            <Container className='lg:!py-0 lg:!pt-10'>
                 <div>
                     <div className='flex flex-col gap-2 mb-4'>
                         <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>Grow Globally <br /> with Fractals</p>
-                        <p>Seamlessly manage inventory, optimize operations, and scale your <br /><span className='font-taken-by-vultures text-4xl'>business worldwide.</span> </p>
+                        <p>Seamlessly manage inventory, optimize operations, and scale your <br />business worldwide. </p>
                         <PrimaryButton fill className='w-fit !px-3'>
                             <div className=' flex items-center gap-1'>
                                 <Image src={Star} alt='star' className='w-5' />

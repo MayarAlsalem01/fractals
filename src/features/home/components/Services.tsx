@@ -4,6 +4,7 @@ import PrimairyButton from '@/ui/PrimaryButton';
 import { getTranslations } from 'next-intl/server';
 import RingVc from '../../../../public/assets/vectors/Artboard 1 copy 3.png'
 import Image from 'next/image';
+import SecondryButton from '@/ui/SecondryButton';
 export default async function Services() {
     const t = await getTranslations('expertise')
     return (
@@ -39,7 +40,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-xs  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -62,7 +63,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter>
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 
@@ -83,7 +84,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter>
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -104,7 +105,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -125,7 +126,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -146,7 +147,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 
@@ -174,7 +175,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -201,7 +202,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <PrimairyButton>Watch more</PrimairyButton>
+                        <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 

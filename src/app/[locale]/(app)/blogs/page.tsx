@@ -1,5 +1,4 @@
 import BlogTabPane from '@/features/blog/components/BlogTabPane'
-import React from 'react'
 
 export default function page() {
     return (

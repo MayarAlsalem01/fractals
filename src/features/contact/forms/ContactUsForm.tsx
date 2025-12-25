@@ -1,11 +1,10 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import PrimaryButton from "@/ui/PrimaryButton"
+import SecondryButton from "@/ui/SecondryButton"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -135,7 +134,7 @@ export default function ContactUsForm() {
                         </FormItem>
                     )} />
                 </div>
-                <PrimaryButton className="mt-4">Send My Vision</PrimaryButton>
+                <SecondryButton className="mt-4">Send My Vision</SecondryButton>
             </form>
         </Form>
     )

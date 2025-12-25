@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Star from '../../../public/assets/star.png'
 import { Button } from '../ui/button'
 import { Menu } from 'lucide-react'
@@ -13,10 +13,41 @@ import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 
 export default function MobileNavbar({ links }: { links: LinkType[] }) {
     const [isOpen, setIsOpen] = useState(false)
+    const wrapperRef = useRef<HTMLDivElement | null>(null)
+    const toggleBtnRef = useRef<HTMLButtonElement | null>(null)
+    useEffect(() => {
+        if (!isOpen) return
+
+        const onDocPointer = (e: MouseEvent | TouchEvent) => {
+            const target = e.target as Node | null
+            if (!target) return
+            // if click is outside wrapper, close
+            if (!wrapperRef.current?.contains(target)) {
+                setIsOpen(false)
+            }
+        }
+
+        const onScroll = () => setIsOpen(false)
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setIsOpen(false)
+        }
+
+        document.addEventListener('mousedown', onDocPointer)
+        document.addEventListener('touchstart', onDocPointer)
+        window.addEventListener('scroll', onScroll, { passive: true })
+        document.addEventListener('keydown', onKey)
+
+        return () => {
+            document.removeEventListener('mousedown', onDocPointer)
+            document.removeEventListener('touchstart', onDocPointer)
+            window.removeEventListener('scroll', onScroll)
+            document.removeEventListener('keydown', onKey)
+        }
+    }, [isOpen])
     return (
-        <div className='flex items-center gap-2  lg:hidden'>
+        <div ref={wrapperRef} className='flex items-center gap-2  lg:hidden'>
             <NavMobileBtn />
-            <button onClick={() => setIsOpen(!isOpen)} className='py-1 px-2 rounded-2xl rounded-tr-none rounded-bl-none  text-foreground text-lg inset-shadow-[1px_1px_8px] inset-shadow-white/20'  >
+            <button ref={toggleBtnRef} onClick={() => setIsOpen(!isOpen)} className='py-1 px-2 rounded-2xl rounded-tr-none rounded-bl-none  text-foreground text-lg inset-shadow-[1px_1px_8px] inset-shadow-white/20'  >
                 <Menu size={'32'} />
             </button>
             <ul className={`absolute  flex flex-col gap-4   w-full start-0 top-[calc(100%+8px)] py-5 px-6 rounded-2xl rounded-tr-none rounded-bl-none bg-black/70 border border-white/30 inset-shadow-[1px_5px_18px] inset-shadow-white/20 transition-transform duration-300 z-30  ${isOpen ? 'translate-y-0 ' : '-translate-y-[calc(100%+8rem)] '}`}>

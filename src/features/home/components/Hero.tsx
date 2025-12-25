@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import { Link } from "@/i18n/navigation";
 import GradientText from "@/ui/GradientText";
 import PrimairyButton from '@/ui/PrimaryButton';
 import TransparentTextAnimation from "@/ui/TransparentTextAnimtion";
@@ -26,9 +27,11 @@ export default async function Hero() {
                     </TransparentTextAnimation>
 
                 </div>
-                <PrimairyButton className="w-fit px-5 !py-6">
-                    <p>Explore Expertise</p>
-                </PrimairyButton>
+                <Link href={'/expertise'}>
+                    <PrimairyButton className="w-fit px-5 !py-6">
+                        <p>Explore Expertise</p>
+                    </PrimairyButton>
+                </Link>
             </section>
         </Container>
     )

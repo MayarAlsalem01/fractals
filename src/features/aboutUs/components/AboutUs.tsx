@@ -1,4 +1,5 @@
 import PrimairyButton from '@/ui/PrimaryButton';
+import SecondryButton from '@/ui/SecondryButton';
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion';
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 
@@ -27,9 +28,9 @@ export default async function AboutUs() {
 
                     </p>
                 </TransparentTextAnimation>
-                <PrimairyButton className=' px-6 py-5'>
+                <SecondryButton className=' px-6  w-fit'>
                     Read More
-                </PrimairyButton>
+                </SecondryButton>
             </div>
         </section>
     )

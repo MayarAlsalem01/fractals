@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import Image from 'next/image'
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import BlobImage from '../../../../public/assets/Artboard 1 copy 4.png'
 import Vc from '../../../../public/assets/vectors/Artboard 1 copy.png'
 import { getTranslations } from 'next-intl/server'
