@@ -33,7 +33,7 @@ export default async function Home() {
           <Hero />
           <div className='relative'>
             <AboutUs />
-            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent to-black to-80%' />
+            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent from-70% to-black ' />
           </div>
           <Services />
           <Process />
@@ -52,7 +52,7 @@ export default async function Home() {
 
           <div className='relative'>
             <VacanciesSection />
-            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-t from-transparent to-black to-95\% ' />
+            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-t from-transparent from-25% to-black  ' />
           </div>
 
           <ContactUs />
