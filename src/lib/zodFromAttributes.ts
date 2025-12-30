@@ -49,6 +49,7 @@ export function buildZodSchema(attributes: Attr[]) {
             case 'text':
             case 'textarea':
             case 'select':
+            case 'selectComboBox':
                 field = stringWithMeta()
                 break
 
@@ -76,7 +77,7 @@ export function buildZodSchema(attributes: Attr[]) {
                 break
 
             case 'multiselect':
-                field = z.array(z.string()).min(1)
+                field = z.array(z.string(), { error: `this field is required.` })
                 break
 
             case 'json':
@@ -107,6 +108,9 @@ export function buildZodSchema(attributes: Attr[]) {
                 field = (field as z.ZodNumber).refine((v) => v !== undefined, { message: `${attr.label} is required.` })
             }
             if (attr.type === 'file') {
+                field = (field as z.ZodArray).refine((v) => v !== undefined, { message: `${attr.label} is required.` })
+            }
+            if (attr.type === 'multiselect') {
                 field = (field as z.ZodArray).refine((v) => v !== undefined, { message: `${attr.label} is required.` })
             }
         } else {

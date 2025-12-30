@@ -194,7 +194,7 @@ export default async function Services() {
                                 {t("IoT Solutions.Smart homes & Buildings")}
                             </li>
                             <li>
-                                {t("IoT Solutions.Industrial IoT")}
+                                {t("IoT Solutions.Industrial IoT")}
                             </li>
 
 

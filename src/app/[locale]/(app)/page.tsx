@@ -8,10 +8,7 @@ import Process from '@/features/home/components/Process';
 import BlogTabPane from '@/features/blog/components/BlogTabPane';
 import VacanciesSection from '@/features/vacancies/components/VacanciesSection';
 import Container from '@/components/Container';
-import Blind from '@/components/Blind';
 import ContactUs from '@/features/contact/components/ContactUs';
-import { routing } from '@/i18n/routing';
-import getBriefAttrubiteValuesByIdAction from '@/features/breifs/actions/getBriefAttrubiteValuesByIdAction';
 
 
 
