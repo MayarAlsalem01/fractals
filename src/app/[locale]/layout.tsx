@@ -43,7 +43,7 @@ const geistMono = Geist_Mono({
 });
 
 // Use a site URL from environment for dev (ngrok/localtunnel) or fallback to production
-const SITE_URL = 'https://fractals-zeta.vercel.app';
+const SITE_URL = 'https://www.fractalsgroup.net';
 
 export const metadata: Metadata = {
   title: "Fractals | The Capital of Art & Digital Innovation",

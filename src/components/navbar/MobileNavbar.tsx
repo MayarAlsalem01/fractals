@@ -7,7 +7,7 @@ import { Menu } from 'lucide-react'
 import PrimaryButton from '@/ui/PrimaryButton'
 import { Link as LinkType } from './Navbar'
 import NavItem from './NavItem'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 
 
@@ -15,6 +15,7 @@ export default function MobileNavbar({ links }: { links: LinkType[] }) {
     const [isOpen, setIsOpen] = useState(false)
     const wrapperRef = useRef<HTMLDivElement | null>(null)
     const toggleBtnRef = useRef<HTMLButtonElement | null>(null)
+    const path = usePathname()
     useEffect(() => {
         if (!isOpen) return
 
@@ -54,7 +55,7 @@ export default function MobileNavbar({ links }: { links: LinkType[] }) {
                 {
                     links.map((link, i) => (
                         <Link href={link.href} key={i}>
-                            <NavItem className='py-1 w-fit '>{link.name}</NavItem>
+                            <NavItem className='py-1 w-fit ' isActive={path === link.href ? true : false}>{link.name}</NavItem>
                         </Link>
                     ))
                 }

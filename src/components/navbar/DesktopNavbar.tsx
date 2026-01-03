@@ -1,20 +1,21 @@
-import React from 'react'
+'use client'
 import NavItem from './NavItem'
-import { getLocale, getTranslations } from 'next-intl/server'
 import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 import PrimaryButton from '@/ui/PrimaryButton'
 import Image from 'next/image'
 import Star from '../../../public/assets/star.png'
 import { Link as navLinks } from './Navbar'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 
-export default async function DesktopNavbar({ links }: { links: navLinks[] }) {
+export default function DesktopNavbar({ links }: { links: navLinks[] }) {
+    const path = usePathname()
+    console.log(path)
     return (
         <div className=' w-full hidden lg:flex items-center justify-end'>
             <ul className={`hidden lg:flex  font-gravesend   items-center lg:gap-5 xl:gap-8  justify-center  w-[80%]`}>
                 {
                     links.map((link, i) => <Link href={link.href} key={i}>
-                        <NavItem key={i}>{link.name} </NavItem>
+                        <NavItem key={i} isActive={path === link.href ? true : false}>{link.name} </NavItem>
                     </Link>)
                 }
 
