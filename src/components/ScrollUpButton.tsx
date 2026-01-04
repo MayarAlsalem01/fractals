@@ -35,7 +35,7 @@ export default function ScrollUpButton() {
         });
     };
     return (
-        <div className={`rounded-full w-12 h-12 fixed bottom-5 left-12 bg-brand-primary z-50 cursor-pointer transition-opacity ${showButton ? 'opacity-100' : "opacity-0 pointer-events-none"}`} onClick={scrollToTop}
+        <div className={`rounded-full w-12 h-12 fixed bottom-5 left-12 bg-brand-primary/0 backdrop-blur-3xl z-50 cursor-pointer transition-opacity ${showButton ? 'opacity-100' : "opacity-0 pointer-events-none"}`} onClick={scrollToTop}
         >
             <Image src={Arrow} alt='Up Arrow' />
         </div>

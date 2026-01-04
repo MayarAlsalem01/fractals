@@ -8,7 +8,7 @@ import { getTranslations } from 'next-intl/server'
 export default async function Process() {
     const t = await getTranslations('Our Process')
     return (
-        <section className='px-4 md:px-14 py-8 h-screen relative bg-black  '>
+        <section id='our_process' className='px-4 md:px-14 py-8 h-screen relative bg-black  '>
             <div className='w-full h-full absolute right-0 hidden md:block -top-44 overflow-hidden  '>
                 <div className='relative w-full h-full  '>
                     <Image src={Vc} alt='' className='absolute  -right-[55%] -top-96 object-cover scale-50' />

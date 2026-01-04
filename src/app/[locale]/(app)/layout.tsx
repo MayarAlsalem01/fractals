@@ -10,7 +10,7 @@ export default async function layout({ children }: { children: ReactNode }) {
             <Navbar />
             {children}
             <Footer />
-            <ScrollUpButton />
+            {/* <ScrollUpButton /> */}
 
         </div>
     )

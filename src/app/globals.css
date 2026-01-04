@@ -71,7 +71,8 @@ body {
   right: -2.2rem;
 }
 
-#navBtn:hover div img {
+#navBtn:hover div img,
+.footer-btn:hover div img {
   transform: rotate(180deg);
 }
 

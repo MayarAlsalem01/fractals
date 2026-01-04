@@ -8,6 +8,7 @@ import Container from '@/components/Container'
 import FacebookIcon from '../../../../public/assets/Social media icons/facebook.png'
 import InstagramIcon from '../../../../public/assets/Social media icons/instagram.png'
 import EmailIcon from '../../../../public/assets/Social media icons/email.png'
+import LoctionIcon from '../../../../public/assets/Social media icons/loction.png'
 import LinkedInIcon from '../../../../public/assets/Social media icons/linkedin.png'
 import TelegramIcon from '../../../../public/assets/Social media icons/telegram.png'
 import { MapPinIcon } from 'lucide-react'
@@ -52,10 +53,7 @@ export default function ContactUs() {
                         We’re a collective of designers, developers, and thinkers who believe that digital experiences  can<br /> move people — not just reach them.  Whether you’re building a brand, a product, or a story, <br />we’re here to help it take form — intelligently, beautifully, and with purpose.
                     </p>
                     <div className='flex items-center gap-2'>
-                        <div className='bg-white/85 w-fit p-1 rounded rounded-tl-lg rounded-br-lg'>
-                            <MapPinIcon color='black ' />
-
-                        </div>
+                        <Image src={LoctionIcon} alt='email' className='bg-black w-6' />
                         <span>Damascus / Dubi</span>
                     </div>
                     <div className='flex items-center gap-2'>

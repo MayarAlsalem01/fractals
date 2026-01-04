@@ -3,6 +3,8 @@ import Container from '../Container'
 import Cobe from '../Cobe'
 import Image from 'next/image'
 import Star from '../../../public/assets/star.png'
+import { ReactNode } from 'react'
+import { Link } from '@/i18n/navigation'
 export default function Footer() {
     return (
         <footer className='relative overflow-hidden px-2 md:px-24 '>
@@ -19,9 +21,9 @@ export default function Footer() {
                     <div className='flex flex-col gap-2 mb-4'>
                         <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>Grow Globally <br /> with Fractals</p>
                         <p>Seamlessly manage inventory, optimize operations, and scale your <br />business worldwide. </p>
-                        <PrimaryButton fill className='w-fit !px-3'>
+                        <PrimaryButton fill className='footer-btn w-fit !px-3'>
                             <div className=' flex items-center gap-1'>
-                                <Image src={Star} alt='star' className='w-5' />
+                                <Image src={Star} alt='star' className='w-5  transition-all duration-500' />
                                 <span>Get Started</span>
                             </div>
                         </PrimaryButton>
@@ -33,13 +35,30 @@ export default function Footer() {
                             Naviagation
                         </h3>
                         <ul className='flex flex-col gap-1'>
-                            <li>Home</li>
-                            <li>About Us</li>
-                            <li>Blogs</li>
-                            <li>Vacancies</li>
-                            <li>Our Expertise</li>
-                            <li> Our Process</li>
-                            <li>Contact Us</li>
+                            <FooterLink href='/'>
+                                Home
+                            </FooterLink>
+                            <FooterLink href='/about_us'>
+                                About Us
+                            </FooterLink>
+                            <FooterLink href='/blogs'>
+                                Blogs
+                            </FooterLink>
+                            <FooterLink href='/vacancies'>
+                                Vacancies
+                            </FooterLink>
+                            <FooterLink href='/expertise'>
+                                Our Expertise
+                            </FooterLink>
+                            <FooterLink href='/#our_process'>
+                                Our Process
+                            </FooterLink>
+                            <FooterLink href='/contact_us'>
+                                Contact Us
+                            </FooterLink>
+
+
+
 
                         </ul>
                     </div>
@@ -50,9 +69,18 @@ export default function Footer() {
                         <ul className='flex flex-col gap-1'>
 
                             <li>Product Mangement</li>
-                            <li>Desktop Breif </li>
-                            <li>Mobile Breif </li>
-                            <li>Web Breif </li>
+
+                            <FooterLink href='/brief/desktop'>
+                                Desktop Breif
+                            </FooterLink>
+                            <FooterLink href='/brief/mobile'>
+                                Mobile Breif
+                            </FooterLink>
+
+                            <FooterLink href='/brief/web'>
+                                Web Breif
+                            </FooterLink>
+
                             <li>UI&UX Breif </li>
                             <li>Brand&Logo Breif </li>
                             <li>Soical Media Breif </li>
@@ -78,7 +106,9 @@ export default function Footer() {
                                 Partners
                             </h3>
                             <ul className='flex flex-col gap-1'>
-                                <li>ReflectArt</li>
+                                <FooterLink href='https://reflectart.net/' target='_blank'>
+                                    ReflectArt
+                                </FooterLink>
 
 
                             </ul>
@@ -89,10 +119,16 @@ export default function Footer() {
                             Social Media
                         </h3>
                         <ul className='flex flex-col gap-1'>
-                            <li>Facebook</li>
-                            <li>Instagram</li>
-                            <li>LinkedIn</li>
-                            <li>Telegram</li>
+                            <FooterLink href={'https://www.facebook.com/share/1aCkhgsCWj/?mibextid=wwXIfr'} target='_blank'>
+                                Facebook
+                            </FooterLink>
+                            <FooterLink href={'https://www.instagram.com/fractalstech?igsh=MWpxdDdtNW82YW1seg=='} target='_blank'>
+                                Instagram
+                            </FooterLink>
+                            <FooterLink href={'https://www.linkedin.com/company/fractals1group/'} target='_blank'>
+                                LinkedIn
+                            </FooterLink>
+
 
                         </ul>
                     </div>
@@ -103,4 +139,15 @@ export default function Footer() {
             </Container>
         </footer>
     )
+}
+
+function FooterLink({ children, target = "_self", href }: { children: ReactNode, href: string, target?: '_blank' | '_self' }) {
+    return (
+        <Link href={href} target={target}>
+            <li className=' w-fit relative transition-opacity after:absolute after:h-[1px] after:opacity-0 after:bg-white after:w-full after:left-0 after:bottom-0 hover:after:opacity-100'>
+                {children}
+            </li>
+        </Link>
+    )
+
 }
