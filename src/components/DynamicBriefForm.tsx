@@ -16,7 +16,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from './ui/select'
-import { MultiSelect, MultiSelectContent, MultiSelectGroup, MultiSelectItem, MultiSelectTrigger, MultiSelectValue } from './ui/multi-select'
 import { Attr } from '@/features/breifs/types'
 
 

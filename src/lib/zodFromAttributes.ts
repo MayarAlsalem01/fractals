@@ -22,7 +22,7 @@ export function buildZodSchema(attributes: Attr[]) {
 
         // helper to create string validators with meta
         const stringWithMeta = (): z.ZodTypeAny => {
-            let s = z.string()
+            let s = z.string({ error: "required field." })
             if (meta.minLength != null) {
                 const min = Number(meta.minLength)
                 if (!Number.isNaN(min)) s = s.min(min, { message: `${attr.label} must be at least ${min} characters.` })
@@ -77,7 +77,7 @@ export function buildZodSchema(attributes: Attr[]) {
                 break
 
             case 'multiselect':
-                field = z.array(z.string(), { error: `this field is required.` })
+                field = z.array(z.string(), { error: `required field.` })
                 break
 
             case 'json':
@@ -89,7 +89,8 @@ export function buildZodSchema(attributes: Attr[]) {
             case 'file':
                 field = z.array(z.string())
                 break
-
+            case 'selectComboBox':
+                field = z.string({ error: "required field." })
             default:
                 field = z.any()
                 break

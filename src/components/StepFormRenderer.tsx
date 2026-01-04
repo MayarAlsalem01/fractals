@@ -20,6 +20,8 @@ import { DatePicker } from './DatePicker'
 import { Slider } from './ui/slider'
 import Range from './Range'
 import BlobUploader from '@/features/breifs/components/BlobUploader'
+import ColorPicker from '@/features/blog/components/Color'
+import { useColorList } from '@/hooks/useColorList'
 // import { MultiSelect, MultiSelectContent, MultiSelectGroup, MultiSelectItem, MultiSelectTrigger, MultiSelectValue } from './ui/multi-select'
 
 // --- Type Definitions (Copied from store) ---
@@ -53,6 +55,7 @@ interface StepFormRendererProps {
 // --- Step Form Renderer Component ---
 
 export default function StepFormRenderer({ section, formMethods }: StepFormRendererProps) {
+    const { addColor, colors, removeColor, clearColors } = useColorList()
     const { register, control, setValue, formState: { errors } } = formMethods
     const attributes = section.attributes
 
@@ -73,7 +76,60 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                 </label> : ''}
 
                 {/* Input Rendering Logic - Fully restored from user's original file */}
-                {attr.type === 'file' ? (
+                {attr.type === 'colorList' ? (
+                    <Controller control={control}
+                        name={attr.key}
+                        render={({ field: { onChange } }) => (
+                            <div className="">
+                                <div className="flex gap-4 items-center justify-start flex-row-reverse ">
+                                    <ColorPicker colors={colors} onAddColor={(color) => {
+                                        addColor(color)
+                                        onChange(colors)
+                                    }} onRemoveColor={(index) => {
+                                        removeColor(index)
+                                        onChange(colors)
+                                    }} />
+
+                                    {colors.map((color, index) => (
+                                        <button
+                                            key={`${color}-${index}`}
+                                            onClick={() => removeColor(index)}
+                                            className="group relative flex-shrink-0 transition-all duration-300 hover:scale-110 active:scale-95"
+                                            title={`Click to remove ${color}`}
+                                        >
+                                            {/* Circular Swatch with White Border */}
+                                            <div
+                                                className="w-12 h-12 rounded-full border-2 border-white shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+                                                style={{ backgroundColor: color }}
+                                            />
+
+                                            {/* Hex Value Tooltip */}
+                                            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                                <p className="text-xs font-mono text-muted-foreground bg-card/80 backdrop-blur-sm px-2 py-1 rounded">
+                                                    {color}
+                                                </p>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                                {colors.length > 0 && (
+                                    <div className="flex items-center gap-4 pt-8 border-t border-border mt-2">
+                                        <span className="text-muted-foreground">
+                                            {colors.length} color{colors.length !== 1 ? "s" : ""}
+                                        </span>
+                                        <Button
+                                            variant="outline"
+                                            onClick={clearColors}
+                                            className="px-6"
+                                        >
+                                            Clear All
+                                        </Button>
+
+                                    </div>
+                                )}
+                            </div>
+                        )} />
+                ) : attr.type === 'file' ? (
                     <Controller
                         control={control}
                         name={attr.key}
