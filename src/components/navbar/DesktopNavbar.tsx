@@ -30,11 +30,13 @@ export default function DesktopNavbar({ links }: { links: navLinks[] }) {
 
 function NavDesktopBtn() {
     return (
-        <PrimaryButton id='navBtn' fill className='hidden md:flex'>
-            <div className='relative z-50 flex items-center  gap-1'>
-                <Image src={Star} alt='star' className='w-5 transition-all duration-500' />
-                <p >Get started</p>
-            </div>
-        </PrimaryButton>
+        <Link href={'/expertise'} className='hidden md:flex'>
+            <PrimaryButton id='navBtn' fill className='hidden md:flex'>
+                <div className='relative z-50 flex items-center  gap-1'>
+                    <Image src={Star} alt='star' className='w-5 transition-all duration-500' />
+                    <p >Get started</p>
+                </div>
+            </PrimaryButton>
+        </Link>
     )
 }

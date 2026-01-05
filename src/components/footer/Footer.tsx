@@ -18,18 +18,20 @@ export default function Footer() {
             </div>
             <Container className='lg:!py-0 lg:!pt-10'>
                 <div>
-                    <div className='flex flex-col gap-2 mb-4'>
+                    <div className='flex flex-col gap-2 mb-4 mt-44 md:mt-0'>
                         <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>Grow Globally <br /> with Fractals</p>
                         <p>Seamlessly manage inventory, optimize operations, and scale your <br />business worldwide. </p>
-                        <PrimaryButton fill className='footer-btn w-fit !px-3'>
-                            <div className=' flex items-center gap-1'>
-                                <Image src={Star} alt='star' className='w-5  transition-all duration-500' />
-                                <span>Get Started</span>
-                            </div>
-                        </PrimaryButton>
+                        <Link href={'/expertise'}>
+                            <PrimaryButton fill className='footer-btn w-fit !px-3'>
+                                <div className=' flex items-center gap-1'>
+                                    <Image src={Star} alt='star' className='w-5  transition-all duration-500' />
+                                    <span>Get Started</span>
+                                </div>
+                            </PrimaryButton>
+                        </Link>
                     </div>
                 </div>
-                <div className='grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4'>
+                <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
                     <div className='flex flex-col gap-2'>
                         <h3 className='font-bold text-lg'>
                             Naviagation
@@ -94,9 +96,16 @@ export default function Footer() {
                                 Legal
                             </h3>
                             <ul className='flex flex-col gap-1'>
-                                <li>Privacy Policy</li>
-                                <li>Terms Of Service</li>
-                                <li>Cookies Settings</li>
+                                <FooterLink href='privacy-terms/privacy-policy'>
+
+                                    Privacy Policy
+                                </FooterLink>
+                                <FooterLink href='privacy-terms/terms-of-service'>
+                                    Terms Of Service
+                                </FooterLink>
+                                <FooterLink href='privacy-terms/cookies'>
+                                    Cookies Settings
+                                </FooterLink>
 
 
                             </ul>

@@ -28,7 +28,7 @@ export default async function Hero() {
 
                 </div>
                 <Link href={'/expertise'}>
-                    <PrimairyButton className="w-fit px-5 !py-6">
+                    <PrimairyButton className="w-fit px-5 !py-6" >
                         <p>Explore Expertise</p>
                     </PrimairyButton>
                 </Link>

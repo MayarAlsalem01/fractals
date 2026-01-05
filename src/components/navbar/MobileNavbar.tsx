@@ -66,11 +66,13 @@ export default function MobileNavbar({ links }: { links: LinkType[] }) {
 }
 function NavMobileBtn() {
     return (
-        <PrimaryButton fill className='bg-linear-to-tr from-brand-primary to-brand-tertiary to-65% '>
-            <div className='flex items-center gap-2'>
-                <Image src={Star} alt='star' className='w-5' />
-                <p className='font-semibold hidden md:block'>Get Started</p>
-            </div>
-        </PrimaryButton>
+        <Link href={'/expertise'}>
+            <PrimaryButton fill className='bg-linear-to-tr from-brand-primary to-brand-tertiary to-65% '>
+                <div className='flex items-center gap-2'>
+                    <Image src={Star} alt='star' className='w-5' />
+                    <p className='font-semibold hidden md:block'>Get Started</p>
+                </div>
+            </PrimaryButton>
+        </Link>
     )
 }

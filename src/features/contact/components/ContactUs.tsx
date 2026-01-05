@@ -3,20 +3,19 @@ import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import ContactDesktopBg from '../../../../public/assets/contact_us/Contact.png'
 import ContactMobileBg from '../../../../public/assets/contact_us/Contact-mobile (1).png'
 import Image from 'next/image'
-import Vc from '../../../../public/assets/vectors/Artboard 1 copy.png'
 import Container from '@/components/Container'
 import FacebookIcon from '../../../../public/assets/Social media icons/facebook.png'
 import InstagramIcon from '../../../../public/assets/Social media icons/instagram.png'
 import EmailIcon from '../../../../public/assets/Social media icons/email.png'
-import LoctionIcon from '../../../../public/assets/Social media icons/loction.png'
+import LoctionIcon from '../../../../public/assets/Social media icons/Pin.svg'
 import LinkedInIcon from '../../../../public/assets/Social media icons/linkedin.png'
 import TelegramIcon from '../../../../public/assets/Social media icons/telegram.png'
-import { MapPinIcon } from 'lucide-react'
 import ClockIcon from '../../../../public/assets/Social media icons/Clock.svg'
+import Link from 'next/link'
 export default function ContactUs() {
     return (
         <div className='min-h-screen relative !pb-96 md:!pb-0 '>
-            <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-black/40 ' />
+            <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-linear-to-b from-transparent from-55% to-black ' />
             <div className='w-full h-full absolute   left-0 top-0 -z-30 '>
 
                 <Image src={ContactDesktopBg} alt='contact' className='hidden md:block w-full h-full ' />
@@ -54,7 +53,7 @@ export default function ContactUs() {
                     </p>
                     <div className='flex items-center gap-2'>
                         <Image src={LoctionIcon} alt='email' className='bg-black w-6' />
-                        <span>Damascus / Dubi</span>
+                        <span>Damascus / Dubai</span>
                     </div>
                     <div className='flex items-center gap-2'>
 
@@ -67,14 +66,19 @@ export default function ContactUs() {
                         <div className='flex items-center gap-2'>
 
                             <Image src={TelegramIcon} alt='telegram' className='bg-black w-6' />
-                            <Image src={FacebookIcon} alt='facebook' className='bg-black w-6' />
+                            <Link href={'https://www.facebook.com/share/1aCkhgsCWj/?mibextid=wwXIfr'}>
+                                <Image src={FacebookIcon} alt='facebook' className='bg-black w-6' />
+                            </Link>
 
 
 
+                            <Link href={'https://www.linkedin.com/company/fractals1group/'}>
+                                <Image src={LinkedInIcon} alt='linkedIn' className='bg-black w-6' />
+                            </Link>
 
-                            <Image src={LinkedInIcon} alt='linkedIn' className='bg-black w-6' />
-
-                            <Image src={InstagramIcon} alt='Instagram' className='bg-black w-6' />
+                            <Link href={'https://www.instagram.com/fractalstech?igsh=MWpxdDdtNW82YW1seg=='}>
+                                <Image src={InstagramIcon} alt='Instagram' className='bg-black w-6' />
+                            </Link>
 
                         </div>
                         <span>@Fractals Group</span>

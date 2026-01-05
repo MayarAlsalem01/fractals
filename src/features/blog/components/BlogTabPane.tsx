@@ -32,8 +32,8 @@ export default function BlogTabPane() {
         },
     ]
     return (
-        <Tabs defaultValue='Creativity' className=' justify-end relative z-10' dir='rtl' >
-            <TabsList className='  border border-accent rounded-4xl bg-transparent h-fit flex-wrap !justify-start px-3 gap-2 py-2 '>
+        <Tabs defaultValue='Creativity' className=' items-end  '  >
+            <TabsList className='  border border-accent rounded-4xl bg-transparent h-fit flex-wrap !justify-start px-3 gap-2 py-2  backdrop-blur-sm relative z-40'>
                 <BlogTabsTrigger value="Creativity"  >Creativity</BlogTabsTrigger>
                 <BlogTabsTrigger value="Development">Development</BlogTabsTrigger>
                 <BlogTabsTrigger value="AI & Tech">AI & Tech</BlogTabsTrigger>
