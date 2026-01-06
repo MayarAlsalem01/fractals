@@ -134,25 +134,78 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                         control={control}
                         name={attr.key}
                         render={({ field: { value = [], onChange } }) => {
-                            if (attr.meta.max)
-                                return <div className='grid grid-cols-7 gap-3'>
-                                    {
-                                        Array.from({ length: attr.meta.max })
-                                            .map((_, i) => <BlobUploader key={i} onValueChnage={(val) => {
-                                                console.log(i)
-                                                const next = [...value]
-                                                next[i] = val
-                                                // optionally remove nulls at the end: keep length equal to meta.max if you want slots
-                                                onChange(next)
+                            const maxFiles = attr.meta?.max || 1;
+                            // Ensure value is an array
+                            const currentFiles = Array.isArray(value) ? value : [];
 
-                                            }} value={value[i]} />)
-                                    }
+                            // Logic to add a new empty slot
+                            const addSlot = () => {
+                                if (currentFiles.length < maxFiles) {
+                                    onChange([...currentFiles, ""]);
+                                }
+                            };
+
+                            // Logic to remove a slot
+                            const removeSlot = (index: number) => {
+                                const next = currentFiles.filter((_, i) => i !== index);
+                                onChange(next);
+                            };
+
+                            return (
+                                <div className="space-y-3">
+                                    <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3'>
+                                        {currentFiles.map((fileUrl, i) => (
+                                            <div key={`${attr.key}-${i}`} className="relative group">
+                                                <BlobUploader
+                                                    id={`${attr.key}-${i}`}
+                                                    onValueChnage={(val) => {
+                                                        const next = [...currentFiles];
+                                                        next[i] = val;
+                                                        onChange(next);
+                                                    }}
+                                                    value={fileUrl}
+                                                />
+                                                {/* Optional: Remove button to delete this specific slot */}
+                                                {currentFiles.length > 0 && (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => removeSlot(i)}
+                                                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                                                    >
+                                                        ×
+                                                    </button>
+                                                )}
+                                            </div>
+                                        ))}
+
+                                        {/* The Plus Button / Add More Slot */}
+                                        {currentFiles.length < maxFiles && (
+                                            <button
+                                                type="button"
+                                                onClick={addSlot}
+                                                className="flex flex-col items-center justify-center rounded-lg aspect-square transition-all group "
+                                                title="Add another file"
+                                            >
+                                                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center   transition-colors">
+                                                    <span className="text-xl font-bold">+</span>
+                                                </div>
+                                                <span className="text-[10px] mt-1 text-gray-500 font-medium">Add More</span>
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    {/* Initial state: if no files and no slots, show at least one uploader or just the plus button */}
+                                    {currentFiles.length === 0 && (
+                                        <Button
+                                            variant="outline"
+                                            onClick={addSlot}
+                                            className="w-full border-dashed py-8"
+                                        >
+                                            + Click to upload {attr.label}
+                                        </Button>
+                                    )}
                                 </div>
-                            else
-                                return <BlobUploader onValueChnage={(val) => {
-                                    onChange([...value, val])
-                                    console.log(attr.meta.max)
-                                }} />
+                            );
                         }}
                     />
                 ) :

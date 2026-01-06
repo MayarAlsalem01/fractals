@@ -5,7 +5,7 @@ import { upload } from "@vercel/blob/client";
 import { PutBlobResult } from "@vercel/blob";
 import UploadImage from '../../../../public/assets/Upload.svg'
 import Image from "next/image";
-export default function BlobUploader({ onValueChnage, value }: { onValueChnage?: (value: string) => void, value?: string }) {
+export default function BlobUploader({ onValueChnage, value, id }: { onValueChnage?: (value: string) => void, value?: string, id?: string }) {
     const fileRef = useRef<HTMLInputElement | null>(null);
     const [status, setStatus] = useState<string | null>(null);
     const [blob, setBlob] = useState<PutBlobResult | null>(null);
@@ -46,9 +46,9 @@ export default function BlobUploader({ onValueChnage, value }: { onValueChnage?:
 
     return (
         <div className="flex flex-col items-start  ">
-            <input ref={fileRef} id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="hidden" />
+            <input ref={fileRef} id={id} type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="hidden" />
             <div className="flex justify-between items-centerpy-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4 py-4" >
-                <label htmlFor="fileInput" className="text-center">
+                <label htmlFor={id} className="text-center">
                     <Image src={UploadImage} alt="upload" className="w-12 " />
                 </label>
             </div>
