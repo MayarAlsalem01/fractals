@@ -99,7 +99,7 @@ function BlogsGrid({ children }: { children: ReactNode }) {
 }
 export function BlogCard({ title, text }: { title: string, text: string }) {
     return (
-        <Card className=' relative bg-transparent gap-3 overflow-hidden'>
+        <Card className=' relative bg-transparent gap-3 overflow-hidden z-30'>
 
             <CardHeader >
                 <Image src={BlogImage} alt='asd' className='w-full object-cover rounded-2xl z-40 opacity-90' />
