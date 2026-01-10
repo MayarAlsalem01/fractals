@@ -82,8 +82,10 @@ export default function Footer() {
                             <FooterLink href='/brief/web'>
                                 Web Breif
                             </FooterLink>
+                            <FooterLink href='/brief/ui_ux'>
+                                UI&UX Breif
+                            </FooterLink>
 
-                            <li>UI&UX Breif </li>
                             <li>Brand&Logo Breif </li>
                             <li>Soical Media Breif </li>
 

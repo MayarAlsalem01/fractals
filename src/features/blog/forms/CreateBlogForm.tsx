@@ -1,4 +1,4 @@
-
+'use client'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { createBlogSchema, createBlogValues } from "../schema/blogSchema"
@@ -7,8 +7,9 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import createBlogAction from "../actions/createBlogAction"
-import { useMutation } from "@tanstack/react-query"
 import { toast } from "sonner"
+import TiptapEditor from "@/components/TextEditor"
+import BlobUploader from "@/features/breifs/components/BlobUploader"
 
 export default function CreateBlogForm() {
     const form = useForm<createBlogValues>({
@@ -16,11 +17,12 @@ export default function CreateBlogForm() {
     })
 
     async function onSubmit(values: createBlogValues) {
-        const res = await createBlogAction({ createBlogValues: values })
-        if (res.isError) {
-            toast.error('Something went wrong ')
-        }
-        toast.success('Blog Created Successfuly')
+        // const res = await createBlogAction({ createBlogValues: values })
+        // if (res.isError) {
+        //     toast.error('Something went wrong ')
+        // }
+        // toast.success('Blog Created Successfuly')
+        console.log(values)
 
     }
     return (
@@ -33,7 +35,7 @@ export default function CreateBlogForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>
-                                    title
+                                    title:
                                 </FormLabel>
                                 <FormControl>
                                     <Input className="!bg-transparent" placeholder="title..." {...field} />
@@ -44,14 +46,47 @@ export default function CreateBlogForm() {
                     />
                     <FormField
                         control={form.control}
-                        name="descrption"
+                        name="short_description"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>
-                                    descrption
+                                    short description:
                                 </FormLabel>
                                 <FormControl>
-                                    <Textarea className="!bg-transparent" placeholder="descrption..." {...field} />
+                                    <Textarea className="!bg-transparent" placeholder="short description..." {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name="long_description"
+                        render={({ field }) => (
+                            <FormItem >
+                                <FormLabel>
+                                    long description:
+                                </FormLabel>
+                                <FormControl >
+                                    <div className="border rounded p-4 ">
+                                        <TiptapEditor  {...field} />
+                                    </div>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="long_description"
+                        render={({ field }) => (
+                            <FormItem >
+                                <FormLabel>
+                                    Blog Image:
+                                </FormLabel>
+                                <FormControl >
+                                    <BlobUploader />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

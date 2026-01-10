@@ -76,6 +76,10 @@ body {
   transform: rotate(180deg);
 }
 
+.tiptap {
+  margin: 0;
+}
+
 .btn:hover .btn-blue-background {
   height: 100%;
   /* right: 0% !important; */

@@ -4,7 +4,9 @@ import { boolean, integer, json, jsonb, pgTable, serial, text, timestamp, varcha
 
 export const blogs = pgTable("blogs", {
     id: serial("id").primaryKey(),
-    description: text("description").notNull(),
+    short_description: text("short_description").notNull(),
+    long_description: text("long_description").notNull(),
+    image_url: text("image_url").notNull(),
     title: text("title").notNull(),
 
 });

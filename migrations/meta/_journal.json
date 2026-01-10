@@ -57,6 +57,13 @@
       "when": 1765620799539,
       "tag": "0007_boring_nico_minoru",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1767865213758,
+      "tag": "0008_superb_fat_cobra",
+      "breakpoints": true
     }
   ]
 }

@@ -4,6 +4,7 @@ import getBlogsAction from '@/features/blog/actions/getBlogsAction'
 import { CreateBlogDialog } from '@/features/blog/components/CreateBlogDialog'
 import DeleteBlogButton from '@/features/blog/components/DeleteBlogButton'
 import { EditBlogDialog } from '@/features/blog/components/EditBlogDialog'
+import { Link } from '@/i18n/navigation'
 import { Trash2 } from 'lucide-react'
 import React from 'react'
 
@@ -16,7 +17,11 @@ export default async function page() {
                 <h1 className='text-4xl font-bold font-gravesend'>
                     Blogs
                 </h1>
-                <CreateBlogDialog />
+                <Button >
+                    <Link href='/dashboard/blogs/create'>
+                        Create Blog
+                    </Link>
+                </Button>
             </div>
             <div className='rounded-lg shadow-sm mt-8'>
 
