@@ -15,8 +15,10 @@ export default async function createBlogAction({ createBlogValues }: { createBlo
         } as Result<string, string>
     }
     await db.insert(blogs).values({
-        description: createBlogValues.descrption,
-        title: createBlogValues.title
+        short_description: createBlogValues.short_description,
+        long_description: createBlogValues.long_description,
+        title: createBlogValues.title,
+        image_url: ''
     })
     return {
         isError: false,

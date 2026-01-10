@@ -14,7 +14,8 @@ export default function EditBlogForm({ blog }: { blog: Blog }) {
     const form = useForm<createBlogValues>({
         resolver: zodResolver(createBlogSchema),
         defaultValues: {
-            descrption: blog.description,
+            short_description: blog.short_description,
+            long_description: blog.long_description,
             title: blog.title
         }
     })
@@ -48,14 +49,14 @@ export default function EditBlogForm({ blog }: { blog: Blog }) {
                     />
                     <FormField
                         control={form.control}
-                        name="descrption"
+                        name="short_description"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>
-                                    descrption
+                                    short_description
                                 </FormLabel>
                                 <FormControl>
-                                    <Textarea className="!bg-transparent" placeholder="descrption..." {...field} />
+                                    <Textarea className="!bg-transparent" placeholder="short_description..." {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

@@ -19,7 +19,8 @@ export default async function updateBlogAction({ blog, blogId }: { blog: updateB
             ok: false
         }
     await db.update(blogs).set({
-        description: blog.descrption,
+        short_description: blog.short_description,
+        long_description: blog.long_description,
         title: blog.title,
     }).where(eq(blogs.id, blogId))
     revalidatePath('dashboard/blogs')

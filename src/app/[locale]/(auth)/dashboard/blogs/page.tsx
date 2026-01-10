@@ -41,7 +41,7 @@ export default async function page() {
                                 blogs.data.map((blog) => <TableRow key={blog.id}>
                                     <TableCell className="font-medium">{blog.id}</TableCell>
                                     <TableCell>{blog.title}</TableCell>
-                                    <TableCell className='truncate max-w-xs '>{blog.description}</TableCell>
+                                    <TableCell className='truncate max-w-xs '>{blog.short_description}</TableCell>
                                     <TableCell className="text-right flex justify-end">
                                         {/* <EditRoleDailog role={{
                                         name: role.name.ar,
