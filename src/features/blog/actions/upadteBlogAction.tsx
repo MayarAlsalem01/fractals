@@ -4,8 +4,10 @@ import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { updateBlogValues } from '../schema/blogSchema'
+import isUserAuthenticated from '@/features/auth/utils/isUserAuthenticated'
 
 export default async function updateBlogAction({ blog, blogId }: { blog: updateBlogValues, blogId: number }): Promise<Result<string | undefined, string | undefined>> {
+    if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" } } as Result<string | undefined, string | undefined>
     const blogq = await db.query.blogs.findMany({
         where: (blogs, { eq }) => eq(blogs.id, blogId)
     })
@@ -22,6 +24,8 @@ export default async function updateBlogAction({ blog, blogId }: { blog: updateB
         short_description: blog.short_description,
         long_description: blog.long_description,
         title: blog.title,
+        image_url: blog.image_url,
+        category_id: blog.category_id
     }).where(eq(blogs.id, blogId))
     revalidatePath('dashboard/blogs')
     return {

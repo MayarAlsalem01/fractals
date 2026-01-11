@@ -56,11 +56,10 @@ export default function ContactUs() {
                         <span>Damascus / Dubai</span>
                     </div>
                     <div className='flex items-center gap-2'>
-
-                        <Image src={EmailIcon} alt='email' className='bg-black w-6' />
-
-
-                        <span>info@fractals.net</span>
+                        <a href='https://mail.google.com/mail/?view=cm&fs=1&to=info@fractals.net&su=Subject&body=Message%20here' target='_blank' className='flex items-center gap-2'>
+                            <Image src={EmailIcon} alt='email' className='bg-black w-6' />
+                            <span>info@fractals.net</span>
+                        </a>
                     </div>
                     <div className='flex items-center gap-2'>
                         <div className='flex items-center gap-2'>

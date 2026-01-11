@@ -9,12 +9,14 @@ import BlogTabPane from '@/features/blog/components/BlogTabPane';
 import VacanciesSection from '@/features/vacancies/components/VacanciesSection';
 import Container from '@/components/Container';
 import ContactUs from '@/features/contact/components/ContactUs';
+import getBlogsPagintion from '@/features/blogCategory/actions/getBlogsPagintion';
+import { Link } from '@/i18n/navigation';
+import PrimaryButton from '@/ui/PrimaryButton';
 
 
 
 export default async function Home() {
   // create template
-
   return (
     <div >
       <main>
@@ -36,14 +38,21 @@ export default async function Home() {
           <Process />
 
           <Container className='bg-black px-4'>
-            <section className=' relative '>
+            <section className='pt-20'>
               <TransparentTextAnimation>
                 <p className='text-4xl lg:text-7xl font-gravesend font-bold w-fit mx-auto bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>Blogs</p>
               </TransparentTextAnimation>
+              <div >
+                <BlogTabPane limit={6} />
+                <div className='flex justify-between items-center mt-10 mx-auto w-fit'>
 
-              <BlogTabPane />
-
-
+                  <Link href="/blogs" className='text-brand-primary font-medium '>
+                    <PrimaryButton>
+                      View All
+                    </PrimaryButton>
+                  </Link>
+                </div>
+              </div>
             </section>
           </Container>
 

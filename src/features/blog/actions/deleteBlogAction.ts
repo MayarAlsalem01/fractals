@@ -3,8 +3,10 @@ import { db } from '@/db/drizzle'
 import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
+import isUserAuthenticated from '@/features/auth/utils/isUserAuthenticated'
 
 export default async function deleteBlogAction(blogId: number): Promise<Result<string | undefined, string | undefined>> {
+    if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" } } as Result<string | undefined, string | undefined>
     const blog = await db.query.blogs.findMany({
         where: (blogs, { eq }) => eq(blogs.id, blogId)
     })

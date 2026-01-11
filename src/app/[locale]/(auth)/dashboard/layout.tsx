@@ -1,6 +1,6 @@
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import React, { ReactNode } from 'react'
-import { BookIcon, Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { BookIcon, Calendar, Grid2X2Icon, Home, Inbox, Search, Settings } from "lucide-react"
 import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -19,6 +19,16 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                                             <BookIcon />
                                             <span>Blogs</span>
                                         </Link>
+
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                                <SidebarMenuItem >
+                                    <SidebarMenuButton asChild>
+                                        <Link href={'/dashboard/categories'} className=' bg-accent shadow  shadow-black/40'>
+                                            <Grid2X2Icon />
+                                            <span>Categories</span>
+                                        </Link>
+
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             </SidebarMenu>

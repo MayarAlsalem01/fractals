@@ -8,7 +8,7 @@ import SecondryButton from '@/ui/SecondryButton';
 export default async function Services() {
     const t = await getTranslations('expertise')
     return (
-        <div className='min-h-screen w-full flex flex-col lg:items-end justify-center relative py-12 pb-18 px-4 lg:px-32 '>
+        <div className='min-h-screen w-full flex flex-col lg:items-end justify-center relative py-12  md:pb-18 px-4 lg:px-32 '>
             <div className='absolute -left-[57rem] top-[-84%]  h-full w-full'>
                 <Image src={RingVc} alt='' className='rotate-[130deg] scale-75' />
             </div>
@@ -19,7 +19,7 @@ export default async function Services() {
             </div>
             <div className='w-full h-full bg-linear-to-r to-brand-primary/30 from-brand-tertiary/30 top-0 left-0  absolute -z-10 ' />
             <p className='text-4xl md:text-7xl mx-auto w-fit opacity-20 mt-8 mb-1 font-gravesend font-bold'>{t('our expertise')}</p>
-            <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4 pb-24'>
+            <div className=' grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-4 gap-4 pb-24'>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent '>
                     <ServicesCardHeader >
                         {t('web devlopenet.title')}
@@ -108,7 +108,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Branding & Logo Design.title')}
                     </ServicesCardHeader>
@@ -129,7 +129,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Marketing & Social Media Management.title')}
                     </ServicesCardHeader>
@@ -151,7 +151,7 @@ export default async function Services() {
                     </ServicesCardFooter>
                 </Card>
 
-                <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Network.title')}
                     </ServicesCardHeader>
@@ -178,7 +178,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('IoT Solutions.title')}
                     </ServicesCardHeader>

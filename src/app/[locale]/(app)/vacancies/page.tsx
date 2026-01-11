@@ -24,7 +24,7 @@ export default async function page() {
                     </div>
                 </div>
 
-                <BlogCard text='We are hiring a creative Social Media Specialist to manage our digital presence, create engaging content, and grow our community. You will be responsible for strategy execution, daily posting, and analyzing performance metrics to drive brand awareness. If you have experience in social media marketing, excellent copywriting skills, and a passion for digital...' title='Social Media Specialist' />
+                {/* <BlogCard text='We are hiring a creative Social Media Specialist to manage our digital presence, create engaging content, and grow our community. You will be responsible for strategy execution, daily posting, and analyzing performance metrics to drive brand awareness. If you have experience in social media marketing, excellent copywriting skills, and a passion for digital...' title='Social Media Specialist' />
 
                 <BlogCard text='We are seeking a talented Graphic Designer to create visual concepts that communicate our brand message effectively. You will be responsible for designing digital and print assets, including social media graphics, logos, and marketing materials, using Adobe Creative Suite. If you have a strong portfolio, a keen eye for aesthetics, and the ability to collaborate with our marketing team...' title='Graphic Designer' />
 
@@ -35,7 +35,7 @@ export default async function page() {
 
                 <BlogCard text='We are seeking a talented Flutter Developer to build high-quality, cross-platform mobile applications for iOS and Android using a single codebase. You will be responsible for writing clean Dart code, implementing UI designs, connecting to third-party APIs, and ensuring smooth performance. Experience with state management, widget testing, and the app deployment process to the App Store and Google Play is essential.' title='Flutter Developer' />
 
-                <BlogCard text='We are seeking a skilled Back-End Developer to build and maintain the server-side logic and databases that power our applications. You will be responsible for developing robust APIs, optimizing system performance, and ensuring data security and scalability. Proficiency in server-side languages (such as Node.js, Python, or PHP) and database management is essential.' title='Back-End Developer' />
+                <BlogCard text='We are seeking a skilled Back-End Developer to build and maintain the server-side logic and databases that power our applications. You will be responsible for developing robust APIs, optimizing system performance, and ensuring data security and scalability. Proficiency in server-side languages (such as Node.js, Python, or PHP) and database management is essential.' title='Back-End Developer' /> */}
             </section>
         </div>
 

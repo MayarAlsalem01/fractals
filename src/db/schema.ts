@@ -8,8 +8,31 @@ export const blogs = pgTable("blogs", {
     long_description: text("long_description").notNull(),
     image_url: text("image_url").notNull(),
     title: text("title").notNull(),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+    updated_at: timestamp("updated_at").defaultNow().notNull(),
+    category_id: integer("category_id").references(() => blog_categories.id).notNull(),
 
 });
+// blog categories
+export const blog_categories = pgTable("blog_categories", {
+    id: serial("id").primaryKey(),
+    name: text("name").notNull(),
+    normalizedName: text("normalizedName").notNull(),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+    updated_at: timestamp("updated_at").defaultNow().notNull(),
+});
+
+// blog && categories relations
+export const blog_categories_relations = relations(blog_categories, ({ many }) => ({
+    blogs: many(blogs),
+}));
+//categories relations
+export const categories_relations = relations(blogs, ({ one }) => ({
+    category: one(blog_categories, {
+        fields: [blogs.category_id],
+        references: [blog_categories.id],
+    }),
+}));
 export const users = pgTable("users", {
     id: serial("id").primaryKey(),
     username: text('username').notNull().unique(),
@@ -130,5 +153,6 @@ export type Blog = typeof blogs.$inferSelect
 export type Attribute = typeof template_attributes.$inferSelect
 export type Section = typeof template_sections.$inferSelect
 export type BriefAttributeInsertValues = typeof brief_attribute_values.$inferInsert
+export type Category = typeof blog_categories.$inferSelect
 
 

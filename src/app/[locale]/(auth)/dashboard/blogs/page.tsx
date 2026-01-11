@@ -5,7 +5,7 @@ import { CreateBlogDialog } from '@/features/blog/components/CreateBlogDialog'
 import DeleteBlogButton from '@/features/blog/components/DeleteBlogButton'
 import { EditBlogDialog } from '@/features/blog/components/EditBlogDialog'
 import { Link } from '@/i18n/navigation'
-import { Trash2 } from 'lucide-react'
+import { Edit2, Trash2 } from 'lucide-react'
 import React from 'react'
 
 export default async function page() {
@@ -49,7 +49,13 @@ export default async function page() {
 
                                     }}
                                         roleId={role.id} /> */}
-                                        <EditBlogDialog blog={blog} />
+                                        {/* <EditBlogDialog blog={blog} />
+                                         */}
+                                        <Link href={`/dashboard/blogs/update/${blog.id}`}>
+                                            <Button variant="ghost" size="icon">
+                                                <Edit2 className="h-4 w-4" />
+                                            </Button>
+                                        </Link>
                                         <DeleteBlogButton blogId={blog.id} />
                                     </TableCell>
                                 </TableRow>)

@@ -45,9 +45,12 @@ export default function BlobUploader({ onValueChnage, value, id }: { onValueChna
     }
 
     return (
-        <div className="flex flex-col items-start  ">
-            <input ref={fileRef} id={id} type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} disabled={blob !== null} className="hidden" />
-            <div className="flex justify-between items-centerpy-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4 py-4" >
+        <div className="flex flex-col items-start   ">
+            {/* rest the blob if there is one button */}
+
+            <input ref={fileRef} id={id} type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,.doc,.docx" onChange={handleUpload} className="hidden" />
+            <div className="flex justify-between items-centerpy-2 max-w-full border-accent-foreground/30 rounded rounded-tl-2xl rounded-br-2xl border px-4 py-4 relative" >
+
                 <label htmlFor={id} className="text-center">
                     <Image src={UploadImage} alt="upload" className="w-12 " />
                 </label>
