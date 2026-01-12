@@ -7,7 +7,7 @@ export default function page() {
         <div>
             <p className='text-3xl font-semibold'>Create New Blog :</p>
 
-            <CreateBlogForm />
+        <CreateBlogForm />
         </div>
     )
 }

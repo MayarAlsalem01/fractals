@@ -67,7 +67,7 @@ export default async function Services() {
                     </ServicesCardFooter>
                 </Card>
 
-                <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('desktop applications.title')}
                     </ServicesCardHeader>
@@ -108,7 +108,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Branding & Logo Design.title')}
                     </ServicesCardHeader>
@@ -129,7 +129,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Marketing & Social Media Management.title')}
                     </ServicesCardHeader>
@@ -151,7 +151,7 @@ export default async function Services() {
                     </ServicesCardFooter>
                 </Card>
 
-                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
                     <ServicesCardHeader >
                         {t('Network.title')}
                     </ServicesCardHeader>
@@ -178,7 +178,7 @@ export default async function Services() {
                         <SecondryButton>Watch more</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
-                <Card className='hidden md:block gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
+                <Card className='hidden md:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent '>
                     <ServicesCardHeader >
                         {t('IoT Solutions.title')}
                     </ServicesCardHeader>

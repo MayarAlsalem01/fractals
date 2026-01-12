@@ -21,7 +21,6 @@ import {
     Redo
 } from 'lucide-react'
 import { ChangeEvent, useCallback } from 'react'
-import { on } from 'events'
 
 const TiptapEditor = ({ onChange, ...props }: React.ComponentProps<'input'>) => {
 

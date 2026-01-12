@@ -1,6 +1,7 @@
 'use server'
 import { db } from "@/db/drizzle";
 import { Category } from "@/db/schema";
+import { Result } from "@/types/result";
 
 export default async function getAllBlogCategories(): Promise<Result<Category[] | undefined, string>> {
     try {

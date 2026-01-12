@@ -1,6 +1,7 @@
 'use server'
 import { db } from '@/db/drizzle'
 import { brief_attribute_values, BriefAttributeInsertValues, briefs } from '@/db/schema'
+import { Result } from '@/types/result';
 import { createInsertSchema } from 'drizzle-zod';
 import z from 'zod';
 

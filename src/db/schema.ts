@@ -33,6 +33,15 @@ export const categories_relations = relations(blogs, ({ one }) => ({
         references: [blog_categories.id],
     }),
 }));
+
+export const vacancies = pgTable("vacancies", {
+    id: serial("id").primaryKey(),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
+    sections: jsonb("sections").notNull(),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+    updated_at: timestamp("updated_at").defaultNow().notNull(),
+});
 export const users = pgTable("users", {
     id: serial("id").primaryKey(),
     username: text('username').notNull().unique(),
@@ -154,5 +163,7 @@ export type Attribute = typeof template_attributes.$inferSelect
 export type Section = typeof template_sections.$inferSelect
 export type BriefAttributeInsertValues = typeof brief_attribute_values.$inferInsert
 export type Category = typeof blog_categories.$inferSelect
+export type Vacancy = typeof vacancies.$inferSelect
+
 
 

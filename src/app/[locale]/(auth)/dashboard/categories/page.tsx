@@ -1,6 +1,7 @@
 'use server'
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Category } from '@/db/schema'
 import getAllBlogCategories from '@/features/blogCategory/actions/getAllBlogCategories'
 import CreateCategoryDialog from '@/features/blogCategory/components/CreateCategoryDialog'
 import DeleteCategoryButton from '@/features/blogCategory/components/DeleteCategoryButton'
@@ -30,7 +31,7 @@ export default async function page() {
                         </TableHeader>
                         <TableBody>
                             {
-                                categories.data.map((category) => <TableRow key={category.id}>
+                                categories.data.map((category: Category) => <TableRow key={category.id}>
                                     <TableCell className="font-medium">{category.id}</TableCell>
                                     <TableCell>{category.name}</TableCell>
                                     <TableCell>{category.normalizedName}</TableCell>

@@ -2,6 +2,7 @@
 
 import { db } from '@/db/drizzle'
 import { Blog, blogs } from '@/db/schema'
+import { Result } from '@/types/result'
 import { eq } from 'drizzle-orm'
 
 export default async function getBlogPostById(id: number): Promise<Result<Blog | undefined, string>> {

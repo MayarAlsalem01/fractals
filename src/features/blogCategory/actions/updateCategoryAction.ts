@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 import isUserAuthenticated from "@/features/auth/utils/isUserAuthenticated";
 import { updateCategorySchema, updateCategoryValues } from "../schema/categorySchema";
 import { revalidatePath } from "next/cache";
+import { Result } from "@/types/result";
 
 export default async function updateCategoryAction({ categoryValues, categoryId }: { categoryValues: updateCategoryValues, categoryId: number }): Promise<Result<string | undefined, string>> {
     if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" }, data: undefined, ok: false }

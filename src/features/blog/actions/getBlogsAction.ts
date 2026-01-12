@@ -1,6 +1,7 @@
 'use server'
 import { db } from '@/db/drizzle'
 import { Blog, blogs } from '@/db/schema'
+import { Result } from '@/types/result'
 
 export default async function getBlogsAction(): Promise<Result<Blog[] | undefined, string | undefined>> {
     const blogs = await db.query.blogs.findMany()

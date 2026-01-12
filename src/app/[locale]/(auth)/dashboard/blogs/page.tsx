@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Blog } from '@/db/schema'
 import getBlogsAction from '@/features/blog/actions/getBlogsAction'
 import { CreateBlogDialog } from '@/features/blog/components/CreateBlogDialog'
 import DeleteBlogButton from '@/features/blog/components/DeleteBlogButton'
@@ -38,7 +39,7 @@ export default async function page() {
                         <TableBody>
 
                             {
-                                blogs.data.map((blog) => <TableRow key={blog.id}>
+                                blogs.data.map((blog: Blog) => <TableRow key={blog.id}>
                                     <TableCell className="font-medium">{blog.id}</TableCell>
                                     <TableCell>{blog.title}</TableCell>
                                     <TableCell className='truncate max-w-xs '>{blog.short_description}</TableCell>

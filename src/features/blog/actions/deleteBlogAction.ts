@@ -4,6 +4,7 @@ import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import isUserAuthenticated from '@/features/auth/utils/isUserAuthenticated'
+import { Result } from '@/types/result'
 
 export default async function deleteBlogAction(blogId: number): Promise<Result<string | undefined, string | undefined>> {
     if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" } } as Result<string | undefined, string | undefined>

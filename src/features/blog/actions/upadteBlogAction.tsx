@@ -5,6 +5,7 @@ import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { updateBlogValues } from '../schema/blogSchema'
 import isUserAuthenticated from '@/features/auth/utils/isUserAuthenticated'
+import { Result } from '@/types/result'
 
 export default async function updateBlogAction({ blog, blogId }: { blog: updateBlogValues, blogId: number }): Promise<Result<string | undefined, string | undefined>> {
     if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" } } as Result<string | undefined, string | undefined>

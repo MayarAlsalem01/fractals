@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import useGetAllBlogCategories from "@/features/blogCategory/hooks/useGetAllBlogCategories"
 import { Skeleton } from "@/components/ui/skeleton"
 import Image from "next/image"
+import { Category } from "@/db/schema"
 
 export default function CreateBlogForm() {
     const { data: categories, isPending, isError } = useGetAllBlogCategories()
@@ -78,7 +79,7 @@ export default function CreateBlogForm() {
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            {categories?.data?.map((category) => (
+                                            {categories?.data?.map((category: Category) => (
                                                 <SelectItem key={category.id} value={category.id.toString()}>
                                                     {category.name}
                                                 </SelectItem>

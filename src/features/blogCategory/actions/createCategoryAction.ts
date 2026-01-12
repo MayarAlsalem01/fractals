@@ -4,6 +4,7 @@ import { blog_categories } from "@/db/schema";
 import isUserAuthenticated from "@/features/auth/utils/isUserAuthenticated";
 import { createCategorySchema, createCategoryValues } from "../schema/categorySchema";
 import { revalidatePath } from "next/cache";
+import { Result } from "@/types/result";
 
 export default async function createCategoryAction({ categoryValues }: { categoryValues: createCategoryValues }): Promise<Result<string | undefined, string>> {
     if (!await isUserAuthenticated()) return { isError: true, error: { message: "Unauthorized" }, data: undefined, ok: false }
