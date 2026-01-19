@@ -18,8 +18,8 @@ export default function ContactUs() {
             <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-linear-to-b from-transparent from-55% to-black ' />
             <div className='w-full h-full absolute   left-0 top-0 -z-30 '>
 
-                <Image src={ContactDesktopBg} alt='contact' className='hidden md:block w-full h-full ' />
-                <Image src={ContactMobileBg} alt='contact' className='block md:hidden w-full h-full   object-[0%_400%s]' />
+                <Image src={ContactDesktopBg} alt='contact' className='hidden xl:block w-full h-full ' />
+                <Image src={ContactMobileBg} alt='contact' className='block xl:hidden w-full h-full   object-[0%_400%s]' />
             </div>
             {/* <Image src={Vc} alt='contact' className='w-1/3 h-full object-cover absolute top-0 left-0 -z-20 opacity-45 blur-3xl' /> */}
 

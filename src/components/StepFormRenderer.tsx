@@ -70,13 +70,15 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
 
         return (
             <div key={attr.id} className={containerClass}>
-                {attr.label.length > 1 ? <label className="block text-sm font-medium mb-1 ">
+                {attr.label.length > 1 && attr.type ? <label className="block text-sm font-medium mb-1 ">
                     {attr.label}
                     {attr.required ? ' *' : ''}
                 </label> : ''}
 
                 {/* Input Rendering Logic - Fully restored from user's original file */}
-                {attr.type === 'colorList' ? (
+                {attr.type === "label" ? (
+                    undefined
+                ) : attr.type === 'colorList' ? (
                     <Controller control={control}
                         name={attr.key}
                         render={({ field: { onChange } }) => (
@@ -195,7 +197,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                                     </div>
 
                                     {/* Initial state: if no files and no slots, show at least one uploader or just the plus button */}
-                                    {currentFiles.length === 0 && (
+                                    {/* {currentFiles.length === 0 && (
                                         <Button
                                             variant="outline"
                                             onClick={addSlot}
@@ -203,7 +205,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                                         >
                                             + Click to upload {attr.label}
                                         </Button>
-                                    )}
+                                    )} */}
                                 </div>
                             );
                         }}

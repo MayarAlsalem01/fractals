@@ -27,7 +27,7 @@ export default async function Process() {
                         className={`text-4xl lg:text-7xl font-gravesend font-bold bg-clip-text text-transparent line-clamp-2  bg-gradient-to-r from-white/80  to-[80%] `}>{t('title')} </p>
                 </TransparentTextAnimation>
             </div>
-            <div className='flex flex-col gap-3 w-full md:3/4 lg:w-2/3 mx-auto'>
+            <div className='flex flex-col gap-3 w-full md:3/4 xl:w-2/3 mx-auto'>
                 <ProccessCard >
                     <ProcessCardHeader>
                         <p>

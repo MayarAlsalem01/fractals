@@ -7,7 +7,7 @@ import { ReactNode } from 'react'
 import { Link } from '@/i18n/navigation'
 export default function Footer() {
     return (
-        <footer className='relative overflow-hidden px-2 md:px-24 '>
+        <footer className='relative overflow-hidden px-2 xl:px-24  '>
             <div className='w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] lg:w-[50rem] lg:h-[50rem] left-24 md:left-96 lg:-left-4 -top-[5rem] md:-top-[30rem] lg:-top-[40rem] bg-radial from-brand-primary to-transparent to-80%   absolute -z-10 rounded-full blur-3xl' />
             <div className='w-[30rem] h-[30rem] hidden md:hidden md:w-[45rem] lg:hidden md:h-[45rem] lg:w-[15rem] lg:h-[15rem] right-64 lg:left-[37rem] -top-[5rem] lg:-top-10 bg-radial from-brand-tertiary/65 to-transparent  absolute -z-30 rounded-full blur-3xl' />
             <div className='w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] lg:w-[50rem] lg:h-[50rem] right-64 md:right-60 lg:-right-24 -top-[5rem] md:-top-[35rem] lg:-top-[35rem] bg-brand-secondary/40  absolute -z-30 rounded-full blur-3xl' />
@@ -87,7 +87,10 @@ export default function Footer() {
                             </FooterLink>
 
                             <li>Brand&Logo Breif </li>
-                            <li>Soical Media Breif </li>
+                            <FooterLink href='/brief/social-media'>
+                                Soical Media Breif
+                            </FooterLink>
+
 
 
                         </ul>

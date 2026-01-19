@@ -111,7 +111,7 @@ export default async function page() {
                                 <LinkButton href="/brief/brand_logo" className="w-fit self-end md:self-auto border border-brand-primary  bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95% font-gravesend md:translate-x-10 ">
                                     Branding & Logo Design
                                 </LinkButton>
-                                <LinkButton href="brief/social_media" className="w-fit border self-end md:self-auto border-brand-primary bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95%  ">
+                                <LinkButton href="brief/social-media" className="w-fit border self-end md:self-auto border-brand-primary bg-linear-to-tr  from-brand-primary/30 to-brand-primary/5 to-95%  ">
                                     Social Media Management
                                 </LinkButton>
                             </div>
