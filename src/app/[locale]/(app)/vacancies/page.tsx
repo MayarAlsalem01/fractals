@@ -12,7 +12,7 @@ export default async function page() {
     return (
         <div className='w-full'>
             <VacanciesSection />
-            <section className='px-4 md:px-24 lg:px-64 py-8 relative'>
+            <section className='px-4 md:px-24 lg:px-32 xl:px-64 py-8 relative'>
                 <Blind className='' />
 
                 {/* Background Vector 1 */}

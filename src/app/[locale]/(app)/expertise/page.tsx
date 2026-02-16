@@ -11,6 +11,7 @@ import DotBackgroundDemo from "@/components/DottedBackground";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import SecondryButton from "@/ui/SecondryButton";
+import AboutImageSilder from "@/features/aboutUs/components/AboutImageSilder";
 
 export default async function page() {
     const t = await getTranslations('expertise')
@@ -134,6 +135,7 @@ export default async function page() {
                             />
                         ))}
                     </section>
+                    <AboutImageSilder />
                 </Container>
             </DotBackgroundDemo>
         </div>

@@ -32,7 +32,7 @@ function NavDesktopBtn() {
     return (
         <Link href={'/expertise'} className='hidden md:flex'>
             <PrimaryButton id='navBtn' fill className='hidden md:flex'>
-                <div className='relative z-50 flex items-center  gap-1'>
+                <div className='relative z-50 flex items-center  gap-3'>
                     <Image src={Star} alt='star' className='w-5 transition-all duration-500' />
                     <p >Get started</p>
                 </div>

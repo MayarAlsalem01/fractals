@@ -39,7 +39,7 @@ export default function VacanciesGrid({ initialData = [], initialPagination }: V
 
     return (
         <div className='flex flex-col gap-8 items-center w-full'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full relative'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full relative'>
                 {vacancies.map((vacancy) => (
                     <VacancyCard
                         key={vacancy.id}

@@ -238,11 +238,11 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                                 control={control}
                                 name={attr.key}
                                 render={({ field: { value = [], onChange } }) => (
-                                    <div className="flex gap-3 flex-wrap items-center">
+                                    <div className={attr.meta.styleType === 'verticalComboGradient' ? "flex flex-col vertical-combo-list" : "flex gap-3 flex-wrap items-center"}>
                                         {attr.options.map((opt: any) => {
                                             const checked = value === opt.value
                                             return (
-                                                <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer">
+                                                <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer ">
                                                     <input
                                                         type="radio"
                                                         name={attr.key.toString()}

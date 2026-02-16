@@ -10,6 +10,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useRef } from 'react'
+import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function AboutImageSilder() {
@@ -38,33 +39,40 @@ export default function AboutImageSilder() {
     }, [])
     return (
 
-        <div ref={containerRef} className='h-screen flex justify-start items-center relative overflow-hidden pointer-events-none '>
-            <ImageSlider src={Image1} alt='' className={`
+        <div className='mt-8'>
+            <TransparentTextAnimation>
+                <p className='font-gravesend text-4xl md:text-7xl w-fit mx-auto font-bold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>
+                    Our Latest Projects
+                </p>
+            </TransparentTextAnimation>
+            <div ref={containerRef} className='h-screen flex justify-start items-center relative overflow-hidden pointer-events-none '>
+                <ImageSlider src={Image1} alt='' className={`
                                object-cover absolute top-1/2 -translate-y-1/2  rounded-lg 
                             left-full
                             `} />
-            <ImageSlider src={Image2} alt='' className={`
+                <ImageSlider src={Image2} alt='' className={`
                               object-cover absolute top-1/3 -translate-y-1/2  rounded-lg 
                             left-[calc(100%_+_30rem)]
                             `} />
-            <ImageSlider src={Image3} alt='' className={`
+                <ImageSlider src={Image3} alt='' className={`
                               object-cover absolute top-1/2 -translate-y-1/6  rounded-lg 
                             left-[calc(100%_+_60rem)]
                             
                             `} />
-            <ImageSlider src={Image4} alt='' className={`
+                <ImageSlider src={Image4} alt='' className={`
                               object-cover absolute top-1/2 -translate-y-1/3  rounded-lg 
                             left-[calc(100%_+_90rem)]
                             `} />
-            <ImageSlider src={Image5} alt='' className={`
+                <ImageSlider src={Image5} alt='' className={`
                               object-cover absolute top-1/2 -translate-y-1/2  rounded-lg 
                             left-[calc(100%_+_120rem)]
                             `} />
-            <ImageSlider src={Image6} alt='' className={`
+                <ImageSlider src={Image6} alt='' className={`
                               object-cover absolute top-1/3 -translate-y-1/2  rounded-lg 
                             left-[calc(100%_+_150rem)]
                             `} />
 
+            </div>
         </div>
 
     )

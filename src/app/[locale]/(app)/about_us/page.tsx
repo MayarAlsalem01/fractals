@@ -1,7 +1,6 @@
 
 'use server'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
-import AboutImageSilder from '@/features/aboutUs/components/AboutImageSilder'
 import DotBackgroundDemo from '@/components/DottedBackground'
 import Blind from '@/components/Blind'
 import Vc from '../../../../../public/assets/Artboard 1 copy 4.png'
@@ -19,7 +18,7 @@ export default async function page({ params }: { params: Promise<{ locale: strin
             <div className='relative pt-24 bg-black'>
                 <AboutUs />
             </div>
-            <DotBackgroundDemo className='px-4 md:px-14 pb-12'>
+            <DotBackgroundDemo className='px-4 md:px-14 pb-12 relative z-20'>
                 <div className='flex flex-col gap-16'>
                     <div className='flex flex-col gap-2'>
                         <TransparentTextAnimation>
@@ -72,21 +71,17 @@ export default async function page({ params }: { params: Promise<{ locale: strin
                         </ul>
                     </div>
                 </div>
-                <p className='mt-20 md:text-xl font-bold'>"{t('core values.des')}"
+                <p className='my-20 md:text-xl font-bold'>
+                    {t('core values.des')}
 
                 </p>
                 <Blind />
 
-                <div className='flex justify-center font-gravesend font-bold relative mt-20 -mb-8  '>
 
-                    <TransparentTextAnimation>
-                        <AboutText >{t('our identity.title')}</AboutText>
-                    </TransparentTextAnimation>
-                </div>
-                <AboutImageSilder />
-                <div className='flex flex-col gap-8'>
 
-                    <p className='text-xl font-medium tracking-wide'>
+                <div className='flex flex-col gap-8 max-w-4xl'>
+
+                    <p className='text-xl font-medium tracking-wide leading-snug'>
                         {t('our identity.mainTitle')}
 
                     </p>

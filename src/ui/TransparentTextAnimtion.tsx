@@ -31,28 +31,30 @@ export default function TransparentTextAnimation({ children }: TransparentTextAn
             const tl = gsap.timeline({
                 scrollTrigger: {
                     // Use the individual paragraph as the trigger
-                    trigger: p as HTMLElement,
-                    // markers: true,
-                    start: 'top center',
-                    end: 'top center',
-                    // toggleActions: 'play none none reverse'
+                    trigger: p as HTMLParagraphElement,
+                    markers: false,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    invalidateOnRefresh: true,
                 },
             });
 
-            tl.to(p as HTMLElement, {
-
-
+            tl.to(p as HTMLParagraphElement, {
                 // Your original animation property
                 '--tw-gradient-from-position': '100%',
                 duration: 1,
             });
         });
 
-    }, { scope: containerRef }); // Scope the useGSAP hook to the containerRef
+        // Ensure ScrollTrigger refreshes after layout has potentially shifted
+        // especially on pages with lots of dynamic content like the Home Page.
+        ScrollTrigger.refresh();
+
+    }, { scope: containerRef });
 
     // 3. Render a wrapper div with the ref and pass the Server Component children inside.
     return (
-        <div ref={containerRef}>
+        <div ref={containerRef} className='relative'>
             {children}
         </div>
     );

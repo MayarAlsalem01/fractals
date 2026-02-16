@@ -196,3 +196,44 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+
+.vertical-combo-list label:nth-child(odd):not(:last-child) {
+  padding: 2rem 20px;
+  border: 1px solid transparent;
+
+  background:
+    linear-gradient(var(--background)) padding-box,
+    linear-gradient(to right, transparent 20%, #68BBE8 40%, #A0238E 60%) border-box;
+  border-left: 0;
+  border-bottom-right-radius: 2em;
+}
+
+/* All EVEN positions (2nd, 4th, 6th, 8th...) - LEFT gradient */
+.vertical-combo-list label:nth-child(even):not(:last-child) {
+  border: 1px solid transparent;
+  padding: 2rem 20px;
+
+
+  background:
+    linear-gradient(var(--background)) padding-box,
+    linear-gradient(to left, transparent 20%, #68BBE8 100%, #A0238E) border-box;
+  border-top-left-radius: 2em;
+}
+
+/* LAST item - END gradient (overrides odd/even) */
+.vertical-combo-list label:last-child {
+  border: 1px solid transparent;
+  padding: 2rem 20px;
+
+  background:
+    linear-gradient(var(--background)) padding-box,
+    linear-gradient(to left, #A0238E, #68BBE8) border-box;
+  border-left: 0;
+
+  border-bottom-right-radius: 2em;
+
+}

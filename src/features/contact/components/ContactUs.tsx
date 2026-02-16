@@ -18,8 +18,8 @@ export default function ContactUs() {
             <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-linear-to-b from-transparent from-55% to-black ' />
             <div className='w-full h-full absolute   left-0 top-0 -z-30 '>
 
-                <Image src={ContactDesktopBg} alt='contact' className='hidden xl:block w-full h-full ' />
-                <Image src={ContactMobileBg} alt='contact' className='block xl:hidden w-full h-full   object-[0%_400%s]' />
+                <Image src={ContactDesktopBg} alt='contact' className='hidden lg:block w-full h-full ' />
+                <Image src={ContactMobileBg} alt='contact' className='block lg:hidden w-full h-full   object-[0%_400%s]' />
             </div>
             {/* <Image src={Vc} alt='contact' className='w-1/3 h-full object-cover absolute top-0 left-0 -z-20 opacity-45 blur-3xl' /> */}
 
@@ -29,13 +29,12 @@ export default function ContactUs() {
                         <p className='font-gravesend text-4xl md:text-7xl w-fit mx-auto font-bold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>
                             Contact us
                         </p>
-                    </TransparentTextAnimation>
-                    <TransparentTextAnimation>
+
                         <p className='font-gravesend text-xl md:text-4xl  font-semibold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-50%'>
                             Let’s Build Your Next Masterpiece
                         </p>
-                    </TransparentTextAnimation>
-                    <TransparentTextAnimation>
+
+
                         <p className=' md:text-lg   bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-30%'>
                             Every great collaboration starts with a simple conversation.
                             <br />
@@ -43,8 +42,9 @@ export default function ContactUs() {
 
                         </p>
                     </TransparentTextAnimation>
+
                 </div>
-                <div className='w-full md:w-1/2 relative z-30 '>
+                <div className='w-full lg:w-1/2 relative z-30 '>
                     <ContactUsForm />
                 </div>
                 <div className='flex flex-col pt-12 gap-3'>
@@ -53,7 +53,7 @@ export default function ContactUs() {
                     </p>
                     <div className='flex items-center gap-2'>
                         <Image src={LoctionIcon} alt='email' className='bg-black w-6' />
-                        <span>Damascus / Dubai</span>
+                        <span>Dubai / Damascus  </span>
                     </div>
                     <div className='flex items-center gap-2'>
                         <a href='https://mail.google.com/mail/?view=cm&fs=1&to=info@fractals.net&su=Subject&body=Message%20here' target='_blank' className='flex items-center gap-2'>

@@ -23,7 +23,7 @@ export default function Footer() {
                         <p>Seamlessly manage inventory, optimize operations, and scale your <br />business worldwide. </p>
                         <Link href={'/expertise'}>
                             <PrimaryButton fill className='footer-btn w-fit !px-3'>
-                                <div className=' flex items-center gap-1'>
+                                <div className=' flex items-center gap-2'>
                                     <Image src={Star} alt='star' className='w-5  transition-all duration-500' />
                                     <span>Get Started</span>
                                 </div>
@@ -85,8 +85,9 @@ export default function Footer() {
                             <FooterLink href='/brief/ui_ux'>
                                 UI&UX Breif
                             </FooterLink>
-
-                            <li>Brand&Logo Breif </li>
+                            <FooterLink href='/brief/logo-design'>
+                                Brand&Logo Breif
+                            </FooterLink>
                             <FooterLink href='/brief/social-media'>
                                 Soical Media Breif
                             </FooterLink>

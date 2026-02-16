@@ -22,7 +22,7 @@ export function LanguageMenu({ className }: { className?: string }) {
         <Select defaultValue={locale} onValueChange={(e) => {
             router.replace(pathname, { locale: e })
         }} >
-            <SelectTrigger className={`flex font-gravesend w-fit rounded-2xl rounded-tr-none rounded-bl-none focus-visible:ring-0 xl:py-5 xl:px-4 ${className}`}>
+            <SelectTrigger className={`flex font-gravesend w-fit rounded-2xl rounded-tr-none rounded-bl-none focus-visible:ring-0 xl:py-1 xl:px-4 ${className} !py-1`}>
                 <SelectValue placeholder="Select a language" />
             </SelectTrigger>
             <SelectContent>
