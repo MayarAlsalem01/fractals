@@ -36,6 +36,10 @@ export function LanguageMenu({ className }: { className?: string }) {
                         <GlobeIcon />
                         de
                     </SelectItem>
+                    <SelectItem value="tr">
+                        <GlobeIcon />
+                        tr
+                    </SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>

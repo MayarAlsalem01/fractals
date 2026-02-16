@@ -136,5 +136,38 @@
     },
     "buttons": {
         "Explore Expertise": "Expertise erkunden"
+    },
+    "contact": {
+        "form": {
+            "name": {
+                "label": "Name",
+                "placeholder": "Name"
+            },
+            "email": {
+                "label": "E-Mail",
+                "placeholder": "E-Mail"
+            },
+            "company": {
+                "label": "Unternehmen / Organisation (optional)",
+                "placeholder": "Unternehmen / Organisation (optional)"
+            },
+            "service": {
+                "label": "Dienstleistung / Anfrageart",
+                "placeholder": "Dienstleistung / Anfrageart",
+                "options": {
+                    "Web Development": "Web-Entwicklung",
+                    "Mobile App Development": "Mobile App-Entwicklung",
+                    "Desktop Applications": "Desktop-Anwendungen",
+                    "UI/UX Design": "UI/UX-Design",
+                    "Branding & Logo Design": "Branding & Logo-Design",
+                    "Social Media Management": "Social Media Management"
+                }
+            },
+            "message": {
+                "label": "Nachricht",
+                "placeholder": "Ihre Nachricht"
+            },
+            "submit": "Meine Vision senden"
+        }
     }
 }

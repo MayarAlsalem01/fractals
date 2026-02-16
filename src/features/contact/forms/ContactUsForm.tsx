@@ -25,7 +25,10 @@ const contactUsSchema = z.object({
 })
 type contactUsValues = z.infer<typeof contactUsSchema>
 
+import { useTranslations } from 'next-intl';
+
 export default function ContactUsForm() {
+    const t = useTranslations('contact.form');
     const form = useForm({
         resolver: zodResolver(contactUsSchema),
         defaultValues: {
@@ -42,10 +45,10 @@ export default function ContactUsForm() {
                     <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem className="w-full">
                             <FormLabel >
-                                Name
+                                {t('name.label')}
                             </FormLabel>
                             <FormControl>
-                                <Input placeholder="name" {...field} />
+                                <Input placeholder={t('name.placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
 
@@ -55,10 +58,10 @@ export default function ContactUsForm() {
                     <FormField control={form.control} name="email" render={({ field }) => (
                         <FormItem className="w-full">
                             <FormLabel >
-                                Email
+                                {t('email.label')}
                             </FormLabel>
                             <FormControl>
-                                <Input placeholder="email" className="" {...field} />
+                                <Input placeholder={t('email.placeholder')} className="" {...field} />
                             </FormControl>
                             <FormMessage />
 
@@ -68,10 +71,10 @@ export default function ContactUsForm() {
                     <FormField control={form.control} name="company" render={({ field }) => (
                         <FormItem className="w-full">
                             <FormLabel >
-                                Company / Organization (optional)
+                                {t('company.label')}
                             </FormLabel>
                             <FormControl>
-                                <Input placeholder="Company / Organization (optional)" {...field} />
+                                <Input placeholder={t('company.placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
 
@@ -80,7 +83,7 @@ export default function ContactUsForm() {
                     <FormField control={form.control} name="service" render={({ field }) => (
                         <FormItem className="w-full">
                             <FormLabel >
-                                Service / Inquiry Type
+                                {t('service.label')}
                             </FormLabel>
                             <FormControl>
                                 <Select value={field.value}
@@ -89,29 +92,29 @@ export default function ContactUsForm() {
                                         field.onChange(val as contactUsValues['service'])
                                     }}>
                                     <SelectTrigger className="w-full" >
-                                        <SelectValue placeholder="  Service / Inquiry Type" />
+                                        <SelectValue placeholder={t('service.placeholder')} />
 
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectGroup>
-                                            <SelectLabel> Service / Inquiry Type</SelectLabel>
+                                            <SelectLabel> {t('service.label')}</SelectLabel>
                                             <SelectItem value="Web Development">
-                                                Web Development
+                                                {t('service.options.Web Development')}
                                             </SelectItem>
                                             <SelectItem value="Mobile App Development">
-                                                Mobile App Development
+                                                {t('service.options.Mobile App Development')}
                                             </SelectItem>
                                             <SelectItem value="Desktop Applications">
-                                                Desktop Applications
+                                                {t('service.options.Desktop Applications')}
                                             </SelectItem>
                                             <SelectItem value="UI/UX Design">
-                                                UI/UX Design
+                                                {t('service.options.UI/UX Design')}
                                             </SelectItem>
                                             <SelectItem value="Branding & Logo Design">
-                                                Branding & Logo Design
+                                                {t('service.options.Branding & Logo Design')}
                                             </SelectItem>
                                             <SelectItem value="Social Media Management">
-                                                Social Media Management
+                                                {t('service.options.Social Media Management')}
                                             </SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
@@ -124,17 +127,17 @@ export default function ContactUsForm() {
                     <FormField control={form.control} name="message" render={({ field }) => (
                         <FormItem className="col-span-full" >
                             <FormLabel >
-                                message
+                                {t('message.label')}
                             </FormLabel>
                             <FormControl>
-                                <Textarea className="w-full min-h-32" placeholder="message" {...field} />
+                                <Textarea className="w-full min-h-32" placeholder={t('message.placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
 
                         </FormItem>
                     )} />
                 </div>
-                <SecondryButton className="mt-4">Send My Vision</SecondryButton>
+                <SecondryButton className="mt-4">{t('submit')}</SecondryButton>
             </form>
         </Form>
     )
