@@ -112,7 +112,7 @@ export const metadata: Metadata = {
 // Generate static params for all supported locales
 
 export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }]; // List all supported locales
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'tr' }]; // List all supported locales
 }
 type Props = {
   children: React.ReactNode;
