@@ -1,6 +1,6 @@
-import Video from 'next-video';
-import MyVideo from '../../../../videos/_title_subtle_202511011239_b47rj.mp4'
 import Hero from '@/features/home/components/Hero';
+import HeroVideo from '@/features/home/components/HeroVideo';
+import HomeLoadingWrapper from '@/features/home/components/HomeLoadingWrapper';
 import AboutUs from '@/features/aboutUs/components/AboutUs';
 import Services from '@/features/home/components/Services';
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion';
@@ -9,7 +9,6 @@ import BlogTabPane from '@/features/blog/components/BlogTabPane';
 import VacanciesSection from '@/features/vacancies/components/VacanciesSection';
 import Container from '@/components/Container';
 import ContactUs from '@/features/contact/components/ContactUs';
-import getBlogsPagintion from '@/features/blogCategory/actions/getBlogsPagintion';
 import { Link } from '@/i18n/navigation';
 import PrimaryButton from '@/ui/PrimaryButton';
 
@@ -18,17 +17,12 @@ import PrimaryButton from '@/ui/PrimaryButton';
 export default async function Home() {
   // create template
   return (
-    <div >
+    <HomeLoadingWrapper>
       <main>
+
         <div className=" w-full  ">
 
-          <div className='absolute  -top-0 h-screen w-full overflow-hidden -z-20 object-cover '>
-            <div className='w-full h-full relative brightness-[80%]'>
-              <Video className='h-full object-cover scale-[4] md:ccale-[1.5] xl:scale-110 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full' playsInline src={MyVideo} autoPlay controls={false} muted loop maxResolution='720p' minResolution='720p' />
-              {/* <Image src={Bg} alt='asd' className='w-full h-full object-fit' /> */}
-
-            </div>
-          </div>
+          <HeroVideo />
           <Hero />
           <div className='relative'>
             <AboutUs />
@@ -65,6 +59,6 @@ export default async function Home() {
 
         </div>
       </main>
-    </div>
+    </HomeLoadingWrapper>
   );
 }

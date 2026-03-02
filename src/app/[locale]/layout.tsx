@@ -9,6 +9,7 @@ import { setRequestLocale } from "next-intl/server";
 import SessionProvider from "@/lib/SessionProvider";
 import QueryClientProvider from "@/lib/QueryClientProvider";
 import { Toaster } from "sonner";
+import ChatWidget from "@/features/agent/components/ChatWidget";
 
 
 const gravesend = localFont({
@@ -141,6 +142,7 @@ export default async function RootLayout({
             </QueryClientProvider>
           </SessionProvider>
           <Toaster richColors position='top-right' />
+          {/* <ChatWidget />   */}
         </NextIntlClientProvider>
       </body>
     </html>
