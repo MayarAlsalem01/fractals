@@ -40,6 +40,10 @@ export function LanguageMenu({ className }: { className?: string }) {
                         <GlobeIcon />
                         tr
                     </SelectItem>
+                    <SelectItem value="ar">
+                        <GlobeIcon />
+                        ar
+                    </SelectItem>
                 </SelectGroup>
             </SelectContent>
         </Select>

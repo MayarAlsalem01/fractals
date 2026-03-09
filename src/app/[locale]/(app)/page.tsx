@@ -11,11 +11,14 @@ import Container from '@/components/Container';
 import ContactUs from '@/features/contact/components/ContactUs';
 import { Link } from '@/i18n/navigation';
 import PrimaryButton from '@/ui/PrimaryButton';
+import { getTranslations } from 'next-intl/server';
 
 
 
 export default async function Home() {
   // create template
+  const t = await getTranslations('buttons')
+  const blog = await getTranslations('blog')
   return (
     <HomeLoadingWrapper>
       <main>
@@ -25,7 +28,7 @@ export default async function Home() {
           <HeroVideo />
           <Hero />
           <div className='relative'>
-            <AboutUs />
+            <AboutUs canDisplayReadButton />
             <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent from-70% to-black ' />
           </div>
           <Services />
@@ -34,7 +37,7 @@ export default async function Home() {
           <Container className='bg-black px-4'>
             <section className='pt-20'>
               <TransparentTextAnimation>
-                <p className='text-4xl lg:text-7xl font-gravesend font-bold w-fit mx-auto bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>Blogs</p>
+                <p className='text-4xl lg:text-7xl font-gravesend font-bold w-fit mx-auto bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>{blog('title')}</p>
               </TransparentTextAnimation>
               <div >
                 <BlogTabPane limit={6} />
@@ -42,7 +45,7 @@ export default async function Home() {
 
                   <Link href="/blogs" className='text-brand-primary font-medium '>
                     <PrimaryButton>
-                      View All
+                      {t('view all')}
                     </PrimaryButton>
                   </Link>
                 </div>

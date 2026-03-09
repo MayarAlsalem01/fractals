@@ -5,7 +5,10 @@ import Image from 'next/image'
 import Star from '../../../public/assets/star.png'
 import { ReactNode } from 'react'
 import { Link } from '@/i18n/navigation'
-export default function Footer() {
+import { getTranslations } from 'next-intl/server'
+export default async function Footer() {
+    const buttonsTranslations = await getTranslations('buttons')
+    const footerTranslations = await getTranslations('footer')
     return (
         <footer className='relative overflow-hidden px-2 xl:px-24  '>
             <div className='w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] lg:w-[50rem] lg:h-[50rem] left-24 md:left-96 lg:-left-4 -top-[5rem] md:-top-[30rem] lg:-top-[40rem] bg-radial from-brand-primary to-transparent to-80%   absolute -z-10 rounded-full blur-3xl' />
@@ -19,13 +22,13 @@ export default function Footer() {
             <Container className='lg:!py-0 lg:!pt-10'>
                 <div>
                     <div className='flex flex-col gap-2 mb-4 mt-44 md:mt-0'>
-                        <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>Grow Globally <br /> with Fractals</p>
-                        <p>Seamlessly manage inventory, optimize operations, and scale your <br />business worldwide. </p>
+                        <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>{footerTranslations('title')}</p>
+                        <p>{footerTranslations('description')}</p>
                         <Link href={'/expertise'}>
-                            <PrimaryButton fill className='footer-btn w-fit !px-3'>
+                            <PrimaryButton fill className='footer-btn w-fit !px-4'>
                                 <div className=' flex items-center gap-2'>
                                     <Image src={Star} alt='star' className='w-5  transition-all duration-500' />
-                                    <span>Get Started</span>
+                                    <span>{buttonsTranslations('Get Started')}</span>
                                 </div>
                             </PrimaryButton>
                         </Link>
@@ -34,29 +37,29 @@ export default function Footer() {
                 <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
                     <div className='flex flex-col gap-2'>
                         <h3 className='font-bold text-lg'>
-                            Naviagation
+                            {footerTranslations(' Naviagation.title')}
                         </h3>
                         <ul className='flex flex-col gap-1'>
                             <FooterLink href='/'>
-                                Home
+                                {footerTranslations(' Naviagation.home')}
                             </FooterLink>
                             <FooterLink href='/about_us'>
-                                About Us
+                                {footerTranslations(' Naviagation.aboutUs')}
                             </FooterLink>
                             <FooterLink href='/blogs'>
-                                Blogs
+                                {footerTranslations(' Naviagation.Blogs')}
                             </FooterLink>
                             <FooterLink href='/vacancies'>
-                                Vacancies
+                                {footerTranslations(' Naviagation.vacances')}
                             </FooterLink>
                             <FooterLink href='/expertise'>
-                                Our Expertise
+                                {footerTranslations(' Naviagation.Our Expertise')}
                             </FooterLink>
                             <FooterLink href='/#our_process'>
-                                Our Process
+                                {footerTranslations(" Naviagation.Our Process")}
                             </FooterLink>
                             <FooterLink href='/contact_us'>
-                                Contact Us
+                                {footerTranslations(' Naviagation.ContactUs')}
                             </FooterLink>
 
 
@@ -66,30 +69,33 @@ export default function Footer() {
                     </div>
                     <div className='flex flex-col gap-2'>
                         <h3 className='font-bold text-lg'>
-                            Solutions
+                            {footerTranslations('solutions.title')}
                         </h3>
                         <ul className='flex flex-col gap-1'>
 
-                            <li>Product Mangement</li>
+                            <li>{footerTranslations('solutions.product-management')}</li>
 
                             <FooterLink href='/brief/desktop'>
-                                Desktop Breif
+                                {footerTranslations('solutions.desktop')}
                             </FooterLink>
                             <FooterLink href='/brief/mobile'>
-                                Mobile Breif
+                                {footerTranslations("solutions.mobile")}
                             </FooterLink>
 
                             <FooterLink href='/brief/web'>
-                                Web Breif
+                                {footerTranslations('solutions.web')}
                             </FooterLink>
                             <FooterLink href='/brief/ui_ux'>
-                                UI&UX Breif
+                                {footerTranslations('solutions.ui_ux')}
+
                             </FooterLink>
                             <FooterLink href='/brief/logo-design'>
-                                Brand&Logo Breif
+                                {footerTranslations('solutions.logo-design')}
+
                             </FooterLink>
                             <FooterLink href='/brief/social-media'>
-                                Soical Media Breif
+                                {footerTranslations('solutions.social-media')}
+
                             </FooterLink>
 
 
@@ -99,18 +105,20 @@ export default function Footer() {
                     <div className='flex flex-col gap-12 '>
                         <div>
                             <h3 className='font-bold text-lg mb-2'>
-                                Legal
+                                {footerTranslations('Legal.title')}
                             </h3>
                             <ul className='flex flex-col gap-1'>
                                 <FooterLink href='privacy-terms/privacy-policy'>
 
-                                    Privacy Policy
+                                    {footerTranslations('Legal.privacy policy')}
+
                                 </FooterLink>
                                 <FooterLink href='privacy-terms/terms-of-service'>
-                                    Terms Of Service
+                                    {footerTranslations('Legal.terms of service')}
                                 </FooterLink>
                                 <FooterLink href='privacy-terms/cookies'>
-                                    Cookies Settings
+                                    {footerTranslations('Legal.cookies settings')}
+
                                 </FooterLink>
 
 
@@ -118,11 +126,11 @@ export default function Footer() {
                         </div>
                         <div>
                             <h3 className='font-bold text-lg mb-2 '>
-                                Partners
+                                {footerTranslations('Partner.title')}
                             </h3>
                             <ul className='flex flex-col gap-1'>
                                 <FooterLink href='https://reflectart.net/' target='_blank'>
-                                    ReflectArt
+                                    {footerTranslations('Partner.reflectart')}
                                 </FooterLink>
 
 
@@ -131,17 +139,19 @@ export default function Footer() {
                     </div>
                     <div className='flex flex-col gap-2'>
                         <h3 className='font-bold text-lg'>
-                            Social Media
+                            {footerTranslations('Social Media.title')}
                         </h3>
                         <ul className='flex flex-col gap-1'>
                             <FooterLink href={'https://www.facebook.com/share/1aCkhgsCWj/?mibextid=wwXIfr'} target='_blank'>
-                                Facebook
+                                {footerTranslations('Social Media.Facebook')}
                             </FooterLink>
                             <FooterLink href={'https://www.instagram.com/fractalstech?igsh=MWpxdDdtNW82YW1seg=='} target='_blank'>
-                                Instagram
+                                {footerTranslations('Social Media.Instagram')}
+
                             </FooterLink>
                             <FooterLink href={'https://www.linkedin.com/company/fractals1group/'} target='_blank'>
-                                LinkedIn
+                                {footerTranslations('Social Media.LinkedIn')}
+
                             </FooterLink>
 
 
@@ -149,7 +159,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='w-full flex justify-center py-12'>
-                    <p>All Copyrights reserved for Fractals Group &copy;{new Date().getFullYear()}</p>
+                    <p> {footerTranslations('copyrights')} &copy;{new Date().getFullYear()}</p>
                 </div>
             </Container>
         </footer>

@@ -57,6 +57,7 @@
     },
     "expertise": {
         "our expertise": "Our Expertise",
+        "Our Last Project": "Our Latest Projects",
         "web devlopenet": {
             "title": "Web Development",
             "Custom-built websites with modern frameworks": "Custom-built websites with modern frameworks",
@@ -117,14 +118,37 @@
         "long description": "At Fractals, we don’t just work — we create experiences that matter. \n We believe in learning, growth, and purpose."
     },
     "footer": {
-        "Documentation": {
-            "title": "Documentation",
+        " Naviagation": {
+            "title": "Naviagation",
+            "home": "Home",
+            "aboutUs": "About Us",
             "Blogs": "Blogs",
-            "Vacancies": "Vacancies",
-            "Privacy Policy": "Privacy Policy"
+            "vacances": "Vacancies",
+            "ContactUs": "Contact Us",
+            "Our Expertise": "Our Expertise",
+            "Our Process": "Our Process"
         },
-        "privacy policy": "Privacy Policy",
-        "terms of service": "Terms of Service",
+        "solutions": {
+            "title": "Solutions",
+            "web": "Web Breif",
+            "mobile": "Mobile Breif",
+            "desktop": "Desktop Breif",
+            "ui_ux": "UI/UX Breif",
+            "logo-design": "Branding & Logo Breif",
+            "social-media": "Social Media Breif",
+            "product-management": "Product Management"
+        },
+        "Legal": {
+            "title": "Legal",
+            "privacy policy": "Privacy Policy",
+            "terms of service": "Terms of Service",
+            "cookies settings": "Cookies Settings"
+        },
+        "Partner": {
+            "title": "Partners",
+            "reflectart": "Reflect Art"
+        },
+        "copyrights": "All Copyrights reserved for Fractals Group",
         "follow us": "Follow Us",
         "Social Media": {
             "title": "Social Media",
@@ -132,12 +156,28 @@
             "LinkedIn": "LinkedIn",
             "Twitter": "Twitter",
             "Facebook": "Facebook"
-        }
+        },
+        "title": "Grow Globally <br></br> with Fractals",
+        "description": "Seamlessly manage inventory, optimize operations, and scale your <br></br>business worldwide."
+    },
+    "blog": {
+        "title": "Blogs",
+        "notFound": "  No blogs found in this category."
     },
     "buttons": {
-        "Explore Expertise": "Explore Expertise"
+        "Explore Expertise": "Explore Expertise",
+        "Get Started": "Get Started",
+        "view all": "View All",
+        "Read More": "Read More",
+        "Watch More": "Watch More",
+        "Go to brief": "Go to brief",
+        "Discover Vacancies": "Discover Vacancies"
     },
     "contact": {
+        "heading": "Contact us",
+        "title": "Let’s Build Your Next Masterpiece",
+        "description": "Every great collaboration starts with a simple conversation.<br></br>Tell us your vision — we’ll Fractalize it into something extraordinary.",
+        "about": "   We’re a collective of designers, developers, and thinkers who believe that digital experiences  can<br></br> move people — not just reach them.  Whether you’re building a brand, a product, or a story, <br></br>we’re here to help it take form — intelligently, beautifully, and with purpose.",
         "form": {
             "name": {
                 "label": "Name",

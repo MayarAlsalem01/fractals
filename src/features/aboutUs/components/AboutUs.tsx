@@ -1,16 +1,20 @@
+import { getPathname } from '@/i18n/navigation';
 import SecondryButton from '@/ui/SecondryButton';
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion';
 import { getLocale, getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 
-export default async function AboutUs() {
+export default async function AboutUs({ canDisplayReadButton }: { canDisplayReadButton?: boolean }) {
 
     const locale = await getLocale()
     const t = await getTranslations('aboutUS')
+    const buttonsTransaltions = await getTranslations('buttons')
+    // get the current url 
     return (
-        <section className='w-full h-screen relative '>
+        <section className='w-full h-screen relative ' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
             <div className='absolute -top-4 left-0 w-full h-1/4 bg-linear-to-b from-transparent to-black  rotate-180  blur-lg  shadow-2xl shadow-black   z-[1] '></div>
             <div className='hidden xl:block absolute top-0 left-0 h-full w-full overflow-hidden   perspective-distant transform-3d'>
-                <video src="/videos/myVideo.mp4" className={`min-w-full h-full object-fill object-[82%_0px] -translate-x-54 translate-z-[-8rem] -translate-y-[-2rem] md:-translate-y-[-0rem] md:translate-0  brightness-90 scale-x-[3] md:scale-110 ${locale === 'ar' ? 'rotate-y-180 ' : ''}`} controls={false} autoPlay loop muted playsInline disablePictureInPicture />
+                <video src="/videos/myVideo.mp4" className={`min-w-full h-full object-fill object-[82%_0px] -translate-x-54 translate-z-[-8rem] -translate-y-[-2rem] md:-translate-y-[-0rem] md:translate-0  brightness-90 scale-x-[3] md:scale-110  ${locale === 'ar' ? 'rotate-y-180' : ''}`} controls={false} autoPlay loop muted playsInline disablePictureInPicture />
             </div>
             <div className='block xl:hidden absolute top-0 left-0 h-full w-full overflow-hidden   perspective-distant transform-3d'>
                 <video src="/videos/AboutUs-Tablet.mp4" className={`w-full h-full object-cover   brightness-90   ${locale === 'ar' ? 'rotate-y-180 ' : ''}`} controls={false} autoPlay loop muted playsInline disablePictureInPicture />
@@ -30,9 +34,11 @@ export default async function AboutUs() {
 
                     </p>
                 </TransparentTextAnimation>
-                <SecondryButton className=' px-6  w-fit'>
-                    Read More
-                </SecondryButton>
+                {canDisplayReadButton &&
+                    <Link href={'/about_us'}>
+                        <SecondryButton className=' px-6  w-fit'>
+                            {buttonsTransaltions('Read More')}
+                        </SecondryButton></Link>}
             </div>
         </section>
     )

@@ -32,7 +32,7 @@ export default function HeroVideo() {
             <div className='w-full h-full relative brightness-[80%]'>
                 <video
                     ref={videoRef}
-                    className='h-full object-cover scale-[4] md:ccale-[1.5] xl:scale-110 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full'
+                    className='h-full object-cover scale-[1] md:ccale-[1.5] xl:scale-110 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full'
                     playsInline
                     src='/videos/heroVideo.mp4'
                     preload='auto'

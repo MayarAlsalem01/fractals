@@ -7,6 +7,7 @@ import Image from 'next/image';
 import SecondryButton from '@/ui/SecondryButton';
 export default async function Services() {
     const t = await getTranslations('expertise')
+    const buttons = await getTranslations('buttons')
     return (
         <div className='min-h-screen w-full flex flex-col lg:items-end justify-center relative py-12  md:pb-18 px-4 lg:px-32 '>
             <div className='absolute -left-[57rem] top-[-84%]  h-full w-full'>
@@ -40,7 +41,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-xs  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -63,7 +64,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter>
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 
@@ -84,7 +85,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter>
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className=' gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -105,7 +106,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className='hidden lg:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -126,7 +127,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className='hidden lg:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent'>
@@ -147,7 +148,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 
@@ -175,7 +176,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
                 <Card className='hidden lg:flex gap-1 backdrop-blur-lg  border border-accent-foreground/35 rounded-3xl inset-shadow-[2rem_1rem_50px] inset-shadow-white/10 bg-transparent '>
@@ -202,7 +203,7 @@ export default async function Services() {
                         </ServicesCardList>
                     </CardContent>
                     <ServicesCardFooter >
-                        <SecondryButton>Watch more</SecondryButton>
+                        <SecondryButton>{buttons('Watch More')}</SecondryButton>
                     </ServicesCardFooter>
                 </Card>
 

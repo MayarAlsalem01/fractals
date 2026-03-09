@@ -6,7 +6,7 @@ import BgMobileImage from "../../../../../public/assets/Expertise-Mobile.png";
 import Container from "@/components/Container";
 import Blind from "@/components/Blind";
 import Star from "../../../../../public/assets/star.png";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import DotBackgroundDemo from "@/components/DottedBackground";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -15,11 +15,15 @@ import AboutImageSilder from "@/features/aboutUs/components/AboutImageSilder";
 
 export default async function page() {
     const t = await getTranslations('expertise')
+    const buttons = await getTranslations('buttons')
+    const locale = await getLocale()
     const services = [
         {
             key: "web",
             title: t('web devlopenet.title'),
             description: null,
+            link: '/brief/web',
+            buttonText: buttons('Go to brief'),
             bullets: [
                 t('web devlopenet.Custom-built websites with modern frameworks'),
                 t('web devlopenet.Fast, scalable, and interactive'),
@@ -30,6 +34,8 @@ export default async function page() {
         {
             key: "mobile",
             title: t('mobile app development.title'),
+            link: '/brief/mobile',
+            buttonText: buttons('Go to brief'),
             description: t('mobile app development.description'),
             bullets: [
                 t('mobile app development.Native or Cross-platform apps'),
@@ -41,7 +47,8 @@ export default async function page() {
             key: "uiux",
             title: t('ui ux design.title'),
             description: t('ui ux design.description'),
-
+            link: '/brief/ui_ux',
+            buttonText: buttons('Go to brief'),
             bullets: [
                 t('ui ux design.Human-centered experiences that fuse art and usability'),
                 t('ui ux design.Services: wireframing, prototyping, motion design, and usability testing'),
@@ -49,6 +56,8 @@ export default async function page() {
         },
         {
             key: "desktop",
+            link: '/brief/desktop',
+            buttonText: buttons('Go to brief'),
             title: t('desktop applications.title'),
             description: t('desktop applications.description'),
             bullets: [
@@ -58,6 +67,8 @@ export default async function page() {
         },
         {
             key: "branding",
+            link: '/brief/brand_logo',
+            buttonText: buttons('Go to brief'),
             title: t('Branding & Logo Design.title'),
             description: t('Branding & Logo Design.description'),
             bullets: [
@@ -67,6 +78,8 @@ export default async function page() {
         },
         {
             key: "marketing",
+            link: '/brief/social_media',
+            buttonText: buttons('Go to brief'),
             title: t('Marketing & Social Media Management.title'),
             description: t('Marketing & Social Media Management.description'),
             bullets: [
@@ -89,7 +102,7 @@ export default async function page() {
                 className="w-full h-full object-cover absolute left-0 top-0 -z-10 md:hidden"
             />
 
-            <section className="h-screen relative  py-28">
+            <section className="h-screen relative  py-28" >
                 <Container className="!py-0 h-full" >
                     <div className="h-full w-full items-center flex flex-col md:flex-row justify-between   " dir="ltr">
                         <div className="flex flex-col items-start gap-4 md:gap-8 uppercase w-full">
@@ -122,21 +135,25 @@ export default async function page() {
             </section>
 
             <DotBackgroundDemo>
-                <Container className="relative ">
-                    <Blind />
-                    <section className="flex flex-col gap-12">
-                        {services.map((s) => (
-                            <ServiceCard
-                                key={s.key}
-                                title={s.title}
-                                description={s.description}
-                                bullets={s.bullets}
-                                icon={Star}
-                            />
-                        ))}
-                    </section>
-                    <AboutImageSilder />
-                </Container>
+                <div dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+                    <Container className="relative ">
+                        <Blind />
+                        <section className="flex flex-col gap-12">
+                            {services.map((s) => (
+                                <ServiceCard
+                                    key={s.key}
+                                    title={s.title}
+                                    description={s.description}
+                                    bullets={s.bullets}
+                                    icon={Star}
+                                    link={s.link}
+                                    buttonText={s.buttonText}
+                                />
+                            ))}
+                        </section>
+                        <AboutImageSilder />
+                    </Container>
+                </div>
             </DotBackgroundDemo>
         </div>
     );
@@ -145,12 +162,13 @@ export default async function page() {
 
 async function ServiceCard({
     title,
+    link,
     description,
     bullets = [],
     buttonText = "Go to brief",
     icon, // pass an imported image module (e.g. Star)
     className = "",
-}: { title: string; description: React.ReactNode | null; bullets?: string[]; buttonText?: string; icon?: StaticImageData; className?: string; }) {
+}: { title: string; description: React.ReactNode | null; bullets?: string[]; buttonText?: string; icon?: StaticImageData; className?: string; link: string, }) {
     return (
         <div className={`flex flex-col gap-3 ${className}`}>
             <div className="flex items-center gap-2">
@@ -172,7 +190,9 @@ async function ServiceCard({
                 </ul>
             )}
 
-            <SecondryButton className="w-fit">{buttonText}</SecondryButton>
+            <Link href={link}>
+                <SecondryButton className="w-fit">{buttonText}</SecondryButton>
+            </Link>
         </div>
     );
 }

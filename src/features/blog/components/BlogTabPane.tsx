@@ -8,8 +8,10 @@ import useGetAllBlogCategories from '@/features/blogCategory/hooks/useGetAllBlog
 import { Skeleton } from '@/components/ui/skeleton'
 import useGetBlogs from '@/features/blogCategory/hooks/useGetBlogs'
 import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 
 export default function BlogTabPane({ limit }: { limit?: number }) {
+    const t = useTranslations('blog')
     const [activeTab, setActiveTab] = useState('all')
     const { data: categories } = useGetAllBlogCategories()
 
@@ -44,7 +46,7 @@ export default function BlogTabPane({ limit }: { limit?: number }) {
                         ))
                     ) : blogsData?.blogs.length === 0 ? (
                         <div className="col-span-full text-center py-10 opacity-70">
-                            No blogs found in this category.
+                            {t('notFound')}
                         </div>
                     ) : (
                         blogsData?.blogs.map((blog, i) => (

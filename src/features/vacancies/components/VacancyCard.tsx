@@ -4,6 +4,7 @@ import Image, { StaticImageData } from 'next/image'
 import SecondryButton from '@/ui/SecondryButton'
 import { Link } from '@/i18n/navigation'
 import BgImage from '../../../../public/assets/licensed-image.png'
+import { useTranslations } from 'next-intl'
 
 interface VacancyCardProps {
     id: number;
@@ -13,6 +14,7 @@ interface VacancyCardProps {
 }
 
 export default function VacancyCard({ id, title, description, createdAt }: VacancyCardProps) {
+    const buttons = useTranslations('buttons')
     return (
         <Card className='w-full relative bg-transparent gap-3 overflow-hidden z-30'>
             <CardHeader>
@@ -43,7 +45,7 @@ export default function VacancyCard({ id, title, description, createdAt }: Vacan
                         Reflecting on user request: "in this page add a vacanciy card...". 
                         I will assume /vacancies/[id] is the intended target.
                     */}
-                    <Link href={`/vacancies/${id}`}>Read More</Link>
+                    <Link href={`/vacancies/${id}`}>{buttons('Read More')}</Link>
                 </SecondryButton>
 
                 <p className='text-xs opacity-50 self-start'>

@@ -57,6 +57,7 @@
     },
     "expertise": {
         "our expertise": "مجالات خبرتنا",
+        "Our Last Project": "أحدث مشاريعنا",
         "web devlopenet": {
             "title": "تطوير الويب",
             "Custom-built websites with modern frameworks": "مواقع مخصصة مبنية باستخدام أُطر عمل حديثة",
@@ -94,6 +95,20 @@
             "description": "نساعدك على التواصل بوضوح وإبداع واتساق. استراتيجياتنا تجمع البيانات والتصميم — لتحويل حضورك الرقمي إلى قصة تُلهم الثقة والنمو.",
             "Strategy, storytelling, and visual identity consistency": "الاستراتيجية، السرد، واتساق الهوية البصرية.",
             "Growth-driven campaigns powered by analytics and creativity": "حملات مُحفّزة للنمو مدعومة بالتحليلات والإبداع."
+        },
+        "Network": {
+            "title": "الشبكات",
+            "Network Design": "تصميم الشبكات",
+            "Configuration & Installation": "الإعداد والتركيب",
+            "Security & maintenance": "الأمن والصيانة",
+            "Smart Infrastructure": "البنية التحتية الذكية"
+        },
+        "IoT Solutions": {
+            "title": "حلول إنترنت الأشياء (IoT)",
+            "Smart Devices Integration": "تكامل الأجهزة الذكية",
+            "Automation Systems": "أنظمة الأتمتة",
+            "Smart homes & Buildings": "المنازل والمباني الذكية",
+            "Industrial IoT": "إنترنت الأشياء الصناعي"
         }
     },
     "vacancies": {
@@ -104,14 +119,37 @@
         "apply now": "قدّم الآن"
     },
     "footer": {
-        "Documentation": {
-            "title": "التوثيق",
-            "Blogs": "المدوّنات",
-            "Vacancies": "الوظائف",
-            "Privacy Policy": "سياسة الخصوصية"
+        " Naviagation": {
+            "title": "التنقل",
+            "home": "الرئيسية",
+            "aboutUs": "من نحن",
+            "Blogs": "المقالات",
+            "vacances": "الوظائف",
+            "ContactUs": "اتصل بنا",
+            "Our Expertise": "خبراتنا",
+            "Our Process": "عمليتنا"
         },
-        "privacy policy": "سياسة الخصوصية",
-        "terms of service": "شروط الخدمة",
+        "solutions": {
+            "title": "الحلول",
+            "web": "موجز الويب",
+            "mobile": "موجز الجوال",
+            "desktop": "موجز سطح المكتب",
+            "ui_ux": "موجز واجهة وتجربة المستخدم",
+            "logo-design": "موجز الهوية والشعار",
+            "social-media": "موجز التواصل الاجتماعي",
+            "product-management": "إدارة المنتجات"
+        },
+        "Legal": {
+            "title": "قانوني",
+            "privacy policy": "سياسة الخصوصية",
+            "terms of service": "شروط الخدمة",
+            "cookies settings": "إعدادات الكوكيز"
+        },
+        "Partner": {
+            "title": "الشركاء",
+            "reflectart": "Reflect Art"
+        },
+        "copyrights": "جميع الحقوق محفوظة لمجموعة فراكتالز",
         "follow us": "تابعنا",
         "Social Media": {
             "title": "وسائل التواصل الاجتماعي",
@@ -119,6 +157,58 @@
             "LinkedIn": "لينكدإن",
             "Twitter": "تويتر",
             "Facebook": "فيسبوك"
+        },
+        "title": "انمو عالمياً <br></br> مع فراكتالز",
+        "description": "قم بإدارة المخزون بسلاسة، وحسّن العمليات، وانطلق بعملك <br></br>في جميع أنحاء العالم."
+    },
+    "blog": {
+        "title": "المقالات",
+        "notFound": "لم يتم العثور على مقالات في هذه الفئة."
+    },
+    "buttons": {
+        "Explore Expertise": "استكشف خبراتنا",
+        "Get Started": "ابدأ الآن",
+        "view all": "عرض الكل",
+        "Read More": "اقرأ المزيد",
+        "Watch More": "شاهد المزيد",
+        "Go to brief": "اذهب إلى الموجز",
+        "Discover Vacancies": "اكتشف الوظائف"
+    },
+    "contact": {
+        "heading": "اتصل بنا",
+        "title": "لنصنع تحفتك القادمة",
+        "description": "كل تعاون عظيم يبدأ بمحادثة بسيطة.<br></br>أخبرنا برؤيتك — وسوف نحولها إلى شيء استثنائي.",
+        "about": "نحن مجموعة من المصممين والمطورين والمفكرين الذين يؤمنون بأن التجارب الرقمية يمكنها<br></br> تحريك الناس — وليس فقط الوصول إليهم. سواء كنت تبني علامة تجارية، أو منتجاً، أو قصة، <br></br>فنحن هنا للمساعدة في منحها شكلاً — بذكاء، وجمال، وبغرض.",
+        "form": {
+            "name": {
+                "label": "الاسم",
+                "placeholder": "الاسم"
+            },
+            "email": {
+                "label": "البريد الإلكتروني",
+                "placeholder": "البريد الإلكتروني"
+            },
+            "company": {
+                "label": "الشركة / المؤسسة (اختياري)",
+                "placeholder": "الشركة / المؤسسة (اختياري)"
+            },
+            "service": {
+                "label": "نوع الخدمة / الاستفسار",
+                "placeholder": "نوع الخدمة / الاستفسار",
+                "options": {
+                    "Web Development": "تطوير الويب",
+                    "Mobile App Development": "تطوير تطبيقات الهواتف",
+                    "Desktop Applications": "تطبيقات سطح المكتب",
+                    "UI/UX Design": "تصميم واجهة وتجربة المستخدم",
+                    "Branding & Logo Design": "تصميم العلامة التجارية والشعارات",
+                    "Social Media Management": "إدارة وسائل التواصل الاجتماعي"
+                }
+            },
+            "message": {
+                "label": "الرسالة",
+                "placeholder": "الرسالة"
+            },
+            "submit": "أرسل رؤيتي"
         }
     }
 }

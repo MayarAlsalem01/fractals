@@ -20,6 +20,21 @@ const gravesend = localFont({
   ]
 })
 
+const notokufiarabic = localFont({
+  variable: "--font-noto-kufi-arabic",
+  src: [
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/NotoKufiArabic-VariableFont_wght.ttf', weight: "100 900", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Thin.ttf', weight: "100", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-ExtraLight.ttf', weight: "200", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Light.ttf', weight: "300", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Regular.ttf', weight: "400", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Medium.ttf', weight: "500", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-SemiBold.ttf', weight: "600", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Bold.ttf', weight: "700", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-ExtraBold.ttf', weight: "800", style: "normal" },
+    { path: '../../../public/fonts/Noto_Kufi_Arabic/static/NotoKufiArabic-Black.ttf', weight: "900", style: "normal" }
+  ]
+})
 
 const gilory = localFont({
   variable: "--font-gilory",
@@ -112,7 +127,7 @@ export const metadata: Metadata = {
 // Generate static params for all supported locales
 
 export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'tr' }]; // List all supported locales
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'tr' }, { locale: 'ar' }]; // List all supported locales
 }
 type Props = {
   children: React.ReactNode;
@@ -132,7 +147,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}   >
       <body
-        className={`dark  ${gravesend.variable}  ${gilory.variable} ${geistMono.variable}  antialiased `}
+        className={`dark  ${gilory.variable} ${locale === 'ar' ? '' : gravesend.variable}   ${geistMono.variable} ${notokufiarabic.variable} antialiased ${locale === 'ar' ? '!font-arabic' : 'font-gilory'}`}
       >
         <NextIntlClientProvider >
           <SessionProvider>

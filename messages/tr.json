@@ -1,173 +1,213 @@
 {
-    "navbar": {
-        "home": "Anasayfa",
-        "aboutUs": "Hakkımızda",
-        "Expertise": "Uzmanlık",
-        "Blogs": "Bloglar",
-        "vacances": "Kariyer",
-        "ContactUs": "İletişim"
+  "navbar": {
+    "home": "Anasayfa",
+    "aboutUs": "Hakkımızda",
+    "Expertise": "Uzmanlık",
+    "Blogs": "Bloglar",
+    "vacances": "Kariyer",
+    "ContactUs": "İletişim"
+  },
+  "hero": {
+    "title": "Sanatın başkenti",
+    "subtitle": "Geliştiriyoruz. Tasarlıyoruz. Bağlıyoruz. İlham veriyoruz.",
+    "description": "Fractals, sanat, kod ve insan duygularının mükemmel bir uyum içinde aktığı dijital deneyimler şekillendiren yaratıcı ve teknoloji odaklı bir ajanstır."
+  },
+  "aboutUS": {
+    "who we are": "Biz Kimiz",
+    "description": "Fractals, anlamlı dijital dünyalar inşa etmek için yaratıcılığı teknolojiyle harmanlar. Yankı uyandıran, gelişen ve markaları yeni bir zeka ve sanat çağına taşıyan deneyimler yaratıyoruz. Evrendeki en güçlü güç teknoloji değildir. Hayal gücüdür. Lüks ve yaşam tarzı markaları için önde gelen stratejik ortağız. Sofistike kitlelerin ne istediğini ve onları anlamlı dijital deneyimlerle nasıl etkileşime geçireceğimizi biliyoruz. Veriler düşüncemizi yönlendirir. Detaylara gösterilen özen yaptıklarımızı yönlendirir.",
+    "vision": {
+      "title": "Vizyon",
+      "description": "Dijital sanat ve inovasyonun başkenti olmak — yaratıcılığın zeka ile buluştuğu ve markaların sıradanlığın ötesine geçtiği yer."
     },
-    "hero": {
-        "title": "Sanatın başkenti",
-        "subtitle": "Geliştiriyoruz. Tasarlıyoruz. Bağlıyoruz. İlham veriyoruz.",
-        "description": "Fractals, sanat, kod ve insan duygularının mükemmel bir uyum içinde aktığı dijital deneyimler şekillendiren yaratıcı ve teknoloji odaklı bir ajanstır."
+    "mission": {
+      "title": "Misyon",
+      "description": "İşletmelerin ruhlarını teknoloji, tasarım ve hikaye anlatımı yoluyla ifade etmelerine yardımcı olmak — ilham veren ve performans gösteren sistemler inşa etmek."
     },
-    "aboutUS": {
-        "who we are": "Biz Kimiz",
-        "description": "Fractals, anlamlı dijital dünyalar inşa etmek için yaratıcılığı teknolojiyle harmanlar. Yankı uyandıran, gelişen ve markaları yeni bir zeka ve sanat çağına taşıyan deneyimler yaratıyoruz. Evrendeki en güçlü güç teknoloji değildir. Hayal gücüdür. Lüks ve yaşam tarzı markaları için önde gelen stratejik ortağız. Sofistike kitlelerin ne istediğini ve onları anlamlı dijital deneyimlerle nasıl etkileşime geçireceğimizi biliyoruz. Veriler düşüncemizi yönlendirir. Detaylara gösterilen özen yaptıklarımızı yönlendirir.",
-        "vision": {
-            "title": "Vizyon",
-            "description": "Dijital sanat ve inovasyonun başkenti olmak — yaratıcılığın zeka ile buluştuğu ve markaların sıradanlığın ötesine geçtiği yer."
-        },
-        "mission": {
-            "title": "Misyon",
-            "description": "İşletmelerin ruhlarını teknoloji, tasarım ve hikaye anlatımı yoluyla ifade etmelerine yardımcı olmak — ilham veren ve performans gösteren sistemler inşa etmek."
-        },
-        "core values": {
-            "title": "Temel Değerler",
-            "Artistry & Precision": "Sanat & Hassasiyet",
-            "Innovation & Intelligence": "İnovasyon & Zeka",
-            "Transparency & Collaboration": "Şeffaflık & İşbirliği",
-            "Human-Centered Design": "İnsan Odaklı Tasarım",
-            "Excellence & Growth": "Mükemmellik & Büyüme",
-            "des": "“Fractals, sanat ve zekanın birbirine ait olduğuna inananlar için var.”"
-        },
-        "our identity": {
-            "title": "Kimliğimiz",
-            "mainTitle": "Bir Fractal bir desenden fazlasıdır — bir felsefedir.",
-            "description": "Kimliğimiz sonsuzluğu denge yoluyla yansıtır — yapı ve özgürlük, sanat ve teknoloji, duygu ve hassasiyet arasında. \n Menekşe ve mavinin gradyanı özümüzü yansıtır: zekaya evrilen hayal gücü, berraklıkla buluşan yaratıcılık.",
-            "values": "Her eğri, her hareket, her ton kim olduğumuzu yansıtmak için tasarlanmıştır — \n her yöne güzelce genişleyen sonsuz fikirler sistemi."
-        }
+    "core values": {
+      "title": "Temel Değerler",
+      "Artistry & Precision": "Sanat & Hassasiyet",
+      "Innovation & Intelligence": "İnovasyon & Zeka",
+      "Transparency & Collaboration": "Şeffaflık & İşbirliği",
+      "Human-Centered Design": "İnsan Odaklı Tasarım",
+      "Excellence & Growth": "Mükemmellik & Büyüme",
+      "des": "“Fractals, sanat ve zekanın birbirine ait olduğuna inananlar için var.”"
     },
-    "Our Process": {
-        "title": "Sürecimiz",
-        "Briefing": {
-            "title": "Bilgilendirme",
-            "description": "Web sitemizden isteği gönderdikten sonra, sizinle WhatsApp üzerinden iletişime geçer ve ne inşa ettiğiniz hakkında daha fazla bilgi edinmek için bir görüşme planlarız."
-        },
-        "Design or Development": {
-            "title": "Tasarım veya Geliştirme",
-            "description": "Özete dayanarak tasarımı ve prototipi oluştururuz, ardından hemen geliştirmeye başlarız."
-        },
-        "Handoff": {
-            "title": "Teslim",
-            "description": "Son düzenlemeler, alan adı kurulumu ve web sitesi devri. Sahip olabileceğiniz en iyi tasarımı 48 saatten kısa sürede veya gerekirse daha uzun sürede alırsınız."
-        },
-        "step": "adım"
-    },
-    "expertise": {
-        "our expertise": "Uzmanlığımız",
-        "web devlopenet": {
-            "title": "Web Geliştirme",
-            "Custom-built websites with modern frameworks": "Modern çerçevelerle özel yapım web siteleri",
-            "Fast, scalable, and interactive": "Hızlı, ölçeklenebilir ve etkileşimli.",
-            "Integrations: CMS, APIs, cloud hosting, SEO optimization": "Entegrasyonlar: CMS, API'ler, bulut barındırma, SEO optimizasyonu.",
-            "Framer motion, Shopify, Wordpress, Wix Studio": "Framer motion, Shopify, Wordpress, Wix Studio."
-        },
-        "mobile app development": {
-            "title": "Mobil Uygulama Geliştirme",
-            "description": "Vizyonunuza hizmet eden mobil deneyimler tasarlıyoruz — sezgisel, hızlı ve ölçeklenebilir. Konseptten lansmana kadar her detay, kullanıcılarınızın markanızla zahmetsizce bağlantı kurmasına yardımcı olmak için tasarlanmıştır.",
-            "Native or Cross-platform apps": "Yerel veya Çapraz platform uygulamalar",
-            "Elegant UI, intuitive UX, and seamless performance": "Zarif UI, sezgisel UX ve sorunsuz performans",
-            "From MVP to full-scale product": "MVP'den tam ölçekli ürüne"
-        },
-        "desktop applications": {
-            "title": "Masaüstü Uygulamaları",
-            "description": "Günlük operasyonlarınızı basitleştiren güvenilir ve akıllı masaüstü çözümleri inşa ediyoruz. Her sistem iş akışınıza göre uyarlanır, güvenlik veya performanstan ödün vermeden verimliliği artırır.",
-            "Smart, secure, and performance-focused systems": "Akıllı, güvenli ve performans odaklı sistemler.",
-            "Tailored for business automation and internal operations": "İş otomasyonu ve iç operasyonlar için uyarlandı."
-        },
-        "ui ux design": {
-            "title": "UI/UX Tasarımı",
-            "description": "Birlikte doğal ve anlamlı hissettiren deneyimler tasarlıyoruz. Sürecimiz estetik ve empatiyi dengeler — her etkileşimin markanızın özünü ve kullanıcılarınızın ihtiyaçlarını yansıtmasını sağlar.",
-            "Human-centered experiences that fuse art and usability": "Sanat ve kullanılabilirliği birleştiren insan odaklı deneyimler.",
-            "Services: wireframing, prototyping, motion design, and usability testing": "Hizmetler: tel kafes, prototipleme, hareket tasarımı ve kullanılabilirlik testi."
-        },
-        "Branding & Logo Design": {
-            "title": "Markalaşma & Logo Tasarımı",
-            "description": "Hikayenizi net ve güzel konuşan görsellere dönüştürüyoruz. Logonuz, renkleriniz ve kimlik sisteminiz yankı uyandırmak için inşa edilmiştir, şüphesiz size ait hissettiren kalıcı bir izlenim bırakır.",
-            "Visual storytelling that defines who you are": "Kim olduğunuzu tanımlayan görsel hikaye anlatımı.",
-            "Deliverables: logo, typography, color palette, brand system": "Teslim edilecekler: logo, tipografi, renk paleti, marka sistemi."
-        },
-        "Marketing & Social Media Management": {
-            "title": "Pazarlama & Sosyal Medya Yönetimi",
-            "description": "Netlik, yaratıcılık ve tutarlılıkla iletişim kurmanıza yardımcı oluyoruz. Stratejilerimiz veri ve tasarımı birleştirir — çevrimiçi varlığınızı güven ve büyümeye ilham veren bir hikayeye dönüştürür.",
-            "Strategy, storytelling, and visual identity consistency": "Strateji, hikaye anlatımı ve görsel kimlik tutarlılığı.",
-            "Growth-driven campaigns powered by analytics and creativity": "Analitik ve yaratıcılıkla desteklenen büyüme odaklı kampanyalar."
-        },
-        "Network": {
-            "title": "Ağ",
-            "Network Design": "Ağ Tasarımı",
-            "Configuration & Installation": "Yapılandırma & Kurulum",
-            "Security & maintenance": "Güvenlik & bakım",
-            "Smart Infrastructure": "Akıllı Altyapı"
-        },
-        "IoT Solutions": {
-            "title": "IoT Çözümleri",
-            "Smart Devices Integration": "Akıllı Cihaz Entegrasyonu",
-            "Automation Systems": "Otomasyon Sistemleri",
-            "Smart homes & Buildings": "Akıllı evler & Binalar",
-            "Industrial IoT": "Endüstriyel IoT"
-        }
-    },
-    "vacancies": {
-        "title": "Açık Pozisyonlar",
-        "description": "Sanatın başkentine \n katılın.",
-        "subtitle": "Yaratıcılık, tutku ve zekanın buluştuğu yer",
-        "long description": "Fractals'ta sadece çalışmıyoruz — önemli olan deneyimler yaratıyoruz. \n Öğrenmeye, büyümeye ve amaca inanıyoruz."
-    },
-    "footer": {
-        "Documentation": {
-            "title": "Dokümantasyon",
-            "Blogs": "Bloglar",
-            "Vacancies": "Açık Pozisyonlar",
-            "Privacy Policy": "Gizlilik Politikası"
-        },
-        "privacy policy": "Gizlilik Politikası",
-        "terms of service": "Hizmet Şartları",
-        "follow us": "Bizi Takip Edin",
-        "Social Media": {
-            "title": "Sosyal Medya",
-            "Instagram": "Instagram",
-            "LinkedIn": "LinkedIn",
-            "Twitter": "Twitter",
-            "Facebook": "Facebook"
-        }
-    },
-    "buttons": {
-        "Explore Expertise": "Uzmanlığı Keşfet"
-    },
-    "contact": {
-        "form": {
-            "name": {
-                "label": "İsim",
-                "placeholder": "isim"
-            },
-            "email": {
-                "label": "E-posta",
-                "placeholder": "e-posta"
-            },
-            "company": {
-                "label": "Şirket / Organizasyon (isteğe bağlı)",
-                "placeholder": "Şirket / Organizasyon (isteğe bağlı)"
-            },
-            "service": {
-                "label": "Hizmet / Talep Türü",
-                "placeholder": "Hizmet / Talep Türü",
-                "options": {
-                    "Web Development": "Web Geliştirme",
-                    "Mobile App Development": "Mobil Uygulama Geliştirme",
-                    "Desktop Applications": "Masaüstü Uygulamaları",
-                    "UI/UX Design": "UI/UX Tasarımı",
-                    "Branding & Logo Design": "Markalaşma & Logo Tasarımı",
-                    "Social Media Management": "Sosyal Medya Yönetimi"
-                }
-            },
-            "message": {
-                "label": "Mesaj",
-                "placeholder": "mesaj"
-            },
-            "submit": "Vizyonumu Gönder"
-        }
+    "our identity": {
+      "title": "Kimliğimiz",
+      "mainTitle": "Bir Fractal bir desenden fazlasıdır — bir felsefedir.",
+      "description": "Kimliğimiz sonsuzluğu denge yoluyla yansıtır — yapı ve özgürlük, sanat ve teknoloji, duygu ve hassasiyet arasında. \n Menekşe ve mavinin gradyanı özümüzü yansıtır: zekaya evrilen hayal gücü, berraklıkla buluşan yaratıcılık.",
+      "values": "Her eğri, her hareket, her ton kim olduğumuzu yansıtmak için tasarlanmıştır — \n her yöne güzelce genişleyen sonsuz fikirler sistemi."
     }
+  },
+  "Our Process": {
+    "title": "Sürecimiz",
+    "Briefing": {
+      "title": "Bilgilendirme",
+      "description": "Web sitemizden isteği gönderdikten sonra, sizinle WhatsApp üzerinden iletişime geçer ve ne inşa ettiğiniz hakkında daha fazla bilgi edinmek için bir görüşme planlarız."
+    },
+    "Design or Development": {
+      "title": "Tasarım veya Geliştirme",
+      "description": "Özete dayanarak tasarımı ve prototipi oluştururuz, ardından hemen geliştirmeye başlarız."
+    },
+    "Handoff": {
+      "title": "Teslim",
+      "description": "Son düzenlemeler, alan adı kurulumu ve web sitesi devri. Sahip olabileceğiniz en iyi tasarımı 48 saatten kısa sürede veya gerekirse daha uzun sürede alırsınız."
+    },
+    "step": "adım"
+  },
+  "expertise": {
+    "our expertise": "Uzmanlığımız",
+    "Our Last Project": "Son Projelerimiz",
+    "web devlopenet": {
+      "title": "Web Geliştirme",
+      "Custom-built websites with modern frameworks": "Modern çerçevelerle özel yapım web siteleri",
+      "Fast, scalable, and interactive": "Hızlı, ölçeklenebilir ve etkileşimli.",
+      "Integrations: CMS, APIs, cloud hosting, SEO optimization": "Entegrasyonlar: CMS, API'ler, bulut barındırma, SEO optimizasyonu.",
+      "Framer motion, Shopify, Wordpress, Wix Studio": "Framer motion, Shopify, Wordpress, Wix Studio."
+    },
+    "mobile app development": {
+      "title": "Mobil Uygulama Geliştirme",
+      "description": "Vizyonunuza hizmet eden mobil deneyimler tasarlıyoruz — sezgisel, hızlı ve ölçeklenebilir. Konseptten lansmana kadar her detay, kullanıcılarınızın markanızla zahmetsizce bağlantı kurmasına yardımcı olmak için tasarlanmıştır.",
+      "Native or Cross-platform apps": "Yerel veya Çapraz platform uygulamalar",
+      "Elegant UI, intuitive UX, and seamless performance": "Zarif UI, sezgisel UX ve sorunsuz performans",
+      "From MVP to full-scale product": "MVP'den tam ölçekli ürüne"
+    },
+    "desktop applications": {
+      "title": "Masaüstü Uygulamaları",
+      "description": "Günlük operasyonlarınızı basitleştiren güvenilir ve akıllı masaüstü çözümleri inşa ediyoruz. Her sistem iş akışınıza göre uyarlanır, güvenlik veya performanstan ödün vermeden verimliliği artırır.",
+      "Smart, secure, and performance-focused systems": "Akıllı, güvenli ve performans odaklı sistemler.",
+      "Tailored for business automation and internal operations": "İş otomasyonu ve iç operasyonlar için uyarlandı."
+    },
+    "ui ux design": {
+      "title": "UI/UX Tasarımı",
+      "description": "Birlikte doğal ve anlamlı hissettiren deneyimler tasarlıyoruz. Sürecimiz estetik ve empatiyi dengeler — her etkileşimin markanızın özünü ve kullanıcılarınızın ihtiyaçlarını yansıtmasını sağlar.",
+      "Human-centered experiences that fuse art and usability": "Sanat ve kullanılabilirliği birleştiren insan odaklı deneyimler.",
+      "Services: wireframing, prototyping, motion design, and usability testing": "Hizmetler: tel kafes, prototipleme, hareket tasarımı ve kullanılabilirlik testi."
+    },
+    "Branding & Logo Design": {
+      "title": "Markalaşma & Logo Tasarımı",
+      "description": "Hikayenizi net ve güzel konuşan görsellere dönüştürüyoruz. Logonuz, renkleriniz ve kimlik sisteminiz yankı uyandırmak için inşa edilmiştir, şüphesiz size ait hissettiren kalıcı bir izlenim bırakır.",
+      "Visual storytelling that defines who you are": "Kim olduğunuzu tanımlayan görsel hikaye anlatımı.",
+      "Deliverables: logo, typography, color palette, brand system": "Teslim edilecekler: logo, tipografi, renk paleti, marka sistemi."
+    },
+    "Marketing & Social Media Management": {
+      "title": "Pazarlama & Sosyal Medya Yönetimi",
+      "description": "Netlik, yaratıcılık ve tutarlılıkla iletişim kurmanıza yardımcı oluyoruz. Stratejilerimiz veri ve tasarımı birleştirir — çevrimiçi varlığınızı güven ve büyümeye ilham veren bir hikayeye dönüştürür.",
+      "Strategy, storytelling, and visual identity consistency": "Strateji, hikaye anlatımı ve görsel kimlik tutarlılığı.",
+      "Growth-driven campaigns powered by analytics and creativity": "Analitik ve yaratıcılıkla desteklenen büyüme odaklı kampanyalar."
+    },
+    "Network": {
+      "title": "Ağ",
+      "Network Design": "Ağ Tasarımı",
+      "Configuration & Installation": "Yapılandırma & Kurulum",
+      "Security & maintenance": "Güvenlik & bakım",
+      "Smart Infrastructure": "Akıllı Altyapı"
+    },
+    "IoT Solutions": {
+      "title": "IoT Çözümleri",
+      "Smart Devices Integration": "Akıllı Cihaz Entegrasyonu",
+      "Automation Systems": "Otomasyon Sistemleri",
+      "Smart homes & Buildings": "Akıllı evler & Binalar",
+      "Industrial IoT": "Endüstriyel IoT"
+    }
+  },
+  "vacancies": {
+    "title": "Açık Pozisyonlar",
+    "description": "Sanatın başkentine \n katılın.",
+    "subtitle": "Yaratıcılık, tutku ve zekanın buluştuğu yer",
+    "long description": "Fractals'ta sadece çalışmıyoruz — önemli olan deneyimler yaratıyoruz. \n Öğrenmeye, büyümeye ve amaca inanıyoruz."
+  },
+  "footer": {
+    " Naviagation": {
+      "title": "Navigasyon",
+      "home": "Anasayfa",
+      "aboutUs": "Hakkımızda",
+      "Blogs": "Bloglar",
+      "vacances": "Kariyer",
+      "ContactUs": "İletişim",
+      "Our Expertise": "Uzmanlığımız",
+      "Our Process": "Sürecimiz"
+    },
+    "solutions": {
+      "title": "Çözümler",
+      "web": "Web Özeti",
+      "mobile": "Mobil Özet",
+      "desktop": "Masaüstü Özeti",
+      "ui_ux": "UI/UX Özeti",
+      "logo-design": "Marka & Logo Özeti",
+      "social-media": "Sosyal Medya Özeti",
+      "product-management": "Ürün Yönetimi"
+    },
+    "Legal": {
+      "title": "Yasal",
+      "privacy policy": "Gizlilik Politikası",
+      "terms of service": "Hizmet Şartları",
+      "cookies settings": "Çerez Ayarları"
+    },
+    "Partner": {
+      "title": "Partnerler",
+      "reflectart": "Reflect Art"
+    },
+    "copyrights": "Tüm Hakları Saklıdır © Fractals Group",
+    "follow us": "Bizi Takip Edin",
+    "Social Media": {
+      "title": "Sosyal Medya",
+      "Instagram": "Instagram",
+      "LinkedIn": "LinkedIn",
+      "Twitter": "Twitter",
+      "Facebook": "Facebook"
+    },
+    "title": "Fractals ile <br></br> Küresel Ölçekte Büyüyün",
+    "description": "Envanterinizi sorunsuz yönetin, operasyonları optimize edin ve <br></br>işinizi dünya çapında ölçeklendirin."
+  },
+  "blog": {
+    "title": "Bloglar",
+    "notFound": "Bu kategoride blog bulunamadı."
+  },
+  "buttons": {
+    "Explore Expertise": "Uzmanlığı Keşfet",
+    "Get Started": "Başlayalım",
+    "view all": "Hepsini Gör",
+    "Read More": "Daha Fazla Oku",
+    "Watch More": "Daha Fazla İzle",
+    "Go to brief": "Özete Git",
+    "Discover Vacancies": "Kariyer Fırsatlarını Keşfet"
+  },
+  "contact": {
+    "heading": "İletişime Geçin",
+    "title": "Sıradaki Başyapıtınızı Beraber İnşa Edelim",
+    "description": "Her büyük iş birliği basit bir sohbetle başlar.<br></br>Bize vizyonunuzu anlatın — onu olağanüstü bir şeye dönüştürelim.",
+    "about": "Biz, dijital deneyimlerin insanlara sadece ulaşmakla kalmayıp onlara<br></br> dokunabileceğine inanan tasarımcılar, geliştiriciler ve düşünürlerden oluşan bir topluluğuz. İster bir marka, ister bir ürün, ister bir hikaye inşa ediyor olun, <br></br>ona form kazandırmak için buradayız — akıllıca, güzelce ve bir amaçla.",
+    "form": {
+      "name": {
+        "label": "İsim",
+        "placeholder": "isim"
+      },
+      "email": {
+        "label": "E-posta",
+        "placeholder": "e-posta"
+      },
+      "company": {
+        "label": "Şirket / Organizasyon (isteğe bağlı)",
+        "placeholder": "Şirket / Organizasyon (isteğe bağlı)"
+      },
+      "service": {
+        "label": "Hizmet / Talep Türü",
+        "placeholder": "Hizmet / Talep Türü",
+        "options": {
+          "Web Development": "Web Geliştirme",
+          "Mobile App Development": "Mobil Uygulama Geliştirme",
+          "Desktop Applications": "Masaüstü Uygulamaları",
+          "UI/UX Design": "UI/UX Tasarımı",
+          "Branding & Logo Design": "Markalaşma & Logo Tasarımı",
+          "Social Media Management": "Sosyal Medya Yönetimi"
+        }
+      },
+      "message": {
+        "label": "Mesaj",
+        "placeholder": "mesaj"
+      },
+      "submit": "Vizyonumu Gönder"
+    }
+  }
 }

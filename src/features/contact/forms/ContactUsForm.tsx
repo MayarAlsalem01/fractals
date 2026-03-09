@@ -40,7 +40,7 @@ export default function ContactUsForm() {
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full xl:max-w-2xl">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full xl:max-w-2xl" >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                     <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem className="w-full">

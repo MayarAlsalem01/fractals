@@ -6,8 +6,10 @@ import Image from 'next/image'
 import Star from '../../../public/assets/star.png'
 import { Link as navLinks } from './Navbar'
 import { Link, usePathname } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 
 export default function DesktopNavbar({ links }: { links: navLinks[] }) {
+
     const path = usePathname()
     console.log(path)
     return (
@@ -29,12 +31,14 @@ export default function DesktopNavbar({ links }: { links: navLinks[] }) {
 }
 
 function NavDesktopBtn() {
+    const t = useTranslations('buttons')
+
     return (
         <Link href={'/expertise'} className='hidden md:flex'>
             <PrimaryButton id='navBtn' fill className='hidden md:flex'>
                 <div className='relative z-50 flex items-center  gap-3'>
                     <Image src={Star} alt='star' className='w-5 transition-all duration-500' />
-                    <p >Get started</p>
+                    <p >{t('Get Started')}</p>
                 </div>
             </PrimaryButton>
         </Link>
