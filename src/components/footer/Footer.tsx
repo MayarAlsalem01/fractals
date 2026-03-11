@@ -22,8 +22,12 @@ export default async function Footer() {
             <Container className='lg:!py-0 lg:!pt-10'>
                 <div>
                     <div className='flex flex-col gap-2 mb-4 mt-44 md:mt-0'>
-                        <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>{footerTranslations('title')}</p>
-                        <p>{footerTranslations('description')}</p>
+                        <p className='text-xl md:text-3xl lg:text-5xl font-bold font-gravesend'>{footerTranslations.rich('title', {
+                            br: () => <br />
+                        })}</p>
+                        <p>{footerTranslations.rich('description', {
+                            br: () => <br />
+                        })}</p>
                         <Link href={'/expertise'}>
                             <PrimaryButton fill className='footer-btn w-fit !px-4'>
                                 <div className=' flex items-center gap-2'>

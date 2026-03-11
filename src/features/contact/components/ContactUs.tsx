@@ -47,7 +47,7 @@ export default async function ContactUs() {
                         </TransparentTextAnimation>
 
                     </div>
-                    <div className='w-full lg:w-1/2 relative z-30 ' dir='rtl' >
+                    <div className='w-full lg:w-1/2 relative z-30 ' dir={locale === 'ar' ? 'rtl' : 'ltr'} >
                         <ContactUsForm />
                     </div>
                     <div className='flex flex-col pt-12 gap-3'>
