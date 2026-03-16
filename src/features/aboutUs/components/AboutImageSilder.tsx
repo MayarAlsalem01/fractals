@@ -19,6 +19,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useRef } from 'react'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
+import { useTranslations } from 'next-intl'
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 // Images grouped by project — groups stay spatially near each other but each image has its own speed
@@ -75,7 +76,7 @@ imageGroups.forEach((group, gi) => {
 
 export default function AboutImageSilder() {
     const containerRef = useRef(null)
-
+    const t = useTranslations('expertise')
     useGSAP(() => {
         const images = gsap.utils.toArray<HTMLElement>(".image");
         const exitX = -130; // vw — just past the left edge of the viewport
@@ -113,8 +114,8 @@ export default function AboutImageSilder() {
     return (
         <div className='mt-8'>
             <TransparentTextAnimation>
-                <p className='font-gravesend text-4xl md:text-7xl w-fit mx-auto font-bold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>
-                    Our Latest Projects
+                <p className='font-gravesend text-4xl md:text-7xl w-fit mx-auto font-bold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90% py-3'>
+                    {t('Our Last Project')}
                 </p>
             </TransparentTextAnimation>
             <div ref={containerRef} className='h-screen flex justify-start items-center relative overflow-hidden pointer-events-none'>

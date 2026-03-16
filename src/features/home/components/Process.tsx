@@ -4,9 +4,10 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 import BlobImage from '../../../../public/assets/Artboard 1 copy 4.png'
 import Vc from '../../../../public/assets/vectors/Artboard 1 copy.png'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 export default async function Process() {
     const t = await getTranslations('Our Process')
+    const locale = await getLocale()
     return (
         <section id='our_process' className='px-4 md:px-14 py-8 h-screen relative bg-black  '>
             <div className='w-full h-full absolute right-0 hidden md:block -top-44 overflow-hidden  '>
@@ -20,14 +21,14 @@ export default async function Process() {
             <div className='w-full h-full absolute left-0 top-0 '>
                 <Image src={BlobImage} alt='asdf' className={`select-none w-3/4 md:w-2/3 lg:w-1/2 object-cover absolute   lg:translate-x-[-18rem]  -translate-x-44 md:-translate-x-60 -bottom-40  lg:-bottom-[18rem] rotate-45  blur `} />
             </div>
-            <div className='flex justify-center mb-4'>
+            <div className='flex justify-center mb-4' >
                 <TransparentTextAnimation>
                     <p
 
                         className={`text-4xl lg:text-7xl font-gravesend font-bold bg-clip-text text-transparent line-clamp-2  bg-gradient-to-r from-white/80  to-[80%] `}>{t('title')} </p>
                 </TransparentTextAnimation>
             </div>
-            <div className='flex flex-col gap-3 w-full md:3/4 xl:w-2/3 mx-auto'>
+            <div className='flex flex-col gap-3 w-full md:3/4 xl:w-2/3 mx-auto' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 <ProccessCard >
                     <ProcessCardHeader>
                         <p>

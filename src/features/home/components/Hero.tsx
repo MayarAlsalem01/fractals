@@ -3,13 +3,15 @@ import { Link } from "@/i18n/navigation";
 import GradientText from "@/ui/GradientText";
 import PrimairyButton from '@/ui/PrimaryButton';
 import TransparentTextAnimation from "@/ui/TransparentTextAnimtion";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 export default async function Hero() {
     const t = await getTranslations('hero')
+    const buttons = await getTranslations('buttons')
+    const locale = await getLocale()
     return (
         <Container className="!py-0  relative">
 
-            <section className='  h-screen w-full flex flex-col items-center justify-center gap-3 '>
+            <section className='  h-screen w-full flex flex-col items-center justify-center gap-3 ' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 <GradientText>{t('title')} </GradientText>
                 <TransparentTextAnimation>
                     <p className='bg-clip-text text-transparent linaer-g bg-gradient-to-r from-white/75 to-white/5 from-40% md:from-80% md:text-2xl font-bold w-[20ch] md:w-fit'>
@@ -29,7 +31,7 @@ export default async function Hero() {
                 </div>
                 <Link href={'/expertise'}>
                     <PrimairyButton className="w-fit px-5 !py-6" >
-                        <p>Explore Expertise</p>
+                        <p>{buttons('Explore Expertise')}</p>
                     </PrimairyButton>
                 </Link>
             </section>

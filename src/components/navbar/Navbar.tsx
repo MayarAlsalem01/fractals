@@ -4,7 +4,7 @@ import Star from '../../../public/assets/star.png'
 import logo from '../../../public/assets/logo/logo.svg'
 import { LanguageMenu } from '../LanguageMenu/LanguageMenu'
 import MobileNavbar from './MobileNavbar'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import PrimaryButton from '@/ui/PrimaryButton'
 import DesktopNavbar from './DesktopNavbar'
 export type Link = {
@@ -13,6 +13,7 @@ export type Link = {
 }
 export default async function Navbar() {
     const t = await getTranslations('navbar')
+    const locale = await getLocale()
     const links: Link[] = [
         {
             href: '/',
@@ -40,7 +41,7 @@ export default async function Navbar() {
         },
     ]
     return (
-        <nav className='w-full px-4 lg:px-12 xl:px-24 py-2 fixed top-0 z-50 '>
+        <nav className='w-full px-4 lg:px-12 xl:px-24 py-2 fixed top-0 z-50 ' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
             <div className='w-full flex justify-between items-center px-6  py-4 bg-transparent rounded-tl-4xl rounded-br-4xl backdrop-blur-lg border border-white/30 inset-shadow-[3px_5px_18px] inset-shadow-white/20'>
                 <Image src={logo} alt='asd' className='w-32 2xl:w-42' />
                 <DesktopNavbar links={links} />
