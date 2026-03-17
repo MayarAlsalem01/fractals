@@ -1,6 +1,6 @@
 'use client'
 
-import { Controller, FieldValues, UseFormReturn } from 'react-hook-form'
+import { Controller, FieldValues, useFormContext, UseFormReturn } from 'react-hook-form'
 
 // Assuming these imports are correct based on the user's file
 import { buildZodSchema } from '@/lib/zodFromAttributes'
@@ -22,6 +22,7 @@ import Range from './Range'
 import BlobUploader from '@/features/breifs/components/BlobUploader'
 import ColorPicker from '@/features/blog/components/Color'
 import { useColorList } from '@/hooks/useColorList'
+import { useEffect } from 'react'
 // import { MultiSelect, MultiSelectContent, MultiSelectGroup, MultiSelectItem, MultiSelectTrigger, MultiSelectValue } from './ui/multi-select'
 
 // --- Type Definitions (Copied from store) ---
@@ -56,8 +57,9 @@ interface StepFormRendererProps {
 
 export default function StepFormRenderer({ section, formMethods }: StepFormRendererProps) {
     const { addColor, colors, removeColor, clearColors } = useColorList()
-    const { register, control, setValue, formState: { errors } } = formMethods
+    const { register, control, } = formMethods
     const attributes = section.attributes
+    const { trigger, formState } = useFormContext()
 
     // 7. Component to render a single attribute input
     const renderAttribute = (attr: Attr) => {
@@ -66,7 +68,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
         const containerClass = attr.width === 'full' ? 'col-span-full' : ''
 
         // Check for error specific to this attribute
-        const error = errors[attr.key]
+        const error = formState.errors[attr.key]
 
         return (
             <div key={attr.id} className={containerClass}>
@@ -348,6 +350,7 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                         {String(error.message)}
                     </p>
                 )}
+
             </div>
         )
     }

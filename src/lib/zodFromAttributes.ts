@@ -32,6 +32,7 @@ export function buildZodSchema(attributes: Attr[]) {
                 if (!Number.isNaN(max)) s = s.max(max, { message: `${attr.label} must be at most ${max} characters.` })
             }
 
+
             if (meta.regex) {
                 try {
                     const re = new RegExp(meta.regex)

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useMemo, useEffect } from 'react'
-import { useForm, FieldValues } from 'react-hook-form'
+import { useForm, FieldValues, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
@@ -94,10 +94,10 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
     const formMethods = useForm({
         resolver: zodResolver(fullSchema),
         defaultValues: formData, // Use data from store as default
-        mode: 'onChange',
+        mode: 'all',
     })
 
-    const { trigger, getValues, handleSubmit, formState: { isSubmitting } } = formMethods
+    const { trigger, getValues, handleSubmit, formState: { isSubmitting, errors } } = formMethods
 
     // Sync RHF values with Zustand store on every render (or on blur/change)
     // This is crucial for maintaining state across steps
@@ -121,14 +121,23 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
     // 4. Handle moving to the next step
     const handleNext = async () => {
         // Trigger validation only for the fields in the current step
-        const isValid = await trigger(currentStepKeys as (keyof FieldValues)[], { shouldFocus: true })
 
+
+        const isValid = await trigger(currentStepKeys as (keyof FieldValues)[], { shouldFocus: true })
+        for (const key of currentStepKeys) {
+            trigger(key)
+
+        }
         if (isValid) {
             // Update store with current values before moving
             updateFormData(getValues() as Record<string, any>)
             console.log(formData)
             goToNextStep()
         }
+        else {
+            toast.error('Please fill all the fields')
+        }
+
     }
 
     // 5. Handle final form submission
@@ -151,48 +160,50 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
     }
 
     return (
-        <form onSubmit={handleSubmit(onFinalSubmit)}>
-            {/* Step Indicator */}
-            <div className="mb-6">
-                <h2 className="text-lg md:text-xl font-semibold text-brand-primary">{currentSection.title}</h2>
-                <p className="text-sm text-gray-500">
-                    Step {currentStep + 1} of {sections.length}
-                </p>
-            </div>
-
-            {/* Current Step's Fields (The DynamicBriefForm equivalent) */}
-            <StepFormRenderer section={currentSection} formMethods={formMethods} />
-
-            {/* Navigation Buttons */}
-            <div className="mt-8 flex justify-between">
-                {!isFirstStep && (
-                    <SecondryButton
-
-
-                        onClick={goToPreviousStep}
-                    >
-                        Back
-                    </SecondryButton>
-                )}
-                <div className={`flex gap-1 items-center justify-center  ${isFirstStep ? 'w-full' : ''}`}>
-                    {
-                        Array.from({ length: sections.length - 1 }).map((_, i) =>
-                            <span key={i} className={`w-2 h-2  block rounded-full ${currentStep === i ? 'scale-150 bg-accent-foreground mx-0.5' : 'bg-accent-foreground/80'}`} />)
-                    }
+        <FormProvider {...formMethods}>
+            <form onSubmit={handleSubmit(onFinalSubmit)}>
+                {/* Step Indicator */}
+                <div className="mb-6">
+                    <h2 className="text-lg md:text-xl font-semibold text-brand-primary">{currentSection.title}</h2>
+                    <p className="text-sm text-gray-500">
+                        Step {currentStep + 1} of {sections.length}
+                    </p>
                 </div>
-                <div className={isFirstStep ? 'ml-auto' : ''}>
-                    {isLastStep ? (
-                        <Button type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Submitting...' : 'Submit Brief'}
-                        </Button>
-                    ) : (
-                        <SecondryButton onClick={handleNext}>
-                            Next Step
+
+                {/* Current Step's Fields (The DynamicBriefForm equivalent) */}
+                <StepFormRenderer section={currentSection} formMethods={formMethods} />
+
+                {/* Navigation Buttons */}
+                <div className="mt-8 flex justify-between">
+                    {!isFirstStep && (
+                        <SecondryButton
+
+
+                            onClick={goToPreviousStep}
+                        >
+                            Back
                         </SecondryButton>
                     )}
+                    <div className={`flex gap-1 items-center justify-center  ${isFirstStep ? 'w-full' : ''}`}>
+                        {
+                            Array.from({ length: sections.length - 1 }).map((_, i) =>
+                                <span key={i} className={`w-2 h-2  block rounded-full ${currentStep === i ? 'scale-150 bg-accent-foreground mx-0.5' : 'bg-accent-foreground/80'}`} />)
+                        }
+                    </div>
+                    <div className={isFirstStep ? 'ml-auto' : ''}>
+                        {isLastStep ? (
+                            <Button type="submit" disabled={isSubmitting}>
+                                {isSubmitting ? 'Submitting...' : 'Submit Brief'}
+                            </Button>
+                        ) : (
+                            <SecondryButton onClick={handleNext}>
+                                Next Step
+                            </SecondryButton>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </FormProvider>
     )
 }
 
