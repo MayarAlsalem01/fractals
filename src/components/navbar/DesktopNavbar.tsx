@@ -11,7 +11,7 @@ import { useTranslations } from 'next-intl'
 export default function DesktopNavbar({ links }: { links: navLinks[] }) {
 
     const path = usePathname()
-    console.log(path)
+    console.log('path', path)
     return (
         <div className=' w-full hidden lg:flex items-center justify-end'>
             <ul className={`hidden lg:flex  font-gravesend   items-center lg:gap-5 xl:gap-8  justify-center  w-[80%]`}>

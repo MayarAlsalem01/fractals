@@ -29,19 +29,19 @@ export function LanguageMenu({ className }: { className?: string }) {
                 <SelectGroup>
                     <SelectLabel className="font-gravesend">languages</SelectLabel>
                     <SelectItem className="" value="en">
-                        <GlobeIcon />
+                        <GlobeIcon className="hidden md:block" />
                         en
                     </SelectItem>
                     <SelectItem value="de">
-                        <GlobeIcon />
+                        <GlobeIcon className="hidden md:block" />
                         de
                     </SelectItem>
                     <SelectItem value="tr">
-                        <GlobeIcon />
+                        <GlobeIcon className="hidden md:block" />
                         tr
                     </SelectItem>
                     <SelectItem value="ar">
-                        <GlobeIcon />
+                        <GlobeIcon className="hidden md:block" />
                         ar
                     </SelectItem>
                 </SelectGroup>

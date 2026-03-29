@@ -26,7 +26,7 @@ export default async function page({ params }: { params: Promise<{ locale: strin
                                 <AboutText >{t('vision.title')}</AboutText>
                             </TransparentTextAnimation>
                             <TransparentTextAnimation>
-                                <p className='  bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-50%'>{t('vision.description')}
+                                <p className=' xl:text-lg bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-50%'>{t('vision.description')}
                                 </p>
                             </TransparentTextAnimation>
                         </div>
@@ -35,7 +35,7 @@ export default async function page({ params }: { params: Promise<{ locale: strin
                                 <AboutText>{t('mission.title')}</AboutText>
                             </TransparentTextAnimation>
                             <TransparentTextAnimation>
-                                <p className='  bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-50%'>{t('mission.description')}
+                                <p className=' text-lg bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-50%'>{t('mission.description')}
 
                                 </p>
                                 <Image src={Vc} alt='vc' className={`absolute  -left-60  -top-32  blur-2xl   rotate-45 w-1/3 -z-10`} />
@@ -46,7 +46,7 @@ export default async function page({ params }: { params: Promise<{ locale: strin
                                 <AboutText>{t('core values.title')}
                                 </AboutText>
                             </TransparentTextAnimation>
-                            <ul className='flex flex-col gap-2'>
+                            <ul className='flex flex-col gap-2 text-lg'>
                                 <li className='list-disc text-accent-foreground/70 ml-6'>
                                     {t('core values.Artistry & Precision')}
 
@@ -104,6 +104,6 @@ export default async function page({ params }: { params: Promise<{ locale: strin
 
 async function AboutText({ children }: { children: ReactNode }) {
     return (
-        <p className={`text-4xl  lg:text-7xl font-gravesend font-bold w-fit  bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90% `}>{children}</p>
+        <p className={`text-4xl lg:text-3xl 2xl:text-5xl font-gravesend font-bold w-fit  bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90% `}>{children}</p>
     )
 }

@@ -56,10 +56,13 @@ export default async function Home() {
           <div className='relative'>
             <VacanciesSection />
             <div className='w-full h-full absolute top-0 left-0 bg-linear-to-t from-transparent from-25% to-black  ' />
+
           </div>
 
-          <ContactUs />
-
+          <div className='relative'>
+            <ContactUs />
+            <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-black to-5% md:to-10%  to-transparent  ' />
+          </div>
         </div>
       </main>
     </HomeLoadingWrapper>
