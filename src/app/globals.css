@@ -239,10 +239,10 @@ body {
 
 }
 
-ul {
+.tiptap ul {
   list-style: disc;
 }
 
-ol {
+.tiptap ol {
   list-style: decimal;
 }

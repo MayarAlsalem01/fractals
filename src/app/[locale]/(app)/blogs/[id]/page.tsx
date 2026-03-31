@@ -28,7 +28,7 @@ export default async function page({ params }: { params: Promise<{ id: string }>
                         </div>
                     </div>
                 </div>
-                <div className='mt-8'>
+                <div className='mt-8 tiptap'>
                     <div dangerouslySetInnerHTML={{ __html: blogPost.data.long_description }} />
 
                 </div>
