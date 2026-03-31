@@ -3,14 +3,18 @@ import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 import { streamText, UIMessage, convertToModelMessages, tool, stepCountIs } from 'ai';
 import { z } from 'zod'
 import { getGeneralInfo, getServices, getBriefStructures } from './tools';
+import { createOllama, ollama } from 'ollama-ai-provider-v2';
 export async function POST(req: Request) {
+    const ollama = createOllama({
+        // optional settings, e.g.
+        baseURL: 'http://localhost:11434/api',
+
+    });
     const { messages }: { messages: UIMessage[] } = await req.json();
 
-    const openrouter = createOpenRouter({
-        apiKey: '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',
-    });
+
     const result = streamText({
-        model: openrouter.chat('upstage/solar-pro-3:free'),
+        model: ollama.chat('qwen3:8b'),
         system: `You are an AI assistant for Fractals, a creative agency. Your purpose is to help users with information about Fractals and guide them through our services and processes.
         
         You can help with:
