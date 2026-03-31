@@ -238,3 +238,11 @@ body {
   border-bottom-right-radius: 2em;
 
 }
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
