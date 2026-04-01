@@ -20,17 +20,14 @@ import {
     Undo,
     Redo
 } from 'lucide-react'
-import { ChangeEvent, useCallback } from 'react'
+import { ChangeEvent, useCallback, useEffect } from 'react'
 
-const TiptapEditor = ({ onChange, ...props }: React.ComponentProps<'input'>) => {
+const TiptapEditor = ({ value, onChange, ...props }: any) => {
 
     const editor = useEditor({
         immediatelyRender: false,
         onUpdate: ({ editor }) => {
-            // You can handle content updates here if needed
-            // console.log(editor.getHTML())
-            console.log('asd')
-            onChange && onChange(editor.getHTML() as unknown as ChangeEvent<HTMLInputElement>)
+            onChange && onChange(editor.getHTML())
         },
         extensions: [
             StarterKit.configure({
@@ -48,13 +45,19 @@ const TiptapEditor = ({ onChange, ...props }: React.ComponentProps<'input'>) => 
             Color,
             FontSize,
         ],
-        content: '<p>Hello World! 🌎️</p>',
+        content: value || '',
         editorProps: {
             attributes: {
                 class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-5 focus:outline-none min-h-[200px] border p-4 rounded-md',
             },
         },
     })
+
+    useEffect(() => {
+        if (editor && value !== editor.getHTML()) {
+            editor.commands.setContent(value || '')
+        }
+    }, [value, editor])
 
     const setLink = useCallback(() => {
         const previousUrl = editor?.getAttributes('link').href
@@ -198,9 +201,7 @@ const TiptapEditor = ({ onChange, ...props }: React.ComponentProps<'input'>) => 
                 </button>
             </div>
 
-            <EditorContent editor={editor} {...props} onChange={(e) => {
-                console.log(e)
-            }} />
+            <EditorContent editor={editor} {...props} />
 
 
 

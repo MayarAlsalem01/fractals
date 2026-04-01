@@ -20,7 +20,7 @@ export default async function page({ params }: { params: Promise<{ id: string }>
                 <div className='flex  justify-center mx-auto'>
                     <div className='w-full aspect-16/7 bg-gray-700 rounded-lg relative overflow-hidden'>
                         <Image src={blogPost.data.image_url ?? PlaceHolderImage} fill alt='asd' className='w-full h-full rounded-lg object-fit ' />
-                        <div className='w-full  h-full bg-black/70 absolute top-0 left-0' />
+                        <div className='w-full  h-full bg-black/60 absolute top-0 left-0' />
                         <div className='absolute left-0 w-full bottom-0 px-4 py-4'>
                             <p className='text-3xl font-bold text-white '>{blogPost.data.title}</p>
                             <p className=' text-white opacity-40 '>posted at : {blogPost.data.created_at.toLocaleDateString('en-GB')}</p>
@@ -28,7 +28,7 @@ export default async function page({ params }: { params: Promise<{ id: string }>
                         </div>
                     </div>
                 </div>
-                <div className='mt-8 tiptap'>
+                <div className='!mt-8 tiptap'>
                     <div dangerouslySetInnerHTML={{ __html: blogPost.data.long_description }} />
 
                 </div>
