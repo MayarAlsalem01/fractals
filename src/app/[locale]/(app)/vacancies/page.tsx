@@ -5,10 +5,10 @@ import VacanciesSection from '@/features/vacancies/components/VacanciesSection'
 import getVacanciesPaginationAction from '@/features/vacancies/actions/getVacanciesPaginationAction'
 import VacanciesGrid from '@/features/vacancies/components/VacanciesGrid'
 import Image from 'next/image'
-
+export const dynamic = 'force-dynamic'
 export default async function page() {
     const { data: result } = await getVacanciesPaginationAction(1, 6)
-
+    console.log(result)
     return (
         <div className='w-full'>
             <VacanciesSection />
