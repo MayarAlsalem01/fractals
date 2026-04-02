@@ -4,13 +4,22 @@ import useGetBriefAttrubiteValuesById from "@/hooks/useGetBriefAttrubiteValuesBy
 import {
     Document, Page, Text, View, StyleSheet,
     Link,
+    Font,
 } from "@react-pdf/renderer"
 import { useEffect, useState } from "react"
+Font.register({
+    family: 'Cairo',
+    fonts: [
+        { src: '/fonts/cairo/cairo-v31-arabic_latin-regular.ttf', fontWeight: 'normal' },
+        { src: '/fonts/cairo/cairo-v31-arabic_latin-700.ttf', fontWeight: 'bold' },
+    ]
+})
 const styles = StyleSheet.create({
     page: {
         padding: 40,
         fontSize: 12,
-        link: { color: 'blue', textDecoration: 'underline' }
+        link: { color: 'blue', textDecoration: 'underline' },
+        fontFamily: 'Cairo',
     },
     section: {
         marginBottom: 20,
@@ -64,7 +73,6 @@ export default function BriefPdf({ briefId }: { briefId: number }) {
     useEffect(() => {
         async function getDate() {
             const data = await getBriefAttrubiteValuesByIdAction(briefId)
-            console.log(data)
             setValues(data)
         }
         if (!values)
@@ -81,11 +89,18 @@ export default function BriefPdf({ briefId }: { briefId: number }) {
                             <View key={attr.id} style={styles.row}>
                                 <Text style={styles.label}>
                                     {attr.attribute.label.slice(0, -1)}:
+
                                 </Text>
                                 {
-                                    attr.attribute.type === 'file' ? <Link src={attr.value_text ?? ''}>{attr.value_text}</Link> : <Text style={styles.value}>
-                                        {attr.value_text || '—'}
-                                    </Text>
+                                    attr.attribute.type === 'file' ?
+                                        // break the line if it is a file 
+
+
+                                        <Link style={{ flex: 1 }} src={attr.value_text ?? ''}>
+                                            {attr.value_text}
+                                        </Link> : <Text style={styles.value}>
+                                            {attr.value_text || '—'}
+                                        </Text>
                                 }
 
                             </View>

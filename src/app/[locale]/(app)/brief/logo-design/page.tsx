@@ -24,7 +24,7 @@ export default async function page() {
                     <div className='md:pl-10 mt-8 md:mt-8 flex flex-col gap-4 '>
 
                         {/* <DynamicBriefForm attributes={attrs} /> */}
-                        <MultiStepFormWrapper sections={sectios} templateId={2} />
+                        <MultiStepFormWrapper sections={sectios} templateId={6} />
                     </div>
                 </div>
             </section>
