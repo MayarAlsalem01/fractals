@@ -115,7 +115,31 @@
     "title": "Stellenangebote",
     "description": "Treten Sie der Hauptstadt der Kunst bei.",
     "subtitle": "Wo Kreativität, Leidenschaft und Intelligenz zusammenkommen",
-    "long description": "Bei Fractals arbeiten wir nicht nur — wir schaffen Erlebnisse, die Bedeutung haben.\nWir glauben an Lernen, Wachstum und Sinn."
+    "long description": "Bei Fractals arbeiten wir nicht nur — wir schaffen Erlebnisse, die Bedeutung haben.\nWir glauben an Lernen, Wachstum und Sinn.",
+    "application": {
+      "title": "Bewerben Sie sich auf eine Stelle",
+      "name": {
+        "label": "Name",
+        "placeholder": "Geben Sie Ihren Namen ein"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Geben Sie Ihre E-Mail-Adresse ein"
+      },
+      "position": {
+        "label": "Position",
+        "placeholder": "Geben Sie die Position ein, auf die Sie sich bewerben"
+      },
+      "cv": {
+        "label": "Lebenslauf/Portfolio",
+        "placeholder": "Geben Sie den Link zu Ihrem Lebenslauf/Portfolio ein"
+      },
+      "message": {
+        "label": "Nachricht",
+        "placeholder": "Geben Sie Ihre Nachricht ein"
+      },
+      "submit": "Senden"
+    }
   },
   "footer": {
     " Naviagation": {
@@ -208,6 +232,26 @@
         "placeholder": "Ihre Nachricht"
       },
       "submit": "Meine Vision senden"
+    }
+  },
+  "thanks": {
+    "title": "ERFOLG!",
+    "subtitle": "Ihr Briefing wurde erfolgreich übermittelt. Unser Team wird es prüfen und sich in Kürze bei Ihnen melden.",
+    "backToHome": "Zurück zur Startseite",
+    "viewTemplates": "Vorlagen ansehen",
+    "survey": {
+      "title": "Wie war das Ausfüllen des Briefings?",
+      "subtitle": "Helfen Sie uns, Ihr Erlebnis zu verbessern",
+      "appreciate": "Wir wissen das zu schätzen!",
+      "improve": "Ihr Feedback hilft uns, das Erlebnis für alle zu verbessern.",
+      "returnHome": "Zurück zur Startseite",
+      "ratings": {
+        "very_easy": "Sehr einfach",
+        "easy": "Einfach",
+        "neutral": "Neutral",
+        "hard": "Schwer",
+        "very_hard": "Sehr schwer"
+      }
     }
   }
 }

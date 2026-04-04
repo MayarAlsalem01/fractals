@@ -4,7 +4,7 @@
         "aboutUs": "About Us",
         "Expertise": "Expertise",
         "Blogs": "Blogs",
-        "vacances": "vacances",
+        "vacances": "Vacancies",
         "ContactUs": "Contact us"
     },
     "hero": {
@@ -115,7 +115,31 @@
         "title": "Vacancies",
         "description": "Join the \n capital of art.",
         "subtitle": "Where creativity, passion, and intelligence converge",
-        "long description": "At Fractals, we don’t just work — we create experiences that matter. \n We believe in learning, growth, and purpose."
+        "long description": "At Fractals, we don’t just work — we create experiences that matter. \n We believe in learning, growth, and purpose.",
+        "application": {
+            "title": "Apply for a position",
+            "name": {
+                "label": "Name",
+                "placeholder": "Enter your name"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter your email"
+            },
+            "position": {
+                "label": "Position",
+                "placeholder": "Enter the position you are applying for"
+            },
+            "cv": {
+                "label": "CV/Portfolio",
+                "placeholder": "Enter your CV/Portfolio link"
+            },
+            "message": {
+                "label": "Message",
+                "placeholder": "Enter your message"
+            },
+            "submit": "Submit"
+        }
     },
     "footer": {
         " Naviagation": {
@@ -208,6 +232,26 @@
                 "placeholder": "message"
             },
             "submit": "Send My Vision"
+        }
+    },
+    "thanks": {
+        "title": "SUCCESS!",
+        "subtitle": "Your brief has been submitted safely. Our team will review it and get back to you soon.",
+        "backToHome": "Back to Home",
+        "viewTemplates": "View Templates",
+        "survey": {
+            "title": "How was filling the brief?",
+            "subtitle": "Help us improve your experience",
+            "appreciate": "We appreciate it!",
+            "improve": "Your feedback helps us make the experience better for everyone.",
+            "returnHome": "Return Home",
+            "ratings": {
+                "very_easy": "Very Easy",
+                "easy": "Easy",
+                "neutral": "Neutral",
+                "hard": "Hard",
+                "very_hard": "Very Hard"
+            }
         }
     }
 }

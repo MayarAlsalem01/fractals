@@ -8,18 +8,21 @@ export default function PrimaryButton({
     className,
     fill = false,
     onClick,
-    type = 'button'
+    type = 'button',
+    disabled = false
 }: {
     fill?: boolean,
     children: ReactNode,
     id?: string,
     className?: string,
     onClick?: () => void,
-    type?: 'button' | 'submit'
+    type?: 'button' | 'submit',
+    disabled?: boolean
 }) {
     return (
         <Button type={type} id={id} className={`btn bg-transparent rounded-none flex text-nowrap xl:text-lg px-3 lg:px-3 xl:px-6 py-2 rounded-tl-2xl rounded-br-2xl    relative  cursor-pointer overflow-hidden  items-center gap-2 backdrop-blur-sm inset-shadow-[1px_3px_18px] inset-shadow-white/20 border border-white/30 hover:bg-transparent hover:backdrop-blur-lg text-foreground  ${className}`}
             onClick={() => onClick?.()}
+            disabled={disabled}
         >
 
             <div className="relative z-50">

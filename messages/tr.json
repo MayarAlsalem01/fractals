@@ -115,7 +115,34 @@
     "title": "Açık Pozisyonlar",
     "description": "Sanatın başkentine \n katılın.",
     "subtitle": "Yaratıcılık, tutku ve zekanın buluştuğu yer",
-    "long description": "Fractals'ta sadece çalışmıyoruz — önemli olan deneyimler yaratıyoruz. \n Öğrenmeye, büyümeye ve amaca inanıyoruz."
+    "long description": "Fractals'ta sadece çalışmıyoruz — önemli olan deneyimler yaratıyoruz. \n Öğrenmeye, büyümeye ve amaca inanıyoruz.",
+    "application": {
+      "title": "Başvuru",
+      "description": "Başvuru",
+      "subtitle": "Başvuru",
+      "long description": "Başvuru",
+      "name": {
+        "label": "Ad",
+        "placeholder": "Ad"
+      },
+      "email": {
+        "label": "E-posta",
+        "placeholder": "E-posta"
+      },
+      "position": {
+        "label": "Pozisyon",
+        "placeholder": "Pozisyon"
+      },
+      "cv": {
+        "label": "CV",
+        "placeholder": "CV"
+      },
+      "message": {
+        "label": "Mesaj",
+        "placeholder": "Mesaj"
+      },
+      "submit": "Başvur"
+    }
   },
   "footer": {
     " Naviagation": {
@@ -208,6 +235,26 @@
         "placeholder": "mesaj"
       },
       "submit": "Vizyonumu Gönder"
+    }
+  },
+  "thanks": {
+    "title": "BAŞARILI!",
+    "subtitle": "Briefiniz başarıyla gönderildi. Ekibimiz inceleyecek ve en kısa sürede size geri dönecektir.",
+    "backToHome": "Ana Sayfaya Dön",
+    "viewTemplates": "Şablonları Görüntüle",
+    "survey": {
+      "title": "Brief doldurma deneyiminiz nasıldı?",
+      "subtitle": "Deneyiminizi geliştirmemize yardımcı olun",
+      "appreciate": "Bunu takdir ediyoruz!",
+      "improve": "Geri bildiriminiz, deneyimi herkes için daha iyi hale getirmemize yardımcı olur.",
+      "returnHome": "Ana Sayfaya Dön",
+      "ratings": {
+        "very_easy": "Çok Kolay",
+        "easy": "Kolay",
+        "neutral": "Nötr",
+        "hard": "Zor",
+        "very_hard": "Çok Zor"
+      }
     }
   }
 }

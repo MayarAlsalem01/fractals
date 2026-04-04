@@ -12,7 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import SecondryButton from "@/ui/SecondryButton";
 import AboutImageSilder from "@/features/aboutUs/components/AboutImageSilder";
-
+// enable ssg 
+export const dynamic = 'force-static';
 export default async function page() {
     const t = await getTranslations('expertise')
     const buttons = await getTranslations('buttons')

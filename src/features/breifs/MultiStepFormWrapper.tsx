@@ -4,6 +4,7 @@ import React, { useMemo, useEffect } from 'react'
 import { useForm, FieldValues, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { useRouter } from '@/i18n/navigation'
 
 // Components and Store
 
@@ -72,6 +73,7 @@ interface MultiStepFormWrapperProps {
 }
 
 export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, templateId }: MultiStepFormWrapperProps) {
+    const router = useRouter()
     const {
         formData,
         currentStep,
@@ -151,6 +153,7 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
         }
         else {
             toast.success('Your brief submitted successfully ')
+            router.push('/brief/thanks')
         }
     }
 

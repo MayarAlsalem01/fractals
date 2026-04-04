@@ -35,7 +35,7 @@ export default async function Home() {
           <Process />
 
           <Container className='bg-black px-4'>
-            <section className='pt-20'>
+            <section className='pt-20 relative z-40'>
               <TransparentTextAnimation>
                 <p className='text-4xl lg:text-7xl font-gravesend font-bold w-fit mx-auto bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90%'>{blog('title')}</p>
               </TransparentTextAnimation>

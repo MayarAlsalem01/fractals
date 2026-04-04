@@ -165,5 +165,63 @@ export type BriefAttributeInsertValues = typeof brief_attribute_values.$inferIns
 export type Category = typeof blog_categories.$inferSelect
 export type Vacancy = typeof vacancies.$inferSelect
 
+export const attribution_options = pgTable("attribution_options", {
+    id: serial("id").primaryKey(),
+    label: text("label").notNull(),
+    value: text("value").notNull(),
+    is_active: boolean("is_active").default(true).notNull(),
+    sort_order: integer("sort_order").default(0).notNull(),
+});
+
+export const attribution_responses = pgTable("attribution_responses", {
+    id: serial("id").primaryKey(),
+    option_id: integer("option_id").references(() => attribution_options.id).notNull(),
+    other_text: text("other_text"),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const attribution_options_relations = relations(attribution_options, ({ many }) => ({
+    responses: many(attribution_responses),
+}));
+
+export const attribution_responses_relations = relations(attribution_responses, ({ one }) => ({
+    option: one(attribution_options, {
+        fields: [attribution_responses.option_id],
+        references: [attribution_options.id],
+    }),
+}));
+
+export type AttributionOption = typeof attribution_options.$inferSelect;
+export type AttributionResponse = typeof attribution_responses.$inferSelect;
+
+export const vacancy_applications = pgTable("vacancy_applications", {
+    id: serial("id").primaryKey(),
+    name: text("name").notNull(),
+    email: text("email").notNull(),
+    position: text("position").notNull(),
+    cv: text("cv").notNull(),
+    message: text("message"),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const brief_feedback = pgTable("brief_feedback", {
+    id: serial("id").primaryKey(),
+    brief_id: integer("brief_id").references(() => briefs.id),
+    rating: varchar("rating", { length: 20 }).notNull(), // 'very_easy', 'easy', 'neutral', 'hard', 'very_hard'
+    comment: text("comment"),
+    created_at: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const briefFeedbackRelations = relations(brief_feedback, ({ one }) => ({
+    brief: one(briefs, {
+        fields: [brief_feedback.brief_id],
+        references: [briefs.id],
+    }),
+}));
+
+export type VacancyApplication = typeof vacancy_applications.$inferSelect;
+export type BriefFeedbackInsert = typeof brief_feedback.$inferInsert;
+export type BriefFeedback = typeof brief_feedback.$inferSelect;
+
 
 

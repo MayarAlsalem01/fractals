@@ -1,16 +1,16 @@
 
-'use server'
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion'
 import DotBackgroundDemo from '@/components/DottedBackground'
 import Blind from '@/components/Blind'
 import Vc from '../../../../../public/assets/Artboard 1 copy 4.png'
 import Image from 'next/image'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server'
 import { ReactNode } from 'react'
 import AboutUs from '@/features/aboutUs/components/AboutUs'
-export default async function page({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = await params
-    setRequestLocale(locale);
+// enable ssg 
+export const dynamic = 'force-static';
+export default async function page() {
+    const locale = await getLocale()
     const t = await getTranslations('aboutUS')
     return (
         <section className=' '>

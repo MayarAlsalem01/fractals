@@ -5,6 +5,8 @@ import Blind from '@/components/Blind'
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import SecondryButton from "@/ui/SecondryButton";
 
 interface VacancySection {
     title: string;
@@ -82,11 +84,13 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
                     </div>
 
                     {/* Apply Button (Placeholder) */}
-                    {/* <div className="pt-8">
-                        <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6 rounded-xl">
-                            Apply for this Position
-                        </Button>
-                    </div> */}
+                    <div className="pt-8">
+                        <Link href={'/vacancies/vacancy-application'}>
+                            <SecondryButton >
+                                Apply Vacancy
+                            </SecondryButton>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

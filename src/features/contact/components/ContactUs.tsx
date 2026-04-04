@@ -29,7 +29,7 @@ export default async function ContactUs() {
             <div dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 
                 <Container>
-                    <div className='flex flex-col w-full gap-4 mb-4 pt-20 sm:!pt-0 ' >
+                    <div className='flex flex-col w-full gap-4 mb-4 pt-8 sm:!pt-0 ' >
                         <TransparentTextAnimation>
                             <p className='font-gravesend text-4xl md:text-7xl w-fit mx-auto font-bold bg-clip-text text-transparent bg-linear-to-r from-white/80 to-white/0 to-90% mb-4'>
                                 {t('heading')}
