@@ -67,7 +67,7 @@ export default function ThanksSurvey() {
     return (
         <div className="space-y-8">
             <div className="text-center space-y-2">
-                <h3 className="text-xl font-medium text-white">{t('title')}</h3>
+                <h3 className="text-xl font-bold text-white">{t('title')}</h3>
                 <p className="text-zinc-400 text-sm">{t('subtitle')}</p>
             </div>
 
@@ -83,8 +83,8 @@ export default function ThanksSurvey() {
                             className={`flex flex-col items-center gap-3 transition-all duration-300 group`}
                         >
                             <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border transition-all duration-300 ${isSelected
-                                    ? "bg-white border-white text-black scale-110 shadow-lg shadow-white/20"
-                                    : "bg-zinc-900/50 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-800"
+                                ? "bg-white border-white text-black scale-110 shadow-lg shadow-white/20"
+                                : "bg-zinc-900/50 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-800"
                                 } ${isPending && !isSelected ? "opacity-40 grayscale" : ""}`}>
                                 {isPending && isSelected ? (
                                     <Loader2 className="w-6 h-6 sm:w-8 sm:h-8 animate-spin" />

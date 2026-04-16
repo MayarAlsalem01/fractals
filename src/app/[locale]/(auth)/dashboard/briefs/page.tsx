@@ -1,4 +1,4 @@
-import PdfDonwloader from '@/components/PdfDownloader'
+import PdfDownloader from '@/components/PdfDownloader'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { db } from '@/db/drizzle'
 import { briefs as briefsTable } from '@/db/schema'
@@ -21,7 +21,7 @@ export default async function page({ searchParams }: PageProps) {
 
     const { status: statusFilter } = await searchParams
 
-    const whereClause = statusFilter && statusFilter !== 'all' 
+    const whereClause = statusFilter && statusFilter !== 'all'
         ? eq(briefsTable.status, statusFilter)
         : undefined
 
@@ -32,12 +32,12 @@ export default async function page({ searchParams }: PageProps) {
             briefTemplate: true
         }
     })
-
+    console.log(briefs)
     return (
         <div className='w-full'>
             <div className="flex flex-col gap-4 mt-4">
                 <h1 className="text-2xl font-bold">Briefs Management</h1>
-                
+
                 <Suspense fallback={<div className="h-10 w-48 bg-zinc-900 animate-pulse rounded-lg" />}>
                     <DashboardBriefsFilters />
                 </Suspense>
@@ -64,13 +64,13 @@ export default async function page({ searchParams }: PageProps) {
                                             <TableCell>{brief.briefTemplate.name}</TableCell>
                                             <TableCell className="text-zinc-400">{brief.created_at.toLocaleString()}</TableCell>
                                             <TableCell>
-                                                <BriefStatusToggle 
-                                                    briefId={brief.id} 
-                                                    currentStatus={brief.status || 'inactive'} 
+                                                <BriefStatusToggle
+                                                    briefId={brief.id}
+                                                    currentStatus={brief.status || 'inactive'}
                                                 />
                                             </TableCell>
                                             <TableCell className="text-right flex justify-end gap-2 text-zinc-400">
-                                                <PdfDonwloader briefId={brief.id} />
+                                                <PdfDownloader briefId={brief.id} />
                                             </TableCell>
                                         </TableRow>
                                     ))

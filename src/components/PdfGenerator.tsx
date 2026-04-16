@@ -1,12 +1,10 @@
 'use client'
-import getBriefAttrubiteValuesByIdAction from "@/features/breifs/actions/getBriefAttrubiteValuesByIdAction"
-import useGetBriefAttrubiteValuesById from "@/hooks/useGetBriefAttrubiteValuesById"
 import {
     Document, Page, Text, View, StyleSheet,
     Link,
     Font,
 } from "@react-pdf/renderer"
-import { useEffect, useState } from "react"
+
 Font.register({
     family: 'Cairo',
     fonts: [
@@ -14,6 +12,7 @@ Font.register({
         { src: '/fonts/cairo/cairo-v31-arabic_latin-700.ttf', fontWeight: 'bold' },
     ]
 })
+
 const styles = StyleSheet.create({
     page: {
         padding: 40,
@@ -35,16 +34,15 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
     label: {
-        // width: 150,
         fontWeight: 'bold',
         marginRight: 3
-
     },
     value: {
         flex: 1,
     },
 })
-type x = {
+
+export type BriefData = {
     position: number;
     title: string;
     attributes: {
@@ -68,49 +66,36 @@ type x = {
         };
     }[];
 }[]
-export default function BriefPdf({ briefId }: { briefId: number }) {
-    const [values, setValues] = useState<x | undefined>(undefined)
-    useEffect(() => {
-        async function getDate() {
-            const data = await getBriefAttrubiteValuesByIdAction(briefId)
-            setValues(data)
-        }
-        if (!values)
-            getDate()
-    }, [values])
+
+export default function BriefPdf({ data }: { data: BriefData }) {
+    if (!data || !Array.isArray(data)) return <Document><Page /></Document>;
+
     return (
         <Document>
             <Page size="A4" style={styles.page}>
-                {values?.map((section) => (
-                    <View key={section.position} style={styles.section}>
+                {data.filter(s => s && s.title).map((section, sIndex) => (
+                    <View key={section.position || sIndex} style={styles.section}>
                         <Text style={styles.title}>{section.title}</Text>
 
-                        {section.attributes.map((attr) => (
+                        {section.attributes?.filter(attr => attr && attr.id).map((attr) => (
                             <View key={attr.id} style={styles.row}>
                                 <Text style={styles.label}>
-                                    {attr.attribute.label.slice(0, -1)}:
-
+                                    {(attr.attribute?.label || 'Unknown')?.slice(0, -1)}:
                                 </Text>
                                 {
-                                    attr.attribute.type === 'file' ?
-                                        // break the line if it is a file 
-
-
+                                    attr.attribute?.type === 'file' ?
                                         <Link style={{ flex: 1 }} src={attr.value_text ?? ''}>
-                                            {attr.value_text}
-                                        </Link> : <Text style={styles.value}>
+                                            {attr.value_text || 'Link'}
+                                        </Link> : 
+                                        <Text style={styles.value}>
                                             {attr.value_text || '—'}
                                         </Text>
                                 }
-
                             </View>
                         ))}
                     </View>
                 ))}
             </Page>
-            <div>
-
-            </div>
         </Document>
     )
 }
