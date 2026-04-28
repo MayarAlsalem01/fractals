@@ -34,8 +34,6 @@ export default async function insertBriefAttributeAction({ values, templateId }:
             const result = await briefAttrArraySchema.safeParseAsync(newValues)
             console.log(values)
             if (result.error) {
-                console.log(result)
-                console.log('asdsad')
                 return {
                     ok: false,
                     data: undefined,

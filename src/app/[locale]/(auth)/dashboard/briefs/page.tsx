@@ -32,7 +32,6 @@ export default async function page({ searchParams }: PageProps) {
             briefTemplate: true
         }
     })
-    console.log(briefs)
     return (
         <div className='w-full'>
             <div className="flex flex-col gap-4 mt-4">

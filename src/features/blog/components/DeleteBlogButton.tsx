@@ -10,7 +10,6 @@ export default function DeleteBlogButton({ blogId }: { blogId: number }) {
     const { isPending, mutate } = useMutation({
         mutationFn: async (blogId: number) => {
             const res = await deleteBlogAction(blogId)
-            console.log(res)
             if (res.isError)
                 throw new Error(res.error?.message || 'deleted failed')
             return res

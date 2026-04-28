@@ -11,7 +11,6 @@ import React from 'react'
 
 export default async function page() {
     const blogs = await getBlogsAction()
-    console.log(blogs)
     return (
         <div className='w-full'>
             <div className='w-full flex items-center justify-between '>

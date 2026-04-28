@@ -31,7 +31,6 @@ const authOptions: AuthOptions = {
                     return { id: user.id.toString() }
                 }
                 catch {
-                    console.log('sadff')
                     return null
                 }
 

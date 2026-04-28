@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation'
 export default async function page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
     const blogPost = await getBlogPostById(Number(id))
-    console.log(blogPost)
     if (!blogPost.isError && blogPost.data === undefined) {
         return notFound()
     }

@@ -8,7 +8,6 @@ import Image from 'next/image'
 export const dynamic = 'force-dynamic'
 export default async function page() {
     const { data: result } = await getVacanciesPaginationAction(1, 6)
-    console.log(result)
     return (
         <div className='w-full'>
             <VacanciesSection />
