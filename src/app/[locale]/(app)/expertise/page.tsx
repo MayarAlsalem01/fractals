@@ -6,18 +6,19 @@ import BgMobileImage from "../../../../../public/assets/Expertise-Mobile.png";
 import Container from "@/components/Container";
 import Blind from "@/components/Blind";
 import Star from "../../../../../public/assets/star.png";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
 import DotBackgroundDemo from "@/components/DottedBackground";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import SecondryButton from "@/ui/SecondryButton";
 import AboutImageSilder from "@/features/aboutUs/components/AboutImageSilder";
 // enable ssg 
-export const dynamic = 'force-static';
-export default async function page() {
+export const dynamic = 'error';
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+    const locale = await (await params).locale
+    await setRequestLocale(locale);
     const t = await getTranslations('expertise')
     const buttons = await getTranslations('buttons')
-    const locale = await getLocale()
     const services = [
         {
             key: "web",

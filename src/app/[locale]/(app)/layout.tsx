@@ -4,13 +4,14 @@ import ScrollUpButton from '@/components/ScrollUpButton'
 import AttributionPopupWrapper from '@/features/attribution/components/AttributionPopupWrapper'
 import { ReactNode } from 'react'
 
-export default async function layout({ children }: { children: ReactNode }) {
+export default async function layout({ children, params }: { children: ReactNode, params: Promise<{ locale: string }> }) {
+    const locale = await (await params).locale;
     return (
         <div>
 
-            <Navbar />
+            <Navbar locale={locale} />
             {children}
-            <Footer />
+            <Footer locale={locale} />
             {/* <ScrollUpButton /> */}
             <AttributionPopupWrapper />
 

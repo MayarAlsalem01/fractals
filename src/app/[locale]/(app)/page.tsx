@@ -15,8 +15,9 @@ import { getTranslations } from 'next-intl/server';
 
 
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   // create template
+  const { locale } = await params;
   const t = await getTranslations('buttons')
   const blog = await getTranslations('blog')
   return (
@@ -28,7 +29,7 @@ export default async function Home() {
           <HeroVideo />
           <Hero />
           <div className='relative'>
-            <AboutUs canDisplayReadButton />
+            <AboutUs canDisplayReadButton locale={locale} />
             <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent from-70% to-black ' />
           </div>
           <Services />

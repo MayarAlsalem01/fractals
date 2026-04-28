@@ -1,12 +1,12 @@
 import { getPathname } from '@/i18n/navigation';
 import SecondryButton from '@/ui/SecondryButton';
 import TransparentTextAnimation from '@/ui/TransparentTextAnimtion';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 
-export default async function AboutUs({ canDisplayReadButton }: { canDisplayReadButton?: boolean }) {
+export default async function AboutUs({ locale, canDisplayReadButton }: { locale: string, canDisplayReadButton?: boolean }) {
 
-    const locale = await getLocale()
+    setRequestLocale(locale)
     const t = await getTranslations('aboutUS')
     const buttonsTransaltions = await getTranslations('buttons')
     // get the current url 

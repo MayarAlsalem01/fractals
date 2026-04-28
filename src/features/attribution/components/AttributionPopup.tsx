@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,8 +23,17 @@ export default function AttributionPopup({ options }: { options: AttributionOpti
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [otherText, setOtherText] = useState("");
     const [isPending, startTransition] = useTransition();
+    const [isSurveyHidden, setIsSurveyHidden] = useState(true); // hidden until we confirm on client
+
+    useEffect(() => {
+        const isHidden = document.cookie
+            .split('; ')
+            .some(c => c.startsWith('hide_attribution_survey='));
+        setIsSurveyHidden(isHidden);
+    }, []);
 
     if (!options || options.length === 0) return null;
+    if (isSurveyHidden) return null;
 
     const handleOpenChange = (isOpen: boolean) => {
         if (!isOpen) {

@@ -7,16 +7,18 @@ import Image from 'next/image'
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server'
 import { ReactNode } from 'react'
 import AboutUs from '@/features/aboutUs/components/AboutUs'
-// enable ssg 
-export const dynamic = 'force-static';
-export default async function page() {
-    const locale = await getLocale()
+export const dynamic = 'error'; // Add this at the top level
+export default async function page({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = await params;
+
+    // 2. THIS IS THE KEY: Set the locale for the static generation hook
+    setRequestLocale(locale);
     const t = await getTranslations('aboutUS')
     return (
         <section className=' '>
 
             <div className='relative pt-24 bg-black'>
-                <AboutUs />
+                <AboutUs locale={locale} />
             </div>
             <div dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 <DotBackgroundDemo className='px-4 md:px-14 pb-12 relative z-20'>

@@ -11,9 +11,8 @@ export type Link = {
     href: string,
     name: string
 }
-export default async function Navbar() {
+export default async function Navbar({ locale }: { locale?: string }) {
     const t = await getTranslations('navbar')
-    const locale = await getLocale()
     const links: Link[] = [
         {
             href: '/',

@@ -6,10 +6,9 @@ import Star from '../../../public/assets/star.png'
 import { ReactNode } from 'react'
 import { Link } from '@/i18n/navigation'
 import { getLocale, getTranslations } from 'next-intl/server'
-export default async function Footer() {
+export default async function Footer({ locale }: { locale: string }) {
     const buttonsTranslations = await getTranslations('buttons')
     const footerTranslations = await getTranslations('footer')
-    const locale = await getLocale()
     return (
         <footer className='relative overflow-hidden px-2 xl:px-24  ' >
             <div className='w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] lg:w-[50rem] lg:h-[50rem] left-24 md:left-96 lg:-left-4 -top-[5rem] md:-top-[30rem] lg:-top-[40rem] bg-radial from-brand-primary to-transparent to-80%   absolute -z-10 rounded-full blur-3xl' />
