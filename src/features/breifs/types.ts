@@ -8,6 +8,7 @@ export type Attr = {
     width?: string | null
     options?: any
     meta?: any
+    position?: number
 }
 export type Section = DbSection & {
     // ... template_sections fields

@@ -11,7 +11,7 @@ export default async function Hero() {
     return (
         <Container className="!py-0  relative">
 
-            <section className='  h-screen w-full flex flex-col items-center justify-center gap-3 ' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+            <section className='hero-text  h-screen w-full flex flex-col items-center justify-center gap-3 ' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                 <GradientText>{t('title')} </GradientText>
                 <TransparentTextAnimation>
                     <p className='bg-clip-text text-transparent linaer-g bg-gradient-to-r from-white/75 to-white/5 from-40% md:from-80% md:text-2xl font-bold w-[20ch] md:w-fit'>

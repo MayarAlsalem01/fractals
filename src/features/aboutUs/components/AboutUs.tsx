@@ -19,14 +19,14 @@ export default async function AboutUs({ locale, canDisplayReadButton }: { locale
             <div className='block xl:hidden absolute top-0 left-0 h-full w-full overflow-hidden   perspective-distant transform-3d'>
                 <video src="/videos/AboutUs-Tablet.mp4" className={`w-full h-full object-cover   brightness-90   ${locale === 'ar' ? 'rotate-y-180 ' : ''}`} controls={false} autoPlay loop muted playsInline disablePictureInPicture />
             </div>
-            <div className=' h-full w-full px-4 py-4 md:px-12 flex flex-col items-center md:items-start md:justify-center gap-3 z-10 relative'>
+            <div className='aboutus-content h-full w-full px-4 py-4 md:px-12 flex flex-col items-center md:items-start md:justify-center gap-3 z-10 relative'>
                 <TransparentTextAnimation>
                     <p
 
-                        className='text-4xl lg:text-7xl font-gravesend font-bold bg-clip-text text-transparent line-clamp-2  bg-gradient-to-r from-white/80  to-65%  '>{t('who we are')}</p>
+                        className='about-title text-4xl lg:text-7xl font-gravesend font-bold bg-clip-text text-transparent line-clamp-2  bg-gradient-to-r from-white/80  to-65%  '>{t('who we are')}</p>
                 </TransparentTextAnimation>
                 <TransparentTextAnimation>
-                    <p className='max-w-[70ch] md:text-lg text-balance leading-relaxed bg-clip-text text-transparent   bg-gradient-to-r from-white/80  to-65% '>
+                    <p className='about-descrption max-w-[70ch] md:text-lg text-balance leading-relaxed bg-clip-text text-transparent   bg-gradient-to-r from-white/80  to-65% '>
                         {
                             t('description')
                         }
@@ -35,7 +35,7 @@ export default async function AboutUs({ locale, canDisplayReadButton }: { locale
                     </p>
                 </TransparentTextAnimation>
                 {canDisplayReadButton &&
-                    <Link href={'/about_us'}>
+                    <Link href={'/about_us'} className='about-btn'>
                         <SecondryButton className=' px-6  w-fit'>
                             {buttonsTransaltions('Read More')}
                         </SecondryButton></Link>}

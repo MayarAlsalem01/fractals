@@ -26,9 +26,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         <div className=" w-full  ">
 
-          <HeroVideo />
-          <Hero />
-          <div className='relative'>
+          <div className='animated-hero'>
+            <HeroVideo />
+            <Hero />
+          </div>
+          <div className='aboutus-container relative'>
             <AboutUs canDisplayReadButton locale={locale} />
             <div className='w-full h-full absolute top-0 left-0 bg-linear-to-b from-transparent from-70% to-black ' />
           </div>

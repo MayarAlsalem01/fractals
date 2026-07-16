@@ -2,6 +2,7 @@ import Footer from '@/components/footer/Footer'
 import Navbar from '@/components/navbar/Navbar'
 import ScrollUpButton from '@/components/ScrollUpButton'
 import AttributionPopupWrapper from '@/features/attribution/components/AttributionPopupWrapper'
+import HeroProvider from '@/lib/HeroProvider'
 import { ReactNode } from 'react'
 
 export default async function layout({ children, params }: { children: ReactNode, params: Promise<{ locale: string }> }) {
@@ -9,10 +10,12 @@ export default async function layout({ children, params }: { children: ReactNode
     return (
         <div>
 
-            <Navbar locale={locale} />
-            {children}
-            <Footer locale={locale} />
-            {/* <ScrollUpButton /> */}
+            <HeroProvider>
+                <Navbar locale={locale} />
+                {children}
+                <Footer locale={locale} />
+                {/* <ScrollUpButton /> */}
+            </HeroProvider>
             <AttributionPopupWrapper />
 
         </div>

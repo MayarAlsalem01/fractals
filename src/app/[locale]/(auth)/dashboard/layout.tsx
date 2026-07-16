@@ -49,6 +49,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
+                                <SidebarMenuItem >
+                                    <SidebarMenuButton asChild>
+                                        <Link href={'/dashboard/briefs-mangment'} className=' bg-accent shadow  shadow-black/40'>
+                                            <Grid2X2Icon />
+                                            <span>Brief Templates</span>
+                                        </Link>
+
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
                             </SidebarMenu>
                         </SidebarGroupContent>
                     </SidebarGroup>
