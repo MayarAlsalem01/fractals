@@ -39,43 +39,13 @@ export default function HeroProvider({ children }: { children: React.ReactNode }
                 opacity: 1,
                 y: 0,
             }, '<')
-        gsap.fromTo('.animated-hero ', {
-            scale: 1
-        }, {
-            scrollTrigger: {
-                trigger: '.animated-hero',
-                scrub: true,
-                start: "top tpo",
-                end: 'bottom center',
-                // markers: true
 
-            },
-            scale: .9,
-            y: 150,
-
-
-        })
-        gsap.fromTo('.aboutus-container ', {
-            scale: .8,
-
-        }, {
-            scrollTrigger: {
-                trigger: '.animated-hero',
-                pin: true,
-                pinSpacing: false,
-                scrub: true,
-
-            },
-            scale: 1,
-
-
-        })
 
         const aboutTl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.aboutus-container',
                 // markers: true,
-                start: "top top",
+                start: "top center",
                 toggleActions: "play pause resume reverse"
 
             }
