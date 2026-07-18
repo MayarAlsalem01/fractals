@@ -10,7 +10,7 @@ export default function page() {
             <div className='hidden absolute md:flex  overflow-hidden top-0 right-0'>
                 <Image src={Vc} alt='' className='w-1/2 relative z-30 left-[-25%]  rotate-[130deg] opacity-80 -top-32 lg:-top-56 xl:-top-72 blur-xl' />
             </div>
-            <h1 className='text-7xl uppercase font-bold mx-auto w-fit opacity-70 mix-blend-overlay'>Blogs</h1>
+            <h1 className='text-7xl uppercase font-bold mx-auto w-fit opacity-10 '>Blogs</h1>
             <BlogTabPane />
         </section>
     )

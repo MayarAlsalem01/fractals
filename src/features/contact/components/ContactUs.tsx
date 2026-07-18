@@ -19,8 +19,8 @@ export default async function ContactUs() {
     const locale = await getLocale()
     return (
         <div className='min-h-screen relative !pb-96 md:!pb-0 '>
-            <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-linear-to-b from-transparent from-55% to-black ' />
-            <div className='w-full h-full absolute   left-0 top-0 -z-30 '>
+            <div className='w-full h-full absolute   left-0 top-0 -z-20 bg-linear-to-b from-transparent from-55% to-black pointer-events-none ' />
+            <div className='w-full h-full absolute   left-0 top-0 -z-30 pointer-events-none '>
 
                 <Image src={ContactDesktopBg} alt='contact' className={`hidden lg:block w-full h-full ${locale === 'ar' ? 'rotate-y-180' : 'rotate-y-0'}`} />
                 <Image src={ContactMobileBg} alt='contact' className={`block lg:hidden w-full h-full   object-[0%_400%s] ${locale === 'ar' ? 'rotate-y-180' : 'rotate-y-0'}`} />
@@ -50,7 +50,7 @@ export default async function ContactUs() {
                     <div className='w-full lg:w-1/2 relative z-30 ' dir={locale === 'ar' ? 'rtl' : 'ltr'} >
                         <ContactUsForm />
                     </div>
-                    <div className='flex flex-col pt-12 gap-3'>
+                    <div className='flex flex-col pt-12 gap-3 relative z-20'>
                         <p className='whitespace-pre-line text-accent-foreground/70'>
                             {t.rich('about', {
                                 br: () => <br />
