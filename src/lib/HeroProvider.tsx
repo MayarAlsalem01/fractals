@@ -47,7 +47,7 @@ export default function HeroProvider({ children }: { children: React.ReactNode }
                 scrub: true,
                 start: "top tpo",
                 end: 'bottom center',
-                markers: true
+                // markers: true
 
             },
             scale: .9,
