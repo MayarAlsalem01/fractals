@@ -57,6 +57,7 @@ export default function BlogTabPane({ limit }: { limit?: number }) {
                                     image={blog.image_url}
                                     id={blog.id}
                                     createdAt={blog.created_at}
+                                    category={blog.category.name}
                                 />
                             </div>
                         ))
@@ -80,7 +81,7 @@ function BlogsGrid({ children }: { children: ReactNode }) {
         </div>
     )
 }
-export function BlogCard({ title, text, image, id, createdAt }: { title: string, text: string, image: string, id: number, createdAt: Date }) {
+export function BlogCard({ title, text, image, id, createdAt, category }: { title: string, text: string, image: string, id: number, createdAt: Date, category: string }) {
     return (
         <Card className=' w-full relative bg-transparent gap-3 overflow-hidden z-30'>
 
@@ -105,17 +106,18 @@ export function BlogCard({ title, text, image, id, createdAt }: { title: string,
                 </p>
             </CardContent>
             <CardFooter className='flex flex-col items-end gap-1'>
-                <SecondryButton className='z-50'>
-                    <Link href={`/blogs/${id}`}>Read More</Link>
-                </SecondryButton>
+                <div className='w-full flex items-center justify-between z-50'>
+                    <p className='text-transparent bg-clip-text text- bg-linear-to-r from-brand-primary to-brand-secondary font-bold uppercase text-xs'>{category}</p>
+                    <SecondryButton >
+                        <Link href={`/blogs/${id}`}>Read More</Link>
+                    </SecondryButton>
+                </div>
 
                 <p className='text-xs opacity-50 self-start'>last updated: {new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(Math.round((createdAt.getTime() - Date.now()) / (1000 * 60 * 60 * 24)), 'day')}</p>
             </CardFooter>
-
-            <div className='w-full h-[calc(100%+100px)] absolute left-0 top-0 -z-10 -translate-x-60 -translate-y-20  rounded-full bg-radial from-brand-primary to-black blur-3xl' />
-            <div className='w-full h-[calc(100%+100px)] absolute left-0 top-0 -z-10 translate-x-60 -translate-y-20  rounded-full bg-radial from-brand-secondary to-black blur-3xl' />
-            <div className='w-full h-[calc(100%+100px)] absolute left-0 top-0 -z-10 -translate-x-60 -translate-y-20  rounded-full bg-radial from-brand-primary to-black blur-3xl' />
-            <div className='w-full h-[calc(100%+100px)] absolute left-0 top-0 -z-10 translate-x-60 -translate-y-20  rounded-full bg-radial from-brand-secondary to-black blur-3xl' />
+            <div className='absolute inset-x-[-25%] top-1/2 -translate-y-1/2 w-2/3 aspect-square rounded-full bg-brand-primary/60  blur-[100px] -z-10' />
+            <div className='absolute inset-x-[80%] -top-12 w-2/3 aspect-square rounded-full bg-brand-secondary/60  blur-[100px] -z-10' />
+            <div className='absolute inset-x-full -translate-x-1/2 bottom-[-40%] w-2/3 aspect-square rounded-full bg-brand-tertiary/60  blur-3xl -z-10' />
         </Card>
     )
 }

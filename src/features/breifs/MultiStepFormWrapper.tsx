@@ -177,7 +177,7 @@ export default function MultiStepFormWrapper({ sections, onSubmit: finalSubmit, 
                 <StepFormRenderer section={currentSection} formMethods={formMethods} />
 
                 {/* Navigation Buttons */}
-                <div className="mt-8 flex justify-between">
+                <div className="mt-8 flex justify-between mb-4">
                     {!isFirstStep && (
                         <SecondryButton
 

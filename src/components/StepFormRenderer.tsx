@@ -3,7 +3,6 @@
 import { Controller, FieldValues, useFormContext, UseFormReturn } from 'react-hook-form'
 
 // Assuming these imports are correct based on the user's file
-import { buildZodSchema } from '@/lib/zodFromAttributes'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -17,15 +16,12 @@ import {
     SelectValue,
 } from './ui/select'
 import { DatePicker } from './DatePicker'
-import { Slider } from './ui/slider'
 import Range from './Range'
 import BlobUploader from '@/features/breifs/components/BlobUploader'
 import ColorPicker from '@/features/blog/components/Color'
 import { useColorList } from '@/hooks/useColorList'
-import { useEffect } from 'react'
-// import { MultiSelect, MultiSelectContent, MultiSelectGroup, MultiSelectItem, MultiSelectTrigger, MultiSelectValue } from './ui/multi-select'
-
-// --- Type Definitions (Copied from store) ---
+import Apple from '../../public/assets/apple-seeklogo 1.png'
+import Image from 'next/image'
 
 type Attr = {
     id: number
@@ -242,20 +238,28 @@ export default function StepFormRenderer({ section, formMethods }: StepFormRende
                                 render={({ field: { value = [], onChange } }) => (
                                     <div className={attr.meta.styleType === 'verticalComboGradient' ? "flex flex-col vertical-combo-list" : "flex gap-3 flex-wrap items-center"}>
                                         {attr.options.map((opt: any) => {
+                                            console.log(opt)
                                             const checked = value === opt.value
                                             return (
-                                                <label key={opt.value} className="inline-flex items-center gap-2 cursor-pointer ">
-                                                    <input
-                                                        type="radio"
-                                                        name={attr.key.toString()}
-                                                        checked={checked}
-                                                        onChange={(e) => {
-                                                            if (e.target.checked) onChange(opt.value)
-                                                            // else onChange(value.filter((v: string) => v !== opt.value))
-                                                        }}
-                                                        className="w-4 h-4 accent-black/90 bg-red-400"
-                                                    />
-                                                    <span className="text-sm">{opt.label}</span>
+                                                <label key={opt.value} className="vertical-comboGradient-item inline-flex items-center justify-between gap-2 cursor-pointer ">
+                                                    <div className='flex items-center gap-3'>
+                                                        <input
+                                                            type="radio"
+                                                            name={attr.key.toString()}
+                                                            checked={checked}
+                                                            onChange={(e) => {
+                                                                if (e.target.checked) onChange(opt.value)
+                                                            }}
+                                                            className="w-4 h-4 accent-black/90 bg-red-400"
+                                                        />
+                                                        <span className="text-sm">{opt.label}</span>
+                                                    </div>
+                                                    {opt.images && <div className='flex gap-4 relative '>
+                                                        {opt.images?.map((img: string, idx: number) => {
+                                                            return <Image src={img} alt='asd' key={idx} width={32} height={32} className='  relative w-8 h-8' />
+                                                        })}
+
+                                                    </div>}
                                                 </label>
                                             )
                                         })}

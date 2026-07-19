@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import updateTemplateAttributeAction from "../actions/updateTemplateAttributeAction";
 import { Attr } from "../types";
+import AdvancedMetaSettings, { MetaConfig } from "./AdvancedMetaSettings";
 
 interface EditFieldDialogProps {
     attribute: Attr;
@@ -40,9 +41,23 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
     const [rawOptions, setRawOptions] = useState("");
     const [loading, setLoading] = useState(false);
 
+    // Advanced Metadata states
+    const [metaConfig, setMetaConfig] = useState<MetaConfig>({
+        placeholder: "",
+        hint: "",
+        defaultValue: "",
+        minLength: "",
+        maxLength: "",
+        min: "",
+        max: "1",
+        regex: "",
+        regexMessage: "",
+        styleType: "default",
+    });
+
     const showOptionsInput = ["select", "selectComboBox", "multiselect"].includes(type);
 
-    // Parse options from attribute on open
+    // Populate fields when dialog opens or attribute updates
     useEffect(() => {
         if (open) {
             setLabel(attribute.label);
@@ -51,6 +66,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
             setWidth(attribute.width || "medium");
             setPosition(attribute.position ?? 0);
 
+            // Parse options
             if (attribute.options) {
                 try {
                     const parsed = typeof attribute.options === 'string' ? JSON.parse(attribute.options) : attribute.options;
@@ -65,6 +81,21 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
             } else {
                 setRawOptions("");
             }
+
+            // Parse metadata
+            const meta = attribute.meta || {};
+            setMetaConfig({
+                placeholder: meta.placeholder || "",
+                hint: meta.hint || "",
+                defaultValue: meta.defaultValue || "",
+                minLength: meta.minLength !== undefined ? String(meta.minLength) : "",
+                maxLength: meta.maxLength !== undefined ? String(meta.maxLength) : "",
+                min: meta.min !== undefined ? String(meta.min) : "",
+                max: meta.max !== undefined ? String(meta.max) : (attribute.type === "file" ? "1" : ""),
+                regex: meta.regex || "",
+                regexMessage: meta.regexMessage || "",
+                styleType: meta.styleType || "default",
+            });
         }
     }, [open, attribute]);
 
@@ -91,6 +122,30 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                     .filter((opt) => opt.label.length > 0);
             }
 
+            // Construct meta payload
+            const metaPayload: Record<string, any> = {};
+            if (metaConfig.placeholder.trim()) metaPayload.placeholder = metaConfig.placeholder.trim();
+            if (metaConfig.hint.trim()) metaPayload.hint = metaConfig.hint.trim();
+            if (metaConfig.defaultValue.trim()) metaPayload.defaultValue = metaConfig.defaultValue.trim();
+
+            if (["text", "textarea", "email"].includes(type)) {
+                if (metaConfig.minLength.trim()) metaPayload.minLength = Number(metaConfig.minLength);
+                if (metaConfig.maxLength.trim()) metaPayload.maxLength = Number(metaConfig.maxLength);
+                if (metaConfig.regex.trim()) {
+                    metaPayload.regex = metaConfig.regex.trim();
+                    if (metaConfig.regexMessage.trim()) metaPayload.regexMessage = metaConfig.regexMessage.trim();
+                }
+            } else if (type === "number") {
+                if (metaConfig.min.trim()) metaPayload.min = Number(metaConfig.min);
+                if (metaConfig.max.trim()) metaPayload.max = Number(metaConfig.max);
+            } else if (type === "file") {
+                if (metaConfig.max.trim()) metaPayload.max = Number(metaConfig.max);
+            } else if (type === "selectComboBox") {
+                if (metaConfig.styleType && metaConfig.styleType !== "default") {
+                    metaPayload.styleType = metaConfig.styleType;
+                }
+            }
+
             const res = await updateTemplateAttributeAction({
                 id: attribute.id,
                 label: label.trim(),
@@ -99,6 +154,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                 width,
                 position: Number(position),
                 options: optionsPayload,
+                meta: metaPayload,
                 templateId,
             });
 
@@ -121,7 +177,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[450px] border border-border bg-card text-foreground">
+            <DialogContent className="sm:max-w-[450px] max-h-[85vh] overflow-y-auto border border-border bg-card text-foreground">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <DialogHeader>
                         <DialogTitle className="text-xl font-bold text-foreground">Edit Field Details</DialogTitle>
@@ -150,7 +206,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                             <label className="text-sm font-medium text-muted-foreground">
                                 Field Type
                             </label>
-                            <Select value={type} onValueChange={setType} disabled={loading}>
+                            <Select value={type} onValueChange={(val) => { setType(val); setMetaConfig({...metaConfig, max: val === "file" ? "1" : ""}); }} disabled={loading}>
                                 <SelectTrigger className="border border-border bg-background text-foreground focus:ring-ring">
                                     <SelectValue placeholder="Select type" />
                                 </SelectTrigger>
@@ -184,7 +240,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                             </span>
                         </div>
 
-                        {/* Width */}
+                        {/* Display Width */}
                         <div className="flex flex-col gap-1.5">
                             <label className="text-sm font-medium text-muted-foreground">
                                 Display Width
@@ -221,7 +277,7 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                         )}
 
                         {/* Required Checkbox */}
-                        <div className="flex items-center gap-2 pt-1.5">
+                        <div className="flex items-center gap-2 pt-1.5 pb-2">
                             <Checkbox
                                 id="edit-field-required"
                                 checked={required}
@@ -233,6 +289,13 @@ export default function EditFieldDialog({ attribute, templateId, children }: Edi
                                 This field is required
                             </label>
                         </div>
+
+                        {/* Advanced Settings */}
+                        <AdvancedMetaSettings 
+                            type={type} 
+                            metaConfig={metaConfig} 
+                            onChange={setMetaConfig} 
+                        />
                     </div>
 
                     <DialogFooter className="pt-2">

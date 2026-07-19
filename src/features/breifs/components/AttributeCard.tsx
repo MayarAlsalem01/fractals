@@ -1,6 +1,6 @@
 import React from 'react'
 import { Badge } from '@/components/ui/badge'
-import { Edit3 } from 'lucide-react'
+import { Edit3, Info, Lock, Settings } from 'lucide-react'
 import { Attr } from '../types'
 
 interface AttributeCardProps {
@@ -8,12 +8,14 @@ interface AttributeCardProps {
 }
 
 export default function AttributeCard({ attr }: AttributeCardProps) {
+    const meta = attr.meta || {};
+
     return (
         <div className="p-4 rounded-lg border border-zinc-800 bg-zinc-900/20 hover:bg-gradient-to-br hover:from-brand-primary/5 hover:to-brand-secondary/5 hover:border-brand-primary/40 flex flex-col justify-between gap-3 group transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer shadow-sm relative overflow-hidden h-full">
             {/* Brand colored accent strip on hover */}
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-primary to-brand-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
-            <div className="space-y-1">
+            <div className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-zinc-200 text-sm group-hover:text-zinc-100 transition-colors">
                         {attr.label}
@@ -33,12 +35,79 @@ export default function AttributeCard({ attr }: AttributeCardProps) {
                         )}
                     </div>
                 </div>
+                
                 <div className="text-[11px] text-zinc-500 font-mono flex items-center justify-between">
                     <span>Key: {attr.key} | Width: {attr.width || 'medium'}</span>
                     <span className="text-[10px] text-brand-secondary font-semibold bg-brand-secondary/5 border border-brand-secondary/10 px-1.5 py-0.2 rounded shrink-0">
                         Pos: {attr.position}
                     </span>
                 </div>
+
+                {/* Meta Configuration Summaries (Advanced Info) */}
+                {Object.keys(meta).length > 0 && (
+                    <div className="pt-2 border-t border-zinc-850 space-y-1.5 text-[10px]">
+                        <span className="text-zinc-500 font-semibold flex items-center gap-1">
+                            <Settings className="h-3 w-3 text-brand-secondary" />
+                            <span>Configuration:</span>
+                        </span>
+                        <div className="flex flex-wrap gap-1.5 text-zinc-400">
+                            {meta.placeholder && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded" title={`Placeholder: ${meta.placeholder}`}>
+                                    Placeholder: <span className="text-zinc-300 font-medium">"{meta.placeholder}"</span>
+                                </span>
+                            )}
+                            {meta.hint && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded" title={`Helper: ${meta.hint}`}>
+                                    Hint: <span className="text-zinc-300 font-medium">"{meta.hint}"</span>
+                                </span>
+                            )}
+                            {meta.defaultValue && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded" title={`Default: ${meta.defaultValue}`}>
+                                    Default: <span className="text-zinc-300 font-medium">"{meta.defaultValue}"</span>
+                                </span>
+                            )}
+                            
+                            {/* Text lengths */}
+                            {(meta.minLength !== undefined || meta.maxLength !== undefined) && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded">
+                                    Length: <span className="text-zinc-300 font-medium">
+                                        {meta.minLength !== undefined ? meta.minLength : 0} to {meta.maxLength !== undefined ? meta.maxLength : "∞"}
+                                    </span>
+                                </span>
+                            )}
+
+                            {/* Numbers min/max */}
+                            {(meta.min !== undefined || meta.max !== undefined) && attr.type === "number" && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded">
+                                    Range: <span className="text-zinc-300 font-medium">
+                                        [{meta.min !== undefined ? meta.min : "-∞"}, {meta.max !== undefined ? meta.max : "∞"}]
+                                    </span>
+                                </span>
+                            )}
+
+                            {/* File Upload Count */}
+                            {meta.max !== undefined && attr.type === "file" && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded text-brand-secondary border-brand-secondary/15">
+                                    Max Files: <span className="font-bold">{meta.max}</span>
+                                </span>
+                            )}
+
+                            {/* Regex Validation */}
+                            {meta.regex && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded text-red-450/90 border-red-500/10 font-mono" title={`Regex: ${meta.regex}`}>
+                                    Regex: <span className="text-red-400 font-medium">{meta.regex.substring(0, 15)}{meta.regex.length > 15 ? "..." : ""}</span>
+                                </span>
+                            )}
+
+                            {/* selectComboBox Style */}
+                            {meta.styleType && (
+                                <span className="bg-zinc-950 border border-zinc-800/80 px-1.5 py-0.5 rounded text-brand-primary border-brand-primary/10">
+                                    Style: <span className="font-bold">{meta.styleType}</span>
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Options list */}

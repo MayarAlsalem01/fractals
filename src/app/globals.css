@@ -202,7 +202,7 @@ body {
 
 
 
-.vertical-combo-list label:nth-child(odd):not(:last-child) {
+.vertical-combo-list .vertical-comboGradient-item:nth-child(odd):not(:last-child) {
   padding: 2rem 20px;
   border: 1px solid transparent;
 
@@ -214,7 +214,7 @@ body {
 }
 
 /* All EVEN positions (2nd, 4th, 6th, 8th...) - LEFT gradient */
-.vertical-combo-list label:nth-child(even):not(:last-child) {
+.vertical-combo-list .vertical-comboGradient-item:nth-child(even):not(:last-child) {
   border: 1px solid transparent;
   padding: 2rem 20px;
 
@@ -226,7 +226,7 @@ body {
 }
 
 /* LAST item - END gradient (overrides odd/even) */
-.vertical-combo-list label:last-child {
+.vertical-combo-list .vertical-comboGradient-item:last-child {
   border: 1px solid transparent;
   padding: 2rem 20px;
 

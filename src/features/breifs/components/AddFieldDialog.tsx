@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
 import createTemplateAttributeAction from "../actions/createTemplateAttributeAction";
+import AdvancedMetaSettings, { MetaConfig } from "./AdvancedMetaSettings";
 
 interface AddFieldDialogProps {
     sectionId: number;
@@ -38,7 +39,41 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
     const [rawOptions, setRawOptions] = useState(""); // Comma-separated list for select/multiselect
     const [loading, setLoading] = useState(false);
 
+    // Advanced Metadata states
+    const [metaConfig, setMetaConfig] = useState<MetaConfig>({
+        placeholder: "",
+        hint: "",
+        defaultValue: "",
+        minLength: "",
+        maxLength: "",
+        min: "",
+        max: "1",
+        regex: "",
+        regexMessage: "",
+        styleType: "default",
+    });
+
     const showOptionsInput = ["select", "selectComboBox", "multiselect"].includes(type);
+
+    const resetForm = () => {
+        setLabel("");
+        setType("text");
+        setRequired(false);
+        setWidth("medium");
+        setRawOptions("");
+        setMetaConfig({
+            placeholder: "",
+            hint: "",
+            defaultValue: "",
+            minLength: "",
+            maxLength: "",
+            min: "",
+            max: "1",
+            regex: "",
+            regexMessage: "",
+            styleType: "default",
+        });
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -64,6 +99,30 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
                     .filter((opt) => opt.label.length > 0);
             }
 
+            // Construct meta payload
+            const metaPayload: Record<string, any> = {};
+            if (metaConfig.placeholder.trim()) metaPayload.placeholder = metaConfig.placeholder.trim();
+            if (metaConfig.hint.trim()) metaPayload.hint = metaConfig.hint.trim();
+            if (metaConfig.defaultValue.trim()) metaPayload.defaultValue = metaConfig.defaultValue.trim();
+
+            if (["text", "textarea", "email"].includes(type)) {
+                if (metaConfig.minLength.trim()) metaPayload.minLength = Number(metaConfig.minLength);
+                if (metaConfig.maxLength.trim()) metaPayload.maxLength = Number(metaConfig.maxLength);
+                if (metaConfig.regex.trim()) {
+                    metaPayload.regex = metaConfig.regex.trim();
+                    if (metaConfig.regexMessage.trim()) metaPayload.regexMessage = metaConfig.regexMessage.trim();
+                }
+            } else if (type === "number") {
+                if (metaConfig.min.trim()) metaPayload.min = Number(metaConfig.min);
+                if (metaConfig.max.trim()) metaPayload.max = Number(metaConfig.max);
+            } else if (type === "file") {
+                if (metaConfig.max.trim()) metaPayload.max = Number(metaConfig.max);
+            } else if (type === "selectComboBox") {
+                if (metaConfig.styleType && metaConfig.styleType !== "default") {
+                    metaPayload.styleType = metaConfig.styleType;
+                }
+            }
+
             const res = await createTemplateAttributeAction({
                 sectionId,
                 label: label.trim(),
@@ -71,16 +130,13 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
                 required,
                 width,
                 options: optionsPayload,
+                meta: metaPayload,
                 templateId,
             });
 
             if (res.ok) {
                 toast.success("Field created successfully!");
-                setLabel("");
-                setType("text");
-                setRequired(false);
-                setWidth("medium");
-                setRawOptions("");
+                resetForm();
                 setOpen(false);
             } else {
                 toast.error(res.error?.message || "Failed to create field");
@@ -94,18 +150,18 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
     };
 
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={open} onOpenChange={(val) => { setOpen(val); if(!val) resetForm(); }}>
             <DialogTrigger asChild>
                 <Button 
                     variant="outline" 
                     size="sm" 
-                    className="flex items-center gap-1.5 border border-zinc-800 bg-zinc-950/40 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-all active:scale-95"
+                    className="flex items-center gap-1.5 border border-zinc-800 bg-zinc-950/40 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-all active:scale-95 cursor-pointer"
                 >
                     <Plus className="h-4 w-4" />
                     <span>Add Field</span>
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[450px] border border-zinc-800 bg-zinc-950 text-zinc-100">
+            <DialogContent className="sm:max-w-[450px] max-h-[85vh] overflow-y-auto border border-zinc-800 bg-zinc-950 text-zinc-100">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <DialogHeader>
                         <DialogTitle className="text-xl font-bold text-zinc-100">Add New Field</DialogTitle>
@@ -135,7 +191,7 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
                             <label className="text-sm font-medium text-zinc-300">
                                 Field Type
                             </label>
-                            <Select value={type} onValueChange={setType} disabled={loading}>
+                            <Select value={type} onValueChange={(val) => { setType(val); resetForm(); setLabel(label); }} disabled={loading}>
                                 <SelectTrigger className="border border-zinc-800 bg-zinc-900 text-zinc-100 focus:ring-zinc-700">
                                     <SelectValue placeholder="Select type" />
                                 </SelectTrigger>
@@ -186,7 +242,7 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
                         )}
 
                         {/* Required Checkbox */}
-                        <div className="flex items-center gap-2 pt-1.5">
+                        <div className="flex items-center gap-2 pt-1.5 pb-2">
                             <Checkbox
                                 id="field-required"
                                 checked={required}
@@ -198,13 +254,20 @@ export default function AddFieldDialog({ sectionId, templateId }: AddFieldDialog
                                 This field is required
                             </label>
                         </div>
+
+                        {/* Advanced Settings */}
+                        <AdvancedMetaSettings 
+                            type={type} 
+                            metaConfig={metaConfig} 
+                            onChange={setMetaConfig} 
+                        />
                     </div>
 
                     <DialogFooter className="pt-2">
                         <Button 
                             type="button" 
                             variant="ghost" 
-                            onClick={() => setOpen(false)} 
+                            onClick={() => { setOpen(false); resetForm(); }} 
                             disabled={loading}
                             className="border border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
                         >

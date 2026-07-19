@@ -16,6 +16,7 @@ const updateAttributeSchema = z.object({
     width: z.string().default("medium"),
     position: z.number().int().nonnegative("Position must be a non-negative integer"),
     options: z.any().optional(),
+    meta: z.any().optional(),
 });
 
 export default async function updateTemplateAttributeAction({
@@ -26,6 +27,7 @@ export default async function updateTemplateAttributeAction({
     width,
     position,
     options,
+    meta,
     templateId,
 }: {
     id: number;
@@ -35,6 +37,7 @@ export default async function updateTemplateAttributeAction({
     width: string;
     position: number;
     options?: any;
+    meta?: any;
     templateId: number;
 }): Promise<Result<string | undefined, string>> {
     // 1. Ensure user is authenticated
@@ -48,7 +51,7 @@ export default async function updateTemplateAttributeAction({
     }
 
     // 2. Validate inputs
-    const validation = updateAttributeSchema.safeParse({ id, label, type, required, width, position, options });
+    const validation = updateAttributeSchema.safeParse({ id, label, type, required, width, position, options, meta });
     if (!validation.success) {
         return {
             isError: true,
@@ -75,6 +78,7 @@ export default async function updateTemplateAttributeAction({
                 width,
                 position,
                 options: options ? JSON.stringify(options) : null,
+                meta: meta || {},
             })
             .where(eq(template_attributes.id, id));
 

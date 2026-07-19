@@ -15,6 +15,7 @@ const createAttributeSchema = z.object({
     required: z.boolean(),
     width: z.string().default("medium"),
     options: z.any().optional(),
+    meta: z.any().optional(),
 });
 
 export default async function createTemplateAttributeAction({
@@ -24,6 +25,7 @@ export default async function createTemplateAttributeAction({
     required,
     width,
     options,
+    meta,
     templateId, // pass templateId to easily revalidate template details page
 }: {
     sectionId: number;
@@ -32,6 +34,7 @@ export default async function createTemplateAttributeAction({
     required: boolean;
     width: string;
     options?: any;
+    meta?: any;
     templateId: number;
 }): Promise<Result<string | undefined, string>> {
     // 1. Ensure user is authenticated
@@ -45,7 +48,7 @@ export default async function createTemplateAttributeAction({
     }
 
     // 2. Validate inputs
-    const validation = createAttributeSchema.safeParse({ sectionId, label, type, required, width, options });
+    const validation = createAttributeSchema.safeParse({ sectionId, label, type, required, width, options, meta });
     if (!validation.success) {
         return {
             isError: true,
@@ -81,7 +84,7 @@ export default async function createTemplateAttributeAction({
             width,
             options: options ? JSON.stringify(options) : null,
             position: nextPos,
-            meta: {},
+            meta: meta || {},
         });
 
         // 6. Revalidate UI
